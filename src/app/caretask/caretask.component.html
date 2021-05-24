@@ -1,0 +1,323 @@
+<mat-sidenav-container (backdropClick)="close('backdrop')">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose position="end">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <img class="img-fluid" src="./assets/images/caretask/sidenav.png" alt="Sidenav">
+                </div>
+                <div class="col-md-5 my-auto">
+                    <p class="size21 text-gray font-weight-700 letter-spacing-1-28 line-height-24 text-uppercase">Estás a punto de conocer la mejor herramienta para tu trabajo</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form (ngSubmit)="enviarForm(formularioSidenav)" #formularioSidenav="ngForm" id="formulario-Sidenav" class="sidenav-contact p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="empresa">Empresa</label>
+                                    <input type="text" class="form-control" id="empresa" name="empresa" #empresa="ngModel" [(ngModel)]="userside.empresa" placeholder="Neuromedia Agencia Digital SAS" required>
+                                    <small style="color:#c30000;" *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)">
+                                        Empresa es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="nombres">Nombre completo</label>
+                                    <input type="text" class="form-control" id="nombres" name="nombres" #nombres="ngModel" [(ngModel)]="userside.nombres" placeholder="Nombre completo" required>
+                                    <small style="color:#c30000;" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
+                                        Nombres es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="telefono">Número de Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="userside.telefono" pattern="^\d+$" placeholder="3120000000" required>
+                                    <small style="color:#c30000;" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                                        Ingrese un teléfono válido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="email">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="userside.email" email="true" placeholder="neuromedia@gmail.com" required>
+                                    <small style="color:#c30000;" *ngIf="email.invalid && (email.dirty || email.touched)">
+                                        Ingrese un correo electrónico válido.
+                                    </small>
+                                </div>
+                                <div class="form-row form-group pt-2 pb-2 mb-0">
+                                    <label class="size16 text-gray" for="producto">Producto</label>
+                                    <select class="form-control tipo-producto" id="selectProducto" name="producto" #producto="ngModel" [(ngModel)]="userside.producto" required>
+                                    <option value="" disabled>Elija una opción</option>
+                                    <option>Smart Sales</option>
+                                    <option>On Time</option>
+                                    <option>Mobile Forms</option>
+                                    <option>Care Task</option>
+                                    <option>In track</option>
+                                    <option>On Check</option>
+                                    </select>
+                                    <small style="color:#c30000;" *ngIf="producto.invalid && (producto.dirty || producto.touched)">
+                                        El Producto es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-check text-center">
+                                    <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="userside.acepto" class="form-check-input" id="acepto" required>
+                                    <label class="size16 text-gray" for="acepto">Conozco y acepto la política de datos</label>
+                                    <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
+                                        Debe aceptar las condiciones.
+                                    </small>
+                                </div>
+                                <input type="submit" class="float-left btn btn-primary btn-blue mt-4 w-40 mx-auto d-block" name="enviar" value="Solicitar demo" [disabled]="formularioSidenav.invalid">
+                            </div>
+                        </div>
+                    </form>
+                    <p><button mat-button class="cancelar w-40" (click)="close('toggle button')">Cancelar</button></p>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="sticky-caretask">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/caretask"><img src="./assets/images/caretask/logo.png" alt="Logo principal" class="img-logo"></a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto d-lg-none d-xl-none">
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main" href="#">Funcionalidades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main" href="/precios-caretask">Precios</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav main-menu-list mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main size16" href="#">Funcionalidades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main size16" href="/precios-caretask">Precios</a>
+                            </li>
+                        </ul>
+                        <button mat-raised-button class="bg-blue-caretask w-15 size18 border-radius-2 text-black-dark font-weight-400" (click)="sidenav.open()">Demo</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="caretask-page">
+            <div class="seccion1-caretask pt-5 pb-5">
+                <div class="container">
+                    <div class="row mb-5 pt-4">
+                        <div class="col-md-6 my-auto">
+                            <h2 class="size46 letter-spacing-069 line-height-50 font-weight-700 text-white ubuntu mb-2">Realiza un seguimiento ágil de las tareas asignadas
+                            </h2> 
+                            <p class="size24 font-weight-400 text-white letter-spacing-035 line-height-29">al personal de camilleria, automatizando el proceso con tecnología nfc.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="img-fluid" src="../assets/images/caretask/seccion1.png" alt="Procesos">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion2-caretask pb-5">
+                <div class="container">
+                    <div class="row pt-3">
+                        <div class="col-md-12 mb-5">
+                            <p class="font-weight-700 size29 text-dark-blue-caretask letter-spacing-025 text-center line-height-35">¡Optimiza procesos y recursos de tu centro de salud con una solución móvil!</p>
+                            <p class="text-gray letter-spacing-035 size24 line-height-29">Con Mobile Forms cuentas con una aplicación que se ajusta a tus necesidades de negocio</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid d-block mb-3 mx-auto" src="../assets/images/caretask/listPNG.png" alt="Gestiona">
+                            <p class="text-center size14 font-weight-300 line-height-19 text-gray">Una solución que le ofrece a los <br>supervisores la <span class="font-weight-700">asignación de tareas al personal de camillerías.</span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid d-block mb-3 mx-auto" src="../assets/images/caretask/nfc.svg" alt="Gestiona">
+                            <p class="text-center size14 font-weight-300 line-height-19 text-gray">A través de la tecnología NFC se <span class="font-weight-700">podrá registrar el check-in en cada punto de control</span> del recorrido programado.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid d-block mb-3 mx-auto" src="../assets/images/caretask/trazaPNG.png" alt="Gestiona">
+                            <p class="text-center size14 font-weight-300 line-height-19 text-gray"><span class="font-weight-700">Trazabilidad de actividades in-door</span> realizadas por el personal de movilización de pacientes, documentos y/o medicamentos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion3-caretask pt-5" style="background-color: #f2f7fd;">
+                <div class="container">
+                    <div class="row pb-5">
+                        <div class="col-md-5">
+                            <img class="img-fluid" src="../assets/images/caretask/seccion2.png" alt="Aplicación móvil">
+                        </div>
+                        <div class="col-md-7 my-auto">
+                            <p class="size25 letter-spacing-069 text-gray line-height-33 font-weight-700">Ahora contarás con una aplicación móvil y web que trabaja en la nube, logrando gestionar tus procesos en tiempo real.  
+                            </p>
+                            <img class="card-zoom img-fluid" src="../assets/images/ontime/androidPNG.png" alt="Android">
+                        </div>
+                    </div>
+                    <div class="row pb-5">
+                        <div class="col-md-12">
+                            <h2 class="font-weight-700 text-green size38 letter-spacing-1-03 line-height-47 text-center ubuntu text-dark-blue-caretask">Empieza hoy una gestión optima de camilleros
+                            </h2>
+                            <button mat-raised-button class="text-decoration-none bg-blue-dark size18 text-white border-radius-3 font-weight-500 d-block mx-auto">¡Hablemos!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion4-caretask pt-50" style="background-color: #F2F7FD;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 pt-5 pb-5" style="background-image: url('./assets/images/caretask/background-gestion.png');background-size: cover;background-position: center;">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="p-2 gestion">
+                                        <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza1.png" alt="Gestión">
+                                        <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Historial de actividades realizadas</p>
+                                    </div>
+                                </div>
+                                <div class="col mt-45">
+                                    <div class="p-2 gestion">
+                                        <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza2.png" alt="Gestión">
+                                        <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Visor de datos detallados de las asignaciones</p>
+                                    </div>
+                                </div>
+                                <div class="col mt-100">
+                                    <div class="p-2 gestion">
+                                        <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza3.png" alt="Gestión">
+                                        <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Validación del inicio y finalización de tareas usando NFC</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-80n">
+                                <div class="col">
+                                    <div class="p-2 gestion">
+                                        <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza1.png" alt="Gestión">
+                                        <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Historial de actividades realizadas</p>
+                                    </div>
+                                </div>
+                                <div class="col mt-45">
+                                    <div class="p-2 gestion">
+                                        <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza2.png" alt="Gestión">
+                                        <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Visor de datos detallados de las asignaciones</p>
+                                    </div>
+                                </div>
+                                <div class="col mt-100">
+                                    <div class="p-2 gestion">
+                                        <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza3.png" alt="Gestión">
+                                        <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Historial de actividades realizadas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 my-auto">
+                            <p class="font-weight-300 size38 letter-spacing-1-03 line-height-46 text-dark-blue-caretask">Empieza hoy una<br> <span class="font-weight-700">gestión optima de camilleros</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-5 pt-150">
+                    <div class="row">
+                        <img class="img-fluid img-sec3-caretask" src="./assets/images/caretask/seccion3.png" alt="Tareas">
+                        <div class="col-md-6">
+                            <p class="size25 text-dark-blue-caretask font-weight-700 letter-spacing-069 line-height-33">Lleva de manera sistemática y controlada la demanda  tareas a tu equipo de camillerias a través de una herramienta digital.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="w-100 border-radius-3 bg-blue-dark size18 text-white border-dark-blue text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">¡Conoce más aquí!
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="w-100 text-sea-blue border-radius-3 size18 text-sea-blue bg-transparent border-sea-blue text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">Solicita un demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-100 pt-150">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2 mr-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios1.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Implementación rápida</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2 mr-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios2.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Soporte 24/7</p>
+                                </div>
+                                <div class="beneficio-mobileforms d-flex p-2 mr-2 align-items-center">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios3.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Infraestructura 24/7</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2 mr-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios4.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Validación por NFC o QR</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2 mr-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios5.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Actualizaciones y mantenimiento gratis</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 my-auto">
+                            <p class="size30 font-weight-300 text-gray letter-spacing-097 line-height-46"><span class="font-weight-700 size35">Una aplicación que<br> garantiza un seguimiento<br></span>
+                                eficiente y ofrece optimos beneficios</p>
+                            <button mat-raised-button class="text-decoration-none bg-blue-dark border-dark-blue size18 text-white border-radius-3 font-weight-500 ubuntu">¡Empecemos a trabajar!</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mb-5 mt-5">
+                    <div class="row">
+                        <div class="col-md-6 my-auto">
+                            <p class="font-weight-300 size24 letter-spacing-069 line-height-30 text-gray"><span class="font-weight-700 text-dark-blue-caretask">¿Necesitas integrar otras herramientas a tu aplicación? ¡No te peorcupes, lo hacemos!</span><br>
+                                Queremos que cuentes con una aplicación a la medida de tus necesidades para que logres optimizar tus procesos.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/seccion4.png" alt="Integración">
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion5-caretask">
+                    <img class="img-fluid" src="./assets/images/caretask/seccion5.png" alt="Clínica background">
+                    <img class="img-fluid clinica" src="./assets/images/caretask/clinica.png" alt="Clínica">
+                </div>
+            </div>
+            <div class="seccion6-caretask pt-5 pb-5" style="background-color: #F2F7FD;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="img-fluid" src="./assets/images/caretask/seccion6.png" alt="NFC">
+                        </div>
+                        <div class="col-md-6 my-auto">
+                            <p class="size25 font-weight-700 letter-spacing-009 line-height-35 text-dark-blue-caretask">Una eficiente solución para llevar a cabo la gestión y supervición de camillerias.</p>  
+                            <p class="size25 letter-spacing-009 line-height-35 text-gray">Suscripción mensual desde <strong>$15 USD</strong></p>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-5 pb-5" style="background-color: #FAFAFA;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 my-auto">
+                            <img class="img-fluid mx-auto d-block mb-2" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="text-gray size16 letter-spacing-009 line-height-24"><span class="font-weight-700">Sabemos que cuentas con más áreas de trabajo y nosotros con más aplicaciones para que optimices su gestión.</span> Anímate a ampliar tu paquete y conocer todas las soluciones digitales que tenemos para tu negocio con nuestra suite. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-animate-contacto></app-animate-contacto>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

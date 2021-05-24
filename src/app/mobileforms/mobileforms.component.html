@@ -1,0 +1,360 @@
+<mat-sidenav-container (backdropClick)="close('backdrop')">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose position="end">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <img class="img-fluid" src="./assets/images/mobileforms/sidenav.png" alt="Sidenav">
+                </div>
+                <div class="col-md-5 my-auto">
+                    <p class="size21 text-gray font-weight-700 letter-spacing-1-28 line-height-24 text-uppercase">Estás a punto de conocer la mejor herramienta para tu trabajo</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form (ngSubmit)="enviarForm(formularioSidenav)" #formularioSidenav="ngForm" id="formulario-Sidenav" class="sidenav-contact p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="empresa">Empresa</label>
+                                    <input type="text" class="form-control" id="empresa" name="empresa" #empresa="ngModel" [(ngModel)]="userside.empresa" placeholder="Neuromedia Agencia Digital SAS" required>
+                                    <small style="color:#c30000;" *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)">
+                                        Empresa es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="nombres">Nombre completo</label>
+                                    <input type="text" class="form-control" id="nombres" name="nombres" #nombres="ngModel" [(ngModel)]="userside.nombres" placeholder="Nombre completo" required>
+                                    <small style="color:#c30000;" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
+                                        Nombres es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="telefono">Número de Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="userside.telefono" pattern="^\d+$" placeholder="3120000000" required>
+                                    <small style="color:#c30000;" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                                        Ingrese un teléfono válido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="email">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="userside.email" email="true" placeholder="neuromedia@gmail.com" required>
+                                    <small style="color:#c30000;" *ngIf="email.invalid && (email.dirty || email.touched)">
+                                        Ingrese un correo electrónico válido.
+                                    </small>
+                                </div>
+                                <div class="form-row form-group pt-2 pb-2 mb-0">
+                                    <label class="size16 text-gray" for="producto">Producto</label>
+                                    <select class="form-control tipo-producto" id="selectProducto" name="producto" #producto="ngModel" [(ngModel)]="userside.producto" required>
+                                    <option value="" disabled>Elija una opción</option>
+                                    <option>Smart Sales</option>
+                                    <option>On Time</option>
+                                    <option>Mobile Forms</option>
+                                    <option>Care Task</option>
+                                    <option>In track</option>
+                                    <option>On Check</option>
+                                    </select>
+                                    <small style="color:#c30000;" *ngIf="producto.invalid && (producto.dirty || producto.touched)">
+                                        El Producto es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-check text-center">
+                                    <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="userside.acepto" class="form-check-input" id="acepto" required>
+                                    <label class="size16 text-gray" for="acepto">Conozco y acepto la política de datos</label>
+                                    <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
+                                        Debe aceptar las condiciones.
+                                    </small>
+                                </div>
+                                <input type="submit" class="float-left btn btn-primary btn-blue mt-4 w-40 mx-auto d-block" name="enviar" value="Solicitar demo" [disabled]="formularioSidenav.invalid">
+                            </div>
+                        </div>
+                    </form>
+                    <p><button mat-button class="cancelar w-40" (click)="close('toggle button')">Cancelar</button></p>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="sticky-smartsale">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/mobileforms"><img src="./assets/images/mobileforms/logo.png" alt="Logo principal" class="img-logo"></a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto d-lg-none d-xl-none">
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main" href="#">Funcionalidades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main" href="/precios-mobileforms">Precios</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav main-menu-list mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main size16" href="#">Funcionalidades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-main size16" href="/precios-mobileforms">Precios</a>
+                            </li>
+                        </ul>
+                        <button mat-raised-button class="demo-mobileforms w-15 size18 border-radius-2 text-white font-weight-400" (click)="sidenav.open()">Demo</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="mobileforms-page">
+            <div class="seccion1-mobileforms pt-5">
+                <div class="container">
+                    <div class="row mb-5 pt-4">
+                        <div class="col-md-6 my-auto">
+                            <h2 class="size46 letter-spacing-069 line-height-50 font-weight-700 text-green ubuntu mb-2">Simplifica los procesos de recolección de datos
+                            </h2> 
+                            <p class="size24 font-weight-400 text-gray letter-spacing-035 line-height-29">de forma dinámina, eficiente y confiable en minutos.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="img-fluid" src="../assets/images/mobileforms/seccion1.png" alt="Procesos">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="container">
+                    <div class="row pt-3">
+                        <div class="col-md-12 mb-3">
+                            <p class="font-weight-700 size29 text-green letter-spacing-025 text-center line-height-35">¡Digitaliza todos tus procesos y gestiona datos de forma ágil y sencilla!</p>
+                            <p class="text-gray letter-spacing-035 size24 line-height-29">Con Mobile Forms cuentas con una aplicación que se ajusta a tus necesidades de negocio</p>
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="../assets/images/mobileforms/seccion2.png" alt="Gestiona">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="digitaliza-mobileforms p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza1.png" alt="Implementación">
+                                <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Una solución para las áreas de mercadeo y comercio
+                                    que requieran encuestadores y/o mercaderistas en puntos de venta.</p>
+                            </div>
+                            <div class="digitaliza-mobileforms p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza3.png" alt="Implementación">
+                                <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Registras informarción en tiempo real de consumidores o una marca específica. 
+                                </p>
+                            </div>
+                            <div class="digitaliza-mobileforms p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza5.png" alt="Implementación">
+                                <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Registra las novedades que ocurran durante la jornada laboral, de modo off-line. 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="digitaliza-mobileforms p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza2.png" alt="Implementación">
+                                <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Te permite armar un plan de trabajo asignando tareas, entrega de base de datos de clientes y contactos a gestionar.</p>
+                            </div>
+                            <div class="digitaliza-mobileforms p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza4.png" alt="Implementación">
+                                <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Realiza la trazabilidad de los lugares donde se dirige tu equipo de tabajo gracias a su GPS.  
+                                </p>
+                            </div>
+                            <div class="digitaliza-mobileforms p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza6.png" alt="Implementación">
+                                <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Digitaliza rápidamente formularios dinámicos, configura plantillas, exporta en PDF y diseña reportes gráficos de datos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5 pt-3">
+                        <div class="col-md-7 my-auto">
+                            <p class="size25 letter-spacing-069 text-gray line-height-33 font-weight-700">Mobile Forms es la aplicación móvil y web en la nube ideal para transformar la gestión de los procesos dentro y fuera de tu negocio. 
+                            </p>
+                            <img class="card-zoom img-fluid" src="../assets/images/ontime/iosPNG.png" alt="iOS">
+                            <img class="card-zoom img-fluid" src="../assets/images/ontime/androidPNG.png" alt="Android">
+                            <button mat-raised-button class="mt-3 bg-green size15 text-white d-block border-radius-3">Conoce más sobre seguridad y seguimiento de tus rutas</button>
+                        </div>
+                        <div class="col-md-5">
+                            <img class="img-fluid" src="../assets/images/mobileforms/seccion3.png" alt="Aplicación móvil">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion2-mobileforms pt-5 mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="font-weight-700 text-green size35 letter-spacing-097 line-height-47 text-center ubuntu">Funcionalidades a la medida que reforzarán la productividad de tu negocio
+                            </h2>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion1.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Administración de clientes y visitas diarias
+                                </p>
+                            </div>
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion4.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Visor Google maps de actividades programadas
+                                </p>
+                            </div>
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion7.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Registro de novedades
+                                </p>
+                            </div>
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion10.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Reporte gráfico de datos capturados
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion2.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Tareas yo agendamiento diario
+                                </p>
+                            </div>
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion5.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Configuración de plantillas PDF
+                                </p>
+                            </div>
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion8.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Creación de formularios dinámicos
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion3.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Localización GPS por eventos y tracking
+                                </p>
+                            </div>
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion6.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Sincronización on-line y off-line
+                                </p>
+                            </div>
+                            <div class="d-flex p-3 mb-4">
+                                <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion9.png" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Dashboard general / indicadores de gestión
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion3-smartsale pt-150 pb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 my-auto">
+                            <p class="size25 text-white font-weight-700 letter-spacing-069 line-height-33">Dale a tu equipo de trabajo una herramienta funcional que transformará y optimizará la gestión de los objetivos trazados.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="w-100 border-radius-3 bg-white size18 text-green border-white text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">¡Conoce más aquí!
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="w-100 border-radius-3 size18 text-white bg-transparent border-white text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">Solicita un demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="img-fluid" src="./assets/images/mobileforms/seccion4.png" alt="Gestión Rutas">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion4-smartsale pt-50 pb-50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2 mr-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios1.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Soporte 24/7</p>
+                                </div>
+                                <div class="beneficio-mobileforms d-flex p-2 align-items-center">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios2.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Implementación rápida</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2 mr-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios3.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Seguro, fácil y rápido aprendizaje</p>
+                                </div>
+                                <div class="beneficio-mobileforms d-flex p-2 align-items-center">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios4.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Infraestructura 24/7</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios5.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Acompañamiento durante el proceso de implementación</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end mb-2 align-items-center">
+                                <div class="beneficio-mobileforms d-flex p-2">
+                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios6.png" alt="Implementación">
+                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Actualizaciones y mantenimiento gratis</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 my-auto">
+                            <p class="size32 font-weight-300 text-gray letter-spacing-097 line-height-36"><span class="font-weight-700">Haz parte de los beneficios</span><br> que harán tu equipo más productivo y tu negocio más rentable </p>
+                            <button mat-raised-button class="text-decoration-none bg-green size18 text-white border-radius-3 font-weight-500">Conoce nuestra solución</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seccion5-smartsale pt-100">
+                <div class="container mb-5">
+                    <div class="row">
+                        <div class="col-md-6 my-auto">
+                            <p class="font-weight-300 size25 letter-spacing-069 line-height-30 text-gray"><span class="font-weight-700 text-green">Una solución que integra tus necesidades.</span> <br>Mobile forms te ofrece la posibilidad de integrar otras herramientas de trabajo para que logres la mejor gestión de tus procesos empresariales a través de API o archivos planos.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <img class="img-fluid mx-auto d-block" src="./assets/images/mobileforms/seccion5.png" alt="Integración">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="clientes-title text-center ubuntu text-green font-weight-700 size35 letter-spacing-097 line-height-46">Nuestros clientes</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-5 pt-3 pb-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="img-fluid" src="./assets/images/mobileforms/seccion6.png" alt="Solución Eficaz" />
+                        </div>
+                        <div class="col-md-6 my-auto">
+                            <h3 class="ubuntu text-green font-weight-700 size22 letter-spacing-071 line-height-32 mb-1">Una solución completa para tu negocio que requiere una gestión de recolección de datos eficaz.</h3>
+                            <p class="text-gray size22 letter-spacing-071 line-height-32">Suscripción mensual de <span class="font-weight-700">$16 USD</span></p>
+                            <a class="border-radius-3 bg-green size18 text-white text-decoration-none" mat-raised-button href="#" target="_blank">Ver precios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white pt-5 pb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-fluid mx-auto d-block mb-2" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="text-gray size16 letter-spacing-009 line-height-24"><span class="font-weight-700">Sabemos que cuentas con más áreas de trabajo y nosotros con más aplicaciones para que optimices su gestión.</span> Anímate a ampliar tu paquete y conocer todas las soluciones digitales que tenemos para tu negocio con nuestra suite. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-animate-contacto></app-animate-contacto>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
