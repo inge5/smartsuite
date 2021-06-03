@@ -28,6 +28,9 @@ import { CaretaskComponent } from './caretask/caretask.component';
 import { PreciosMobileformsComponent } from './precios-mobileforms/precios-mobileforms.component';
 import { PreciosCaretaskComponent } from './precios-caretask/precios-caretask.component';
 import { IntrackComponent } from './intrack/intrack.component';
+import { PreciosIntrackComponent } from './precios-intrack/precios-intrack.component';
+import { OnecheckComponent } from './onecheck/onecheck.component';
+import { PreciosOnecheckComponent } from './precios-onecheck/precios-onecheck.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { IntrackComponent } from './intrack/intrack.component';
     PreciosMobileformsComponent,
     PreciosCaretaskComponent,
     IntrackComponent,
+    PreciosIntrackComponent,
+    OnecheckComponent,
+    PreciosOnecheckComponent,
   ],
   imports: [
     BrowserModule,

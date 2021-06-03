@@ -31,6 +31,17 @@ export class PreciosMobileformsComponent implements OnInit {
 
   reason = '';
 
+  abrirSide(){
+    $("#wrapper").toggleClass("toggled");
+    $('.overlaytrabaja').addClass('active');
+  }
+
+  public cierraTrabajemos() {
+    $('.overlaytrabaja').removeClass('active');
+    $("#wrapper").toggleClass("toggled");
+  }
+
+
   close(reason: string) {
     this.reason = reason;
     this.sidenav.close();

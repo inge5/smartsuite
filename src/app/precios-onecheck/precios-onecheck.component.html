@@ -1,0 +1,585 @@
+<div class="pagina-full" id="wrapper">
+    <div class="sticky-onecheck">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white box-shadow-menu">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/onecheck"><img src="./assets/images/onecheck/onecheck-logo.png" alt="Logo principal" class="img-logo"></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto d-lg-none d-xl-none">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main" href="#">Funcionalidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main" href="/precios-onecheck">Precios</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav main-menu-list mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main size16" href="#">Funcionalidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main size16" href="/precios-onecheck">Precios</a>
+                        </li>
+                    </ul>
+                    <button mat-raised-button class="w-15 btn-onecheck-fill size18 border-radius-2" (click)="abrirSide()">Demo</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="precios-onecheck mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive mb-3">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr class="border-0">
+                                <th class="border-0"></th>
+                                <th class="border-0 bg-orange text-center text-white border-radius-top-table" colspan="3">PAQUETES MENSUALES</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th class="text-black-dark size14 font-weight-500"><img class="mr-2" src="./assets/images/precios1.png" alt="Logo Lite">  LITE</th>
+                                <th class="text-black-dark size14 font-weight-500"><img class="mr-2" src="./assets/images/precios2.png" alt="Logo Lite">STANDARD</th>
+                                <th class="text-black-dark size14 font-weight-500 border-radius-right-table"><img class="mr-2" src="./assets/images/precios3.png" alt="Logo Lite">ENTERPRISE</th>
+                            </tr>
+                            <tr class="bg-gray-dark">
+                                <th class="text-white size14 font-weight-500" scope="col">FUNCIONALIDADES GENERALES (Componentes Web - Móvil)</th>
+                                <th class="text-center text-white size14 font-weight-500" scope="col">$12 us</th>
+                                <th class="text-center text-white size14 font-weight-500" scope="col">$16 us</th>
+                                <th class="text-center text-white size14 font-weight-500" scope="col">$20 us</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Autenticación segura</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Administración de Clientes</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Contactos por Cliente</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión de Ventas</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión de Actividades</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Generación Visitas automaticas (Inicio y Cierre automatico)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión Ruta Sugerida (programación tipo de cliente)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión de Cartera</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión de Cobranza</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Productos</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Inventarios</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Listas de Precio</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Novedades de Visita</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión de Entregas</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Notificaciones (Actualización de Datos)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Formularios Dinamicos</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">Hasta 10 formularios</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">Ilimitados</td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Indicadores de Venta</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Calificación de Clientes (Ranking de clientes)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión Ruta Sugerida (programación tipo de cliente)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Indicadores de Gestion de Venta</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Visor GIS (Eventos geo-referenciados en terreno)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestion de servicios (Asignación Casos / Tickets)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Sincronización de datos</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Almacenamiento Local de Datos</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr class="bg-gray-dark">
+                                <td class="text-white size14 font-weight-500">ANALISIS DE GESTION  (Informes e Indicadores)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Informe de Gestión Diaria</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Informe de cobertura de clientes</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Informe de Gestión de Cartera (Recaudo/ Abonos)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Dashboard Operación de Ventas</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr> 
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Dashboard Operación de Recaudo</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr> 
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Dashboard Operación Entregas</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr> 
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Reportes Personalizados, Modulo Formularios dinamicos</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr> 
+                            <tr class="bg-gray-dark">
+                                <td class="text-white size14 font-weight-500">CONECTIVIDAD Y SEGUIMIENTO</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Trazabilida GPS por Evento y Tiempo</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Conexión OnLine / OffLine</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Validación de Actividades por  Coordenada GPS </td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Validación de inicio de Actividades por NFC o Codigos QR</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Inicio y Finalización de Jornada de trabajo diario</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Generación de ruta Sugerida de trabajo (Visor GoogleMaps)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr class="bg-gray-dark">
+                                <td class="text-white size14 font-weight-500">CONECTIVIDAD Y SEGUIMIENTO</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Impresión de Comprobantes (Pedidos / Compra)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Envio de Comprobantes de Pedidos Via e-Mail (Formato PDF)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Impresión  comprobantes de pagos (Cobro de Cartera)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Envio de comprobante de pagos vía e-mail (Formato PDF)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Generación de formularios dinamicos en formato PDF</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Envío de formularios por Aplicativos del dispositivo (Whatsapp / Email / etc)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Impresión Comprobante de entrega</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Envio de comprobante de entrega  vía e-mail (Formato PDF)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr class="bg-gray-dark">
+                                <td class="text-white size14 font-weight-500">ALMACENAMIENTO</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Almacenamiento de datos</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">500MB</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">1GB</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">2GB</td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Almacenamiento Adicional $</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">N/A</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">US$ 5 / GB mensual</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">US$ 5 / GB mensual</td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Almacenamiento Local (Dispositivo Móviles)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Tiempo de Almacenamiento en Servidor</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">1 año</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">1 año</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">1 año</td>
+                            </tr>
+                            <tr class="bg-gray-dark">
+                                <td class="text-white size14 font-weight-500">ADMINISTRACIÓN DE DATOS E INTEGRACIÓN</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Importación de datos (En Bach)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Exportación de Datos (Usando XLS)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">API de Integración</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">TXT</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">TXT/ WS</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">TXT/ WS/ XLS</td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Generación de Backup Automaticos</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr class="bg-gray-dark">
+                                <td class="text-white size14 font-weight-500">SEGURIDAD</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Restricción de Acceso a usaurio  por IMEI</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Configuracion de Usuarios</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Configuración de Roles</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>        
+                            <tr class="bg-gray-dark">
+                                <td class="text-white size14 font-weight-500">SERVICIOS PROFESIONALES / SOPORTE</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Soporte Tecnico sobre plataforma</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>        
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Disponibilidad de soporte 24/7 (Nivel 1)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>        
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Bolsa de horas anuales para personalizaciones</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">0 Horas</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">15 horas<br><span class="font-weight-400 size12">(Cuentas con mas de 30 usuarios)</span></td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">20 horas<br><span class="font-weight-400 size12">(Cuentas con mas de 50 usuarios)</span></td>
+                            </tr>   
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Documentación Tecnica / Instructivos}</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>  
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Plataforma de Soporte (registro de tickets)</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>  
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Servicio de Consultoria Tecnica (Parametrizaciones / nuevas Funcionalidades)</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>  
+                            <tr>
+                                <td class="text-black-dark size14 letter-spacing-084">Gestión de Implementación (Metodologia de proyecto) *PMP</td>
+                                <td class="text-black-dark size14 letter-spacing-084 text-center">-</td>
+                                <td><span class="dot-ontime"></span></td>
+                                <td><span class="dot-ontime"></span></td>
+                            </tr>  
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="size19 font-weight-500 letter-spacing-016 line-height-24 ubuntu text-orange-onecheck">Funcionalidades y Servicios Incluidos en la versión</h2>
+                    <ul class="text-gray size16 letter-spacing-044 line-height-24 ubuntu">
+                        <li>Servicio con una tarifa adicional $</li>
+                        <li>Disponible como aplicación para descarga desde PlayStore ***</li>
+                        <li>Cada propuesta contara con su respectiva IR, (implementation report) que describe el desarrollo del proyecto, alcances, problemas y soluciones presentados durante la implementación, como también cada uno de los cambios determinantes, dentro de su consecución, pruebas piloto y proceso de producción.</li>
+                        <li>La Versión de prueba ""FREE"" Tiene menos funcionalidades que las versiones ""pagas"", tiene 15 días de uso. Durante el periodo de prueba se podran descargar los datos registrados en la plataforma, al terminar el tiempo de pruebas los datos serán borrados permanentemente.</li>
+                        <li>El costo de los servicios profesionales adicionales de consultoría tecnica seran estimado y cotizado en horas, las cuales podran ser facturadas al cliente como un cobro OneTime.</li>
+                        <li>El costo de las licencias incluyen el servicio de soporte, actualizaciones y mantenimiento y servidor de aplicaciones disponible 7x24</li>
+                        <li>Las adecuaciones adicionales en el software son facturadas de acuerdo al esfuerzo requerido, por CLARO S.A. O por el integrador de aplicaciones ENIGMA DEVELOPERS S.A.S.</li>
+                        <li>El sistema Gestión Móvil en cualquiera de las versiones no requiere contrato de permanencia, salvo cuando se realicen negociaciones especiales (Descuentos en licencias, desarrollos o servicios especiales diferidos en licencias a un tiempo determinado)</li>
+                        <li>Se realizara una capacitación Técnica a un grupo de usuarios Administradores y una capacitación funcional a un grupo de usuarios replicadores, las sesiones de capacitación serán de hasta 4 horas cada una.</li>
+                        <li>Los valores descritos en este documento no incluyen IVA, este será adicionado por CLARO S.A.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <app-animate-contacto></app-animate-contacto>
+    </div>		
+    <div class="bg-light border-right p-4" id="sidebar-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <img class="img-fluid" src="./assets/images/onecheck/sidenav.png" alt="Sidenav">
+                </div>
+                <div class="col-md-5 my-auto">
+                    <p class="size21 text-gray font-weight-700 letter-spacing-1-28 line-height-24 text-uppercase">Estás a punto de conocer la mejor herramienta para tu trabajo</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form (ngSubmit)="enviarForm(formularioSidenav)" #formularioSidenav="ngForm" id="formulario-Sidenav" class="sidenav-contact p-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="empresa">Empresa</label>
+                                    <input type="text" class="form-control" id="empresa" name="empresa" #empresa="ngModel" [(ngModel)]="userside.empresa" placeholder="Neuromedia Agencia Digital SAS" required>
+                                    <small style="color:#c30000;" *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)">
+                                        Empresa es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="nombres">Nombre completo</label>
+                                    <input type="text" class="form-control" id="nombres" name="nombres" #nombres="ngModel" [(ngModel)]="userside.nombres" placeholder="Nombre completo" required>
+                                    <small style="color:#c30000;" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
+                                        Nombres es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="telefono">Número de Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="userside.telefono" pattern="^\d+$" placeholder="3120000000" required>
+                                    <small style="color:#c30000;" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                                        Ingrese un teléfono válido.
+                                    </small>
+                                </div>
+                                <div class="form-row pt-2 pb-2">
+                                    <label class="size16 text-gray" for="email">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="userside.email" email="true" placeholder="neuromedia@gmail.com" required>
+                                    <small style="color:#c30000;" *ngIf="email.invalid && (email.dirty || email.touched)">
+                                        Ingrese un correo electrónico válido.
+                                    </small>
+                                </div>
+                                <div class="form-row form-group pt-2 pb-2 mb-0">
+                                    <label class="size16 text-gray" for="producto">Producto</label>
+                                    <select class="form-control tipo-producto" id="selectProducto" name="producto" #producto="ngModel" [(ngModel)]="userside.producto" required>
+                                    <option value="" disabled>Elija una opción</option>
+                                    <option>Smart Sales</option>
+                                    <option>On Time</option>
+                                    <option>Mobile Forms</option>
+                                    <option>Care Task</option>
+                                    <option>In track</option>
+                                    <option>On Check</option>
+                                    </select>
+                                    <small style="color:#c30000;" *ngIf="producto.invalid && (producto.dirty || producto.touched)">
+                                        El Producto es un campo requerido.
+                                    </small>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="userside.acepto" class="form-check-input" id="acepto" required>
+                                    <label class="size16 text-gray" for="acepto">Conozco y acepto la política de datos</label>
+                                    <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
+                                        Debe aceptar las condiciones.
+                                    </small>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="submit" class="float-left btn btn-onecheck-fill size15 border-radius-2 mt-4 w-100 mx-auto d-block mb-2" name="enviar" value="Solicitar demo" [disabled]="formularioSidenav.invalid">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a mat-button class="line-height-1-5 p-cancel-sidebar w-100 border-radius-2 size15 btn-onecheck mt-4 mb-2 text-decoration-none" (click)="cierraTrabajemos()">Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,223 @@
-<mat-sidenav-container (backdropClick)="close('backdrop')">
-    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose position="end">
+<div class="pagina-full" id="wrapper">
+    <div class="sticky-smartsale">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white box-shadow-menu">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/ontime"><img src="./assets/images/ontime/onetime-logo.png" alt="Logo principal" class="img-logo"></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto d-lg-none d-xl-none">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main" href="#">Funcionalidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main" href="/precios-ontime">Precios</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav main-menu-list mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main size16" href="#">Funcionalidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-main size16" href="/precios-ontime">Precios</a>
+                        </li>
+                    </ul>
+                    <button mat-raised-button class="demo-ontime w-15 size18 border-radius-2 text-white font-weight-400" (click)="abrirSide()">Demo</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="ontime-page">
+        <div class="seccion1-ontime pt-5">
+            <div class="container">
+                <div class="row mb-5 pt-4">
+                    <div class="col-md-6 my-auto">
+                        <h2 class="size48 letter-spacing-069 line-height-50 font-weight-700 text-black-dark ubuntu">Lleva el seguimiento y administración de la gestión de rutas.
+                        </h2> 
+                        <p class="size21 font-weight-400 text-gray letter-spacing-1-28 line-height-29">Con <span class="text-orange">OnTime</span> los conductores, las escuelas, los padres y coordinadores de rutas accederán a información en línea y en tiempo real.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="img-fluid" src="../assets/images/ontime/seccion1.png" alt="Rutas">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row pt-3">
+                <div class="col-md-12 mb-3">
+                    <p class="size24 text-black-dark letter-spacing-077 text-center line-height-35"><span class="size30 text-orange font-weight-700">Cuenta con una aplicación que optimizará tus rutas</span> <br>de forma ágil y sencilla gracias a sus funcionalidades en línea</p>
+                </div>
+                <div class="col">
+                    <mat-card class="card-zoom p-2 img-cards-rutas min-height-200 mt-2 mb-2">
+                        <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza1.png" alt="Optimiza 1">
+                        <mat-card-content>
+                        <p class="size14 line-height-20 letter-spacing-001 text-gray">
+                            <span class="font-weight-700">Una solución tecnológica para la movilidad</span> de escuelas y empresas. 
+                        </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col">
+                    <mat-card class="card-zoom p-2 img-cards-rutas min-height-200 mt-2 mb-2">
+                        <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza2.png" alt="Optimiza 2">
+                        <mat-card-content>
+                        <p class="size14 line-height-20 letter-spacing-001 text-gray">
+                            Los coordinadores de rutas, conductores y asistentes <span class="font-weight-700">administran la gestión de rutas en línea.</span>
+                        </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col">
+                    <mat-card class="card-zoom p-2 img-cards-rutas min-height-200 mt-2 mb-2">
+                        <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza3.png" alt="Optimiza 3">
+                        <mat-card-content>
+                        <p class="size14 line-height-20 letter-spacing-001 text-gray">
+                            <span class="font-weight-700">Acceso para padres de familia</span> donde reciben información en línea de horarios de embarque y de regreso en cada recorrido.
+                        </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col">
+                    <mat-card class="card-zoom p-2 img-cards-rutas min-height-200 mt-2 mb-2">
+                        <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza4.png" alt="Optimiza 4">
+                        <mat-card-content>
+                        <p class="size14 line-height-20 letter-spacing-001 text-gray">
+                            <span class="font-weight-700">Recibe notificaciones</span> y conoce el lugar donde se encuentra tu ruta gracias a su sistema GPS.
+                        </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col">
+                    <mat-card class="card-zoom p-2 img-cards-rutas min-height-200 mt-2 mb-2">
+                        <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza5.png" alt="Optimiza 5">
+                        <mat-card-content>
+                        <p class="size14 line-height-20 letter-spacing-001 text-gray">
+                            <span class="font-weight-700">Registra las novedades que ocurran durante el recorrido,</span> en tiempo real y de modo off-line. 
+                        </p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="row mt-5 pt-3">
+                <div class="col-md-5">
+                    <img class="img-fluid" src="../assets/images/ontime/seccion2.png" alt="Aplicación móvil">
+                </div>
+                <div class="col-md-7 my-auto">
+                    <p class="size25 text-gray line-height-36"><span class="font-weight-700">On Time es la aplicación móvil y web en la nube</span> ideal para que administres y conozcas al detalle la gestión de rutas escolares y empresariales.</p>
+                    <img class="card-zoom img-fluid" src="../assets/images/ontime/iosPNG.png" alt="iOS">
+                    <img class="card-zoom img-fluid" src="../assets/images/ontime/androidPNG.png" alt="Android">
+                    <button mat-raised-button class="mt-3 demo-ontime size15 text-white d-block border-radius-25 white-space-normal">Conoce más sobre seguridad y seguimiento de tus rutas</button>
+                </div>
+            </div>
+        </div>
+        <div class="seccion3-smartsale pt-150 pb-150">
+            <img class="img-back" src="./assets/images/ontime/seccion3.png" alt="Gestión Rutas">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 my-auto">
+                        <p class="size30 text-black-dark font-weight-300 letter-spacing-1-38 line-height-37"><span class="text-orange font-weight-700">Ofrécele a tu equipo de trabajo y clientes una herramienta funcional</span> que transformará y optimizará la gestión de sus rutas. 
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="w-100 border-radius-25 demo-ontime size15 text-white text-decoration-none mt-2 mb-2" mat-raised-button href="https://www.google.com/" target="_blank">Conoce On Time aquí
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="w-100 border-radius-25 size15 text-orange border-orange text-decoration-none mt-2 mb-2" mat-raised-button href="https://www.google.com/" target="_blank">¡Solicita un DEMO!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seccion4-smartsale pt-50 pb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="row justify-content-end mb-2 align-items-center">
+                            <div class="beneficio-ontime d-flex p-2 mr-2">
+                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion1.png" alt="Implementación">
+                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Soporte 24/7</p>
+                            </div>
+                            <div class="beneficio-ontime d-flex p-2 align-items-center">
+                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion2.png" alt="Implementación">
+                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Implementación rápida</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end mb-2 align-items-center">
+                            <div class="beneficio-ontime d-flex p-2 mr-2">
+                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion3.png" alt="Implementación">
+                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Seguro, fácil y rápido aprendizaje</p>
+                            </div>
+                            <div class="beneficio-ontime d-flex p-2 align-items-center">
+                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion4.png" alt="Implementación">
+                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Infraestructura 24/7</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end mb-2 align-items-center">
+                            <div class="beneficio-ontime d-flex p-2">
+                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion5.png" alt="Implementación">
+                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Acompañamiento durante el proceso de implementación</p>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end mb-2 align-items-center">
+                            <div class="beneficio-ontime d-flex p-2">
+                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion6.png" alt="Implementación">
+                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Actualizaciones y mantenimiento gratis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 my-auto">
+                        <p class="size33 font-weight-300 text-gray letter-spacing-097 line-height-36"><span class="font-weight-700">Implementa una solución</span><br>
+                            que te ofrece múltiples beneficios</p>
+                        <button mat-raised-button class="text-decoration-none demo-ontime size15 text-white border-radius-25 font-weight-300">Conoce nuestra solución</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="seccion5-smartsale pt-100">
+            <div class="container mb-5">
+                <div class="row">
+                    <div class="col-md-6 my-auto">
+                        <p class="font-weight-300 size25 letter-spacing-001n line-height-30 text-gray"><span class="font-weight-700 text-orange">Con On Time tendrás la posibilidad de integrar otras herramientas de trabajo</span> <br>Para que logres la mejor gestión del sistema de rutas a través de APIs o archivos planos.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="img-fluid" src="./assets/images/ontime/seccion4.png" alt="Integración">
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5 pt-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="img-fluid" src="./assets/images/ontime/seccion5.png" alt="Solución Eficaz" />
+                    </div>
+                    <div class="col-md-6 my-auto">
+                        <h3 class="ubuntu text-orange font-weight-700 size22 letter-spacing-071 line-height-32 mb-1">Una solución completa y segura para agregarle valor a tu sistema de gestión de rutas escolares y empresariales.</h3>
+                        <p class="text-black-dark size22 letter-spacing-071 line-height-32">Suscripción mensual de <span class="font-weight-700 text-black-dark">$4 USD</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="img-fluid mx-auto d-block mb-2" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
+                        <p class="text-center text-gray size16 letter-spacing-009 line-height-24">Contamos con múltiples soluciones para que optimices la gestión de todas tus áreas de trabajo.</p>
+                        <h3 class="font-weight-700 size26 text-black-dark text-center">¡Conoce nuestra suite y amplia tu paquete!</h3>
+                        <a class="mx-auto w-15 d-block border-radius-25 size15 text-orange border-orange text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">Contáctanos <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-animate-contacto></app-animate-contacto>
+    </div>
+    <div class="bg-light border-right p-4" id="sidebar-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
@@ -59,240 +277,26 @@
                                         El Producto es un campo requerido.
                                     </small>
                                 </div>
-                                <div class="form-check text-center">
+                                <div class="form-check">
                                     <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="userside.acepto" class="form-check-input" id="acepto" required>
                                     <label class="size16 text-gray" for="acepto">Conozco y acepto la política de datos</label>
                                     <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
                                         Debe aceptar las condiciones.
                                     </small>
                                 </div>
-                                <input type="submit" class="float-left btn btn-primary btn-blue mt-4 w-40 mx-auto d-block" name="enviar" value="Solicitar demo" [disabled]="formularioSidenav.invalid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="submit" class="float-left btn btn-ontime-fill size15 border-radius-25 mt-4 w-100 mx-auto d-block mb-2" name="enviar" value="Solicitar demo" [disabled]="formularioSidenav.invalid">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a mat-button class="line-height-1-5 p-cancel-sidebar w-100 border-radius-25 size15 btn-ontime mt-4 mb-2 text-decoration-none" (click)="cierraTrabajemos()">Cancelar</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
-                    <p><button mat-button class="cancelar w-40" (click)="close('toggle button')">Cancelar</button></p>
                 </div>
             </div>
         </div>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="sticky-smartsale">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                <div class="container">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><img src="./assets/images/ontime/onetime-logo.png" alt="Logo principal" class="img-logo"></a>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto d-lg-none d-xl-none">
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-main" href="#">Funcionalidades</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-main" href="/precios-ontime">Precios</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav main-menu-list mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-main size16" href="#">Funcionalidades</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-link-main size16" href="/precios-ontime">Precios</a>
-                            </li>
-                        </ul>
-                        <button mat-raised-button class="demo-ontime w-15 size18 border-radius-2 text-white font-weight-400" (click)="sidenav.open()">Demo</button>
-                    </div>
-                </div>
-            </nav>
-        </div>
-
-        <div class="ontime-page">
-            <div class="seccion1-ontime pt-5">
-                <div class="container">
-                    <div class="row mb-5 pt-4">
-                        <div class="col-md-6 my-auto">
-                            <h2 class="size48 letter-spacing-069 line-height-50 font-weight-700 text-black-dark ubuntu">Lleva el seguimiento y administración de la gestión de rutas.
-                            </h2> 
-                            <p class="size21 font-weight-400 text-gray letter-spacing-1-28 line-height-29">Con <span class="text-orange">OnTime</span> los conductores, las escuelas, los padres y coordinadores de rutas accederán a información en línea y en tiempo real.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img class="img-fluid" src="../assets/images/ontime/seccion1.png" alt="Rutas">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row pt-3">
-                    <div class="col-md-12 mb-3">
-                        <p class="size24 text-black-dark letter-spacing-077 text-center line-height-35"><span class="size30 text-orange font-weight-700">Cuenta con una aplicación que optimizará tus rutas</span> <br>de forma ágil y sencilla gracias a sus funcionalidades en línea</p>
-                    </div>
-                    <div class="col">
-                        <mat-card class="card-zoom p-2 img-cards-rutas min-height-200">
-                            <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza1.png" alt="Optimiza 1">
-                            <mat-card-content>
-                            <p class="size14 line-height-20 letter-spacing-001 text-gray">
-                                <span class="font-weight-700">Una solución tecnológica para la movilidad</span> de escuelas y empresas. 
-                            </p>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                    <div class="col">
-                        <mat-card class="card-zoom p-2 img-cards-rutas min-height-200">
-                            <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza2.png" alt="Optimiza 2">
-                            <mat-card-content>
-                            <p class="size14 line-height-20 letter-spacing-001 text-gray">
-                                Los coordinadores de rutas, conductores y asistentes <span class="font-weight-700">administran la gestión de rutas en línea.</span>
-                            </p>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                    <div class="col">
-                        <mat-card class="card-zoom p-2 img-cards-rutas min-height-200">
-                            <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza3.png" alt="Optimiza 3">
-                            <mat-card-content>
-                            <p class="size14 line-height-20 letter-spacing-001 text-gray">
-                                <span class="font-weight-700">Acceso para padres de familia</span> donde reciben información en línea de horarios de embarque y de regreso en cada recorrido.
-                            </p>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                    <div class="col">
-                        <mat-card class="card-zoom p-2 img-cards-rutas min-height-200">
-                            <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza4.png" alt="Optimiza 4">
-                            <mat-card-content>
-                            <p class="size14 line-height-20 letter-spacing-001 text-gray">
-                                <span class="font-weight-700">Recibe notificaciones</span> y conoce el lugar donde se encuentra tu ruta gracias a su sistema GPS.
-                            </p>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                    <div class="col">
-                        <mat-card class="card-zoom p-2 img-cards-rutas min-height-200">
-                            <img class="d-inline-block mb-3 img-cards-rutas" src="./assets/images/ontime/optimiza5.png" alt="Optimiza 5">
-                            <mat-card-content>
-                            <p class="size14 line-height-20 letter-spacing-001 text-gray">
-                                <span class="font-weight-700">Registra las novedades que ocurran durante el recorrido,</span> en tiempo real y de modo off-line. 
-                            </p>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                </div>
-                <div class="row mt-5 pt-3">
-                    <div class="col-md-5">
-                        <img class="img-fluid" src="../assets/images/ontime/seccion2.png" alt="Aplicación móvil">
-                    </div>
-                    <div class="col-md-7 my-auto">
-                        <p class="size25 text-gray line-height-36"><span class="font-weight-700">On Time es la aplicación móvil y web en la nube</span> ideal para que administres y conozcas al detalle la gestión de rutas escolares y empresariales.</p>
-                        <img class="card-zoom img-fluid" src="../assets/images/ontime/iosPNG.png" alt="iOS">
-                        <img class="card-zoom img-fluid" src="../assets/images/ontime/androidPNG.png" alt="Android">
-                        <button mat-raised-button class="mt-3 demo-ontime size15 text-white d-block border-radius-25">Conoce más sobre seguridad y seguimiento de tus rutas</button>
-                    </div>
-                </div>
-            </div>
-            <div class="seccion3-smartsale pt-150 pb-150">
-                <img class="img-back" src="./assets/images/ontime/seccion3.png" alt="Gestión Rutas">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 my-auto">
-                            <p class="size30 text-black-dark font-weight-300 letter-spacing-1-38 line-height-37"><span class="text-orange font-weight-700">Ofrécele a tu equipo de trabajo y clientes una herramienta funcional</span> que transformará y optimizará la gestión de sus rutas. 
-                            </p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <a class="w-100 border-radius-25 demo-ontime size15 text-white text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">Conoce On Time aquí
-                                    </a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a class="w-100 border-radius-25 size15 text-orange border-orange text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">¡Solicita un DEMO!</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="seccion4-smartsale pt-50 pb-50">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="row justify-content-end mb-2 align-items-center">
-                                <div class="beneficio-ontime d-flex p-2 mr-2">
-                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion1.png" alt="Implementación">
-                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Soporte 24/7</p>
-                                </div>
-                                <div class="beneficio-ontime d-flex p-2 align-items-center">
-                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion2.png" alt="Implementación">
-                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Implementación rápida</p>
-                                </div>
-                            </div>
-                            <div class="row justify-content-end mb-2 align-items-center">
-                                <div class="beneficio-ontime d-flex p-2 mr-2">
-                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion3.png" alt="Implementación">
-                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Seguro, fácil y rápido aprendizaje</p>
-                                </div>
-                                <div class="beneficio-ontime d-flex p-2 align-items-center">
-                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion4.png" alt="Implementación">
-                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Infraestructura 24/7</p>
-                                </div>
-                            </div>
-                            <div class="row justify-content-end mb-2 align-items-center">
-                                <div class="beneficio-ontime d-flex p-2">
-                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion5.png" alt="Implementación">
-                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Acompañamiento durante el proceso de implementación</p>
-                                </div>
-                            </div>
-                            <div class="row justify-content-end mb-2 align-items-center">
-                                <div class="beneficio-ontime d-flex p-2">
-                                    <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/ontime/implementacion6.png" alt="Implementación">
-                                    <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Actualizaciones y mantenimiento gratis</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 my-auto">
-                            <p class="size33 font-weight-300 text-gray letter-spacing-097 line-height-36"><span class="font-weight-700">Implementa una solución</span><br>
-                                que te ofrece múltiples beneficios</p>
-                            <button mat-raised-button class="text-decoration-none demo-ontime size15 text-white border-radius-25 font-weight-300">Conoce nuestra solución</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="seccion5-smartsale pt-100">
-                <div class="container mb-5">
-                    <div class="row">
-                        <div class="col-md-6 my-auto">
-                            <p class="font-weight-300 size25 letter-spacing-001n line-height-30 text-gray"><span class="font-weight-700 text-orange">Con On Time tendrás la posibilidad de integrar otras herramientas de trabajo</span> <br>Para que logres la mejor gestión del sistema de rutas a través de APIs o archivos planos.
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <img class="img-fluid" src="./assets/images/ontime/seccion4.png" alt="Integración">
-                        </div>
-                    </div>
-                </div>
-                <div class="container mt-5 pt-3">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img class="img-fluid" src="./assets/images/ontime/seccion5.png" alt="Solución Eficaz" />
-                        </div>
-                        <div class="col-md-6 my-auto">
-                            <h3 class="ubuntu text-orange font-weight-700 size22 letter-spacing-071 line-height-32 mb-1">Una solución completa y segura para agregarle valor a tu sistema de gestión de rutas escolares y empresariales.</h3>
-                            <p class="text-black-dark size22 letter-spacing-071 line-height-32">Suscripción mensual de <span class="font-weight-700 text-black-dark">$4 USD</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white pt-5 pb-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <img class="img-fluid mx-auto d-block mb-2" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
-                            <p class="text-center text-gray size16 letter-spacing-009 line-height-24">Contamos con múltiples soluciones para que optimices la gestión de todas tus áreas de trabajo.</p>
-                            <h3 class="font-weight-700 size26 text-black-dark text-center">¡Conoce nuestra suite y amplia tu paquete!</h3>
-                            <a class="mx-auto w-15 d-block border-radius-25 size15 text-orange border-orange text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">Contáctanos <i class="fas fa-long-arrow-alt-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <app-animate-contacto></app-animate-contacto>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    </div>
+</div>

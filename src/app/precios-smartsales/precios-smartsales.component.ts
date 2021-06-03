@@ -30,6 +30,16 @@ export class PreciosSmartsalesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  abrirSide(){
+    $("#wrapper").toggleClass("toggled");
+    $('.overlaytrabaja').addClass('active');
+  }
+
+  public cierraTrabajemos() {
+    $('.overlaytrabaja').removeClass('active');
+    $("#wrapper").toggleClass("toggled");
+  }
+
   reason = '';
 
   close(reason: string) {
