@@ -514,6 +514,12 @@ p, ul{
 .mt-45{
     margin-top: 45px;
 }
+.mt-50{
+    margin-top: 50px;
+}
+.mt-80{
+    margin-top: 80px;
+}
 .mt-100{
     margin-top: 100px;
 }
@@ -1209,9 +1215,9 @@ mat-sidenav{
     background-size: cover;
 }
 .seccion1-onecheck{
-    background-image: url(./assets/images/onecheck/back1-1-principal.png);
-    background-position: bottom;
-    background-size: auto;
+    background-image: url(./assets/images/onecheck/Main-Back.png);
+    background-position: top;
+    background-size: cover;
 }
 .btn-onecheck{
     background-color: #fff;
@@ -1321,6 +1327,10 @@ mat-sidenav{
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.seccion5-mobileforms .flickity-viewport {
+    overflow: initial;
+}
 /*========================*/
 
 
@@ -1374,11 +1384,21 @@ footer ul{
     background: #E70530;
 }
 
+.mobileforms-full::-webkit-scrollbar-thumb {
+    background: #38BA38;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 @media (min-width: 768px) {
+    .seccion5-mobileforms .gallery .carousel-cell:nth-child(2n){
+        margin-top: -50px;
+    }
+    .seccion5-mobileforms .gallery .carousel-cell:nth-child(3n+3){
+        margin-top: -80px;
+    }
     #wrapper.toggled #sidebar-wrapper {
         right: 0rem;
         position: fixed;
@@ -1398,6 +1418,41 @@ footer ul{
 }
 
 @media (max-width: 767px) {
+    .smartsuite-page .seccion2 .img-apps img{
+        margin: 0 auto;
+        display: block;
+        margin-top: 20px;
+    }
+    .smartsuite-page .banderas{
+        text-align: center;
+    }
+    .smartsuite-page .seccion4 button{
+        margin-bottom: 40px;
+    }
+    .background-smartsuite.seccion1 .tarjetas-services img{
+        margin: 0 auto;
+        display: block;
+    }
+    .seccion3-mobileforms {
+        background-position: right;
+    }
+    .seccion1-ontime {
+        background-position: top;
+    }
+    .min-height-200 {
+        min-height: 0;
+    }
+    .menu-secondary .navbar-brand{
+        width: 100%;
+        text-align: center;
+    }
+    .menu-secondary .main-menu-list{
+        width: 100%;
+        text-align: center;
+    }
+    .carousel-cell {
+        width: 35%;
+    }
     .seccion5-onecheck .text-orange-onecheck{
         color: #000;
     }
@@ -1474,8 +1529,14 @@ footer ul{
     .pt-150{
         padding-top: 3rem;
     }
+    .pt-100 {
+        padding-top: 2.5rem;
+    }
     .pb-150 {
         padding-bottom: 3rem;
+    }
+    .smartsuite-page p,h1,h2,h3,h4,h5,h6{
+        text-align: center;
     }
     .caretask-page p,h1,h2,h3,h4,h5,h6{
         text-align: center;
@@ -1490,6 +1551,9 @@ footer ul{
         text-align: center;
     }
     .onecheck-page p,h1,h2,h3,h4,h5,h6{
+        text-align: center;
+    }
+    .intrack-page p,h1,h2,h3,h4,h5,h6{
         text-align: center;
     }
     .img-cards-rutas{
