@@ -1,21 +1,19 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import {MatSidenav} from '@angular/material/sidenav';
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HomeService } from 'src/app/services/home.service';
 
 declare var $ : any; 
 
 @Component({
-  selector: 'app-precios-smartsales',
-  templateUrl: './precios-smartsales.component.html',
-  styleUrls: ['./precios-smartsales.component.css']
+  selector: 'app-sidebar-caretask',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
-export class PreciosSmartsalesComponent implements OnInit {
-  @ViewChild('sidenav') sidenav: MatSidenav;
-
+export class SidebarCareTaskComponent implements OnInit {
   public userside: any;
+  data:any = [];
 
-  constructor(private http: HttpClient) { 
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
     this.userside = {
       empresa: '',
       nombres: '',
@@ -26,27 +24,19 @@ export class PreciosSmartsalesComponent implements OnInit {
     };
   }
 
-
   ngOnInit(): void {
-  }
-
-  abrirSide(){
-    $("#wrapper").toggleClass("toggled");
-    $('.overlaytrabaja').addClass('active');
+    this._homeservice.getHomeCareTask()
+    .subscribe((res:any) => {
+      this.data = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.data = this.data.changingThisBreaksApplicationSecurity;
+    });
   }
 
   public cierraTrabajemos() {
     $('.overlaytrabaja').removeClass('active');
     $("#wrapper").toggleClass("toggled");
   }
-
-  reason = '';
-
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
-  }
-
+  
   enviarForm(form) {
     $.ajax({
       url: '',
@@ -70,5 +60,4 @@ export class PreciosSmartsalesComponent implements OnInit {
       }
     });
    }
-
 }

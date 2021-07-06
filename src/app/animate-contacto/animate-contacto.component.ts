@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HomeService } from '../services/home.service';
 
 declare var $ : any; 
 
@@ -10,7 +12,8 @@ declare var $ : any;
 })
 export class AnimateContactoComponent implements OnInit {
   public user: any;
-  constructor(private http: HttpClient) { 
+  data:any = [];
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
     this.user = {
       nombres: '',
       apellidos: '',
@@ -23,6 +26,12 @@ export class AnimateContactoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._homeservice.getHome()
+    .subscribe((res:any) => {
+      // this.loader = false;
+      this.data = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.data = this.data.changingThisBreaksApplicationSecurity;
+    });
   }
 
   enviarForm(form) {

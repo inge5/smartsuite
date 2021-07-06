@@ -1,477 +1,172 @@
 <div class="pagina-full mobileforms-full" id="wrapper">
-    <div class="sticky-mobileforms">
-        <nav class="menu-secondary navbar navbar-expand-lg navbar-light bg-white box-shadow-menu">
-            <div class="container">
-                <a class="navbar-brand" href="/mobileforms"><img src="./assets/images/mobileforms/logo.png" alt="Logo principal" class="img-logo"></a>
-                <ul class="navbar-nav main-menu-list mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-main size16" href="#">Funcionalidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-main size16" href="/precios-mobileforms">Precios</a>
-                    </li>
-                </ul>
-                <button mat-raised-button class="demo-mobileforms w-15 size18 border-radius-2 text-white font-weight-400" (click)="abrirSide()">Demo</button>
-            </div>
-        </nav>
-    </div>
-
-    <div class="mobileforms-page">
+    <app-submenu-mobileforms></app-submenu-mobileforms>
+    <div class="mobileforms-page" >
+        <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
         <div class="seccion1-mobileforms pt-5">
-            <div class="container">
-                <div class="row mb-5 pt-4">
+            <div class="container" *ngIf="!loader">
+                <div class="row mb-5 pt-4" *ngIf="data.banner">
                     <div class="col-md-6 my-auto">
-                        <h2 class="size46 letter-spacing-069 line-height-50 font-weight-700 text-green ubuntu mb-2">Simplifica los procesos de recolección de datos
-                        </h2> 
-                        <p class="size24 font-weight-400 text-gray letter-spacing-035 line-height-29">de forma dinámina, eficiente y confiable en minutos.</p>
+                        <h2 class="size46 letter-spacing-069 line-height-50 font-weight-700 text-green ubuntu mb-2" [innerHTML]="data.banner.texto | safeHtml: 'html'"></h2> 
+                        <p class="size24 font-weight-400 text-gray letter-spacing-035 line-height-29" [innerHTML]="data.banner.descripcion | safeHtml: 'html'"></p>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" src="../assets/images/mobileforms/seccion1.png" alt="Procesos">
+                        <img class="img-fluid" [src]="data.banner.imagen" alt="Procesos">
                     </div>
                 </div>
             </div>
-        
             <div class="container">
-                <div class="row pt-3">
+                <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px','margin-bottom':'35px' }"></ngx-skeleton-loader>
+                <div class="row pt-3" *ngIf="!loader">
                     <div class="col-md-12 mb-3">
-                        <p class="font-weight-700 size29 text-green letter-spacing-025 text-center line-height-35">¡Digitaliza todos tus procesos y gestiona datos de forma ágil y sencilla!</p>
-                        <p class="text-gray letter-spacing-035 size24 line-height-29">Con Mobile Forms cuentas con una aplicación que se ajusta a tus necesidades de negocio</p>
+                        <p class="font-weight-700 size29 text-green letter-spacing-025 text-center line-height-35">{{ data.seccion1.titulo }}</p>
+                        <p class="text-gray letter-spacing-035 size24 line-height-29" [innerHTML]="data.seccion1.descripcion | safeHtml: 'html'"></p>
                     </div>
                     <div class="col-md-4">
-                        <img class="img-fluid" src="../assets/images/mobileforms/seccion2.png" alt="Gestiona">
+                        <img class="img-fluid" [src]="data.seccion1.imagen" alt="Gestiona">
                     </div>
-                    <div class="col-md-4">
-                        <div class="digitaliza-mobileforms p-3 mb-4 card-zoom">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza1.png" alt="Implementación">
-                            <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Una solución para las áreas de mercadeo y comercio
-                                que requieran encuestadores y/o mercaderistas en puntos de venta.</p>
-                        </div>
-                        <div class="digitaliza-mobileforms p-3 mb-4 card-zoom">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza3.png" alt="Implementación">
-                            <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Registras informarción en tiempo real de consumidores o una marca específica. 
-                            </p>
-                        </div>
-                        <div class="digitaliza-mobileforms p-3 mb-4 card-zoom">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza5.png" alt="Implementación">
-                            <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Registra las novedades que ocurran durante la jornada laboral, de modo off-line. 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="digitaliza-mobileforms p-3 mb-4 card-zoom">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza2.png" alt="Implementación">
-                            <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Te permite armar un plan de trabajo asignando tareas, entrega de base de datos de clientes y contactos a gestionar.</p>
-                        </div>
-                        <div class="digitaliza-mobileforms p-3 mb-4 card-zoom">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza4.png" alt="Implementación">
-                            <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Realiza la trazabilidad de los lugares donde se dirige tu equipo de tabajo gracias a su GPS.  
-                            </p>
-                        </div>
-                        <div class="digitaliza-mobileforms p-3 mb-4 card-zoom">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/digitaliza6.png" alt="Implementación">
-                            <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0">Digitaliza rápidamente formularios dinámicos, configura plantillas, exporta en PDF y diseña reportes gráficos de datos.
-                            </p>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <ng-container *ngFor="let proceso of data.seccion1.procesos">
+                                <div class="col-md-6">
+                                    <div class="digitaliza-mobileforms p-3 mb-4 card-zoom">
+                                        <img class="img-fluid d-block float-left mr-3" [src]="proceso.icono" alt="Implementación">
+                                        <p class="size13 line-height-16 letter-spacing-084 text-gray align-self-center mb-0" [innerHTML]="proceso.descripcion | safeHtml: 'html'"></p>
+                                    </div>
+                                </div>
+                            </ng-container>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5 pt-3">
+                <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+                <div class="row mt-5 pt-3" *ngIf="!loader">
                     <div class="col-md-7 my-auto">
-                        <p class="size25 letter-spacing-069 text-gray line-height-33 font-weight-700">Mobile Forms es la aplicación móvil y web en la nube ideal para transformar la gestión de los procesos dentro y fuera de tu negocio. 
-                        </p>
-                        <img class="card-zoom img-fluid" src="../assets/images/ontime/iosPNG.png" alt="iOS">
-                        <img class="card-zoom img-fluid" src="../assets/images/ontime/androidPNG.png" alt="Android">
-                        <button mat-raised-button class="mt-3 bg-green size15 text-white d-block border-radius-3 white-space-normal">Conoce más sobre seguridad y seguimiento de tus rutas</button>
+                        <p class="size25 letter-spacing-069 text-gray line-height-33 font-weight-700" [innerHTML]="data.seccion2.texto | safeHtml: 'html'"></p>
+                        <ng-container *ngFor="let icono of data.seccion2.iconos">
+                            <ng-container *ngFor="let logo of icono.logo">
+                                <img class="card-zoom img-fluid" [src]="logo.url" alt="logo.title">
+                            </ng-container>
+                        </ng-container>
+                        <a mat-raised-button class="btn-green mt-3 size15 text-white d-block border-radius-3 white-space-normal" [href]="data.seccion2.url_boton">{{ data.seccion2.texto_boton }}</a>
                     </div>
                     <div class="col-md-5">
-                        <img class="img-fluid" src="../assets/images/mobileforms/seccion3.png" alt="Aplicación móvil">
+                        <img class="img-fluid" [src]="data.seccion2.imagen" alt="Aplicación móvil">
                     </div>
                 </div>
             </div>
         </div>
         <div class="seccion2-mobileforms pt-5 mt-5">
-            <div class="container">
+            <div class="container" *ngIf="data.seccion3">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="font-weight-700 text-green size35 letter-spacing-097 line-height-47 text-center ubuntu">Funcionalidades a la medida que reforzarán la productividad de tu negocio
-                        </h2>
+                        <h2 class="font-weight-700 text-green size35 letter-spacing-097 line-height-47 text-center ubuntu">{{ data.seccion3.titulo }}</h2>
                     </div>
-                    <div class="col-md-4">
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion1.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Administración de clientes y visitas diarias
-                            </p>
+                    <ng-container *ngFor="let prod of data.seccion3.productividad">
+                        <div class="col-md-4">
+                            <div class="d-flex p-3 mb-4">
+                                <img class="card-zoom img-fluid d-block float-left mr-3" [src]="prod.icono" alt="Implementación">
+                                <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">{{ prod.texto }}</p>
+                            </div>
                         </div>
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion4.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Visor Google maps de actividades programadas
-                            </p>
-                        </div>
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion7.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Registro de novedades
-                            </p>
-                        </div>
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion10.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Reporte gráfico de datos capturados
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion2.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Tareas yo agendamiento diario
-                            </p>
-                        </div>
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion5.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Configuración de plantillas PDF
-                            </p>
-                        </div>
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion8.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Creación de formularios dinámicos
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion3.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Localización GPS por eventos y tracking
-                            </p>
-                        </div>
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion6.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Sincronización on-line y off-line
-                            </p>
-                        </div>
-                        <div class="d-flex p-3 mb-4">
-                            <img class="img-fluid d-block float-left mr-3" src="./assets/images/mobileforms/funcion9.png" alt="Implementación">
-                            <p class="size20 line-height-24 letter-spacing-054 text-black-dark align-self-center mb-0">Dashboard general / indicadores de gestión
-                            </p>
-                        </div>
-                    </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
-        <div class="seccion3-mobileforms pt-150 pb-50">
+        <div class="seccion3-mobileforms pt-150 pb-50" *ngIf="data.seccion4" [ngStyle]="{'background-image':'url(' + data.seccion4.fondo + ')'}">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 my-auto">
-                        <p class="size25 text-white font-weight-700 letter-spacing-069 line-height-33">Dale a tu equipo de trabajo una herramienta funcional que transformará y optimizará la gestión de los objetivos trazados.</p>
+                        <p class="size25 text-white font-weight-700 letter-spacing-069 line-height-33" [innerHTML]="data.seccion4.titulo | safeHtml: 'html'"></p>
                         <div class="row">
                             <div class="col-md-6">
-                                <a class="w-100 border-radius-3 bg-white size18 text-green border-white text-decoration-none mt-2 mb-2" mat-raised-button href="#" target="_blank">¡Conoce más aquí!
-                                </a>
+                                <a class="w-100 border-radius-3 bg-white size18 text-green border-white text-decoration-none btn-green-ouline mt-2 mb-2" mat-raised-button [href]="data.seccion4.url_boton_1" target="_blank">{{ data.seccion4.texto_boton_1 }}</a>
                             </div>
                             <div class="col-md-6">
-                                <a class="w-100 border-radius-3 size18 text-white bg-transparent border-white text-decoration-none mt-2 mb-2" mat-raised-button href="#" target="_blank">Solicita un demo</a>
+                                <a class="w-100 border-radius-3 size18 text-white bg-transparent border-white text-decoration-none btn-green-ouline mt-2 mb-2" mat-raised-button [href]="data.seccion4.url_boton_2" target="_blank">{{ data.seccion4.texto_boton_2 }}</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" src="./assets/images/mobileforms/seccion4.png" alt="Gestión Rutas">
+                        <img class="img-fluid" [src]="data.seccion4.imagen" alt="Gestión Rutas">
                     </div>
                 </div>
             </div>
         </div>
         <div class="seccion4-mobileforms pt-50 pb-50">
-            <div class="container">
+            <div class="container" *ngIf="data.seccion5">
                 <div class="row">
                     <div class="col-md-7">
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 mr-2 card-zoom">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios1.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Soporte 24/7</p>
-                            </div>
-                            <div class="beneficio-mobileforms d-flex p-2 align-items-center card-zoom">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios2.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Implementación rápida</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 mr-2 card-zoom">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios3.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Seguro, fácil y rápido aprendizaje</p>
-                            </div>
-                            <div class="beneficio-mobileforms d-flex p-2 align-items-center card-zoom">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios4.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Infraestructura 24/7</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 card-zoom">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios5.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Acompañamiento durante el proceso de implementación</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 card-zoom">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/mobileforms/beneficios6.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Actualizaciones y mantenimiento gratis</p>
-                            </div>
+                        <div class="row justify-content-end mb-2">
+                            <ng-container *ngFor="let beneficio of data.seccion5.beneficios">
+                                <div class="beneficio-mobileforms d-flex p-2 m-1 card-zoom">
+                                    <img class="img-fluid d-inline-block float-left mr-2" [src]="beneficio.icono" alt="Implementación">
+                                    <p class="size18 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">{{ beneficio.texto }}</p>
+                                </div>
+                            </ng-container>
                         </div>
                     </div>
                     <div class="col-md-5 my-auto">
-                        <p class="size32 font-weight-300 text-gray letter-spacing-097 line-height-36"><span class="font-weight-700">Haz parte de los beneficios</span><br> que harán tu equipo más productivo y tu negocio más rentable </p>
-                        <button mat-raised-button class="text-decoration-none bg-green size18 text-white border-radius-3 font-weight-500">Conoce nuestra solución</button>
+                        <p class="size32 font-weight-300 text-gray letter-spacing-097 line-height-36" [innerHTML]="data.seccion5.texto | safeHtml: 'html'"></p>
+                        <a mat-raised-button class="text-decoration-none bg-green btn-green size18 text-white border-radius-3 font-weight-500" [href]="data.seccion5.url_boton_1">{{ data.seccion5.texto_boton_1 }}</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="seccion5-mobileforms pt-50">
+        <div class="seccion5-mobileforms pt-50" *ngIf="data.seccion6">
             <div class="container mb-5">
                 <div class="row">
                     <div class="col-md-6 my-auto">
-                        <p class="font-weight-300 size25 letter-spacing-069 line-height-30 text-gray"><span class="font-weight-700 text-green">Una solución que integra tus necesidades.</span> <br>Mobile forms te ofrece la posibilidad de integrar otras herramientas de trabajo para que logres la mejor gestión de tus procesos empresariales a través de API o archivos planos.
-                        </p>
+                        <p class="font-weight-300 size25 letter-spacing-069 line-height-30 text-gray"><span class="font-weight-700 text-green">{{data.seccion6.integracion_y_clientes.integracion.titulo}}</span></p>
+                        <p class="font-weight-300 size25 letter-spacing-069 line-height-30 text-gray">{{ data.seccion6.integracion_y_clientes.integracion.descripcion }}</p>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid mx-auto d-block" src="./assets/images/mobileforms/seccion5.png" alt="Integración">
+                        <img class="img-fluid mx-auto d-block" [src]="data.seccion6.integracion_y_clientes.integracion.imagen" alt="Integración">
                     </div>
                 </div>
             </div>
-            <div class="container pt-50">
+            <div class="container-fluid pt-50">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="clientes-title text-center ubuntu text-green font-weight-700 size35 letter-spacing-097 line-height-46">Nuestros clientes</h2>
-                        <div class="gallery js-flickity mt-100" data-flickity='{ "autoPlay": true, "wrapAround": true, "prevNextButtons": false,
-                "pageDots": false, "imagesLoaded": true }'>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente1.png" alt="slide1" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente2.png" alt="slide2" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente3.png" alt="slide3" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente4.png" alt="slide4" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente5.png" alt="slide5" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente6.png" alt="slide6" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente7.png" alt="slide7" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente8.png" alt="slide8" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente9.png" alt="slide9" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente10.png" alt="slide10" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente11.png" alt="slide11" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente12.png" alt="slide12" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente13.png" alt="slide13" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente14.png" alt="slide14" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente15.png" alt="slide15" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente16.png" alt="slide16" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente17.png" alt="slide17" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente18.png" alt="slide18" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente19.png" alt="slide19" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente20.png" alt="slide20" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente21.png" alt="slide21" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente22.png" alt="slide22" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente23.png" alt="slide23" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente24.png" alt="slide24" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente25.png" alt="slide25" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente26.png" alt="slide26" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente27.png" alt="slide27" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente28.png" alt="slide28" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente29.png" alt="slide29" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente30.png" alt="slide30" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente31.png" alt="slide31" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente32.png" alt="slide32" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente33.png" alt="slide33" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente34.png" alt="slide34" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente35.png" alt="slide35" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente36.png" alt="slide36" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente37.png" alt="slide37" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente38.png" alt="slide38" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente39.png" alt="slide39" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente40.png" alt="slide40" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/mobileforms/cliente41.png" alt="slide41" />
-                            </div>
-                        </div>
+                        <h2 class="clientes-title text-center ubuntu text-green font-weight-700 size35 letter-spacing-097 line-height-46"><img [src]="data.seccion6.integracion_y_clientes.clientes.icono"> {{data.seccion6.integracion_y_clientes.clientes.titulo}}</h2>
+                        <owl-carousel-o [options]="customOptions">
+                            <ng-container *ngFor="let galeria of data.seccion6.integracion_y_clientes.clientes.galeria">
+                              <ng-template carouselSlide [id]="galeria.id">
+                                <img [src]="galeria.url" alt="logos" title="clientes">
+                              </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
                     </div>
                 </div>
             </div>
-            <div class="container mt-5 pt-3 pb-5">
+            <div class="container mt-5 pt-3 pb-5" *ngIf="data.seccion7">
                 <div class="row">
                     <div class="col-md-6">
-                        <img class="img-fluid" src="./assets/images/mobileforms/seccion6.png" alt="Solución Eficaz" />
+                        <img class="img-fluid" [src]="data.seccion7.imagen" alt="Solución Eficaz" />
                     </div>
                     <div class="col-md-6 my-auto">
-                        <h3 class="ubuntu text-green font-weight-700 size22 letter-spacing-071 line-height-32 mb-1">Una solución completa para tu negocio que requiere una gestión de recolección de datos eficaz.</h3>
-                        <p class="text-gray size22 letter-spacing-071 line-height-32">Suscripción mensual de <span class="font-weight-700">$16 USD</span></p>
-                        <a class="border-radius-3 bg-green size18 text-white text-decoration-none" mat-raised-button href="#" target="_blank">Ver precios</a>
+                        <h3 class="ubuntu text-green font-weight-700 size22 letter-spacing-071 line-height-32 mb-1" [innerHTML]="data.seccion7.descripcion | safeHtml: 'html'"></h3>
+                        <!-- <p class="text-gray size22 letter-spacing-071 line-height-32">Suscripción mensual de <span class="font-weight-700">$16 USD</span></p> -->
+                        <a class="border-radius-3 bg-green size18 text-white text-decoration-none btn-green" mat-raised-button [href]="data.seccion7.url_boton" target="_blank">{{ data.seccion7.texto_boton }}</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bg-white pt-5 pb-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img class="img-fluid mx-auto d-block mb-2" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
-                    </div>
-                    <div class="col-md-8">
-                        <p class="text-gray size16 letter-spacing-009 line-height-24"><span class="font-weight-700">Sabemos que cuentas con más áreas de trabajo y nosotros con más aplicaciones para que optimices su gestión.</span> Anímate a ampliar tu paquete y conocer todas las soluciones digitales que tenemos para tu negocio con nuestra suite. 
-                        </p>
+        <div class="bg-white pt-5 pb-0" *ngIf="data.seccion8">
+            <div style="background:url('{{ data.seccion8.icono_fondo_1 }}');background-repeat: no-repeat;background-position: left top;margin-top:-60px">
+                <div style="background:url('{{ data.seccion8.icono_fondo_2 }}');background-repeat: no-repeat;background-position: right;">
+                    <div class="container pt-5 pb-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img class="img-fluid mx-auto d-block mb-2" [src]="data.seccion8.imagen" alt="Logo Smartsuite">
+                            </div>
+                            <div class="col-md-8">
+                                <p class="text-gray size16 letter-spacing-009 line-height-24" [innerHTML]="data.seccion8.descripcion | safeHtml: 'html'"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <app-animate-contacto></app-animate-contacto>
     </div>
-    <div class="bg-light border-right p-4" id="sidebar-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <img class="img-fluid" src="./assets/images/mobileforms/sidenav.png" alt="Sidenav">
-                </div>
-                <div class="col-md-5 my-auto">
-                    <p class="size21 text-gray font-weight-700 letter-spacing-1-28 line-height-24 text-uppercase">Estás a punto de conocer la mejor herramienta para tu trabajo</p>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <form (ngSubmit)="enviarForm(formularioSidenav)" #formularioSidenav="ngForm" id="formulario-Sidenav" class="sidenav-contact p-3">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="empresa">Empresa</label>
-                                    <input type="text" class="form-control" id="empresa" name="empresa" #empresa="ngModel" [(ngModel)]="userside.empresa" placeholder="Neuromedia Agencia Digital SAS" required>
-                                    <small style="color:#c30000;" *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)">
-                                        Empresa es un campo requerido.
-                                    </small>
-                                </div>
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="nombres">Nombre completo</label>
-                                    <input type="text" class="form-control" id="nombres" name="nombres" #nombres="ngModel" [(ngModel)]="userside.nombres" placeholder="Nombre completo" required>
-                                    <small style="color:#c30000;" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
-                                        Nombres es un campo requerido.
-                                    </small>
-                                </div>
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="telefono">Número de Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="userside.telefono" pattern="^\d+$" placeholder="3120000000" required>
-                                    <small style="color:#c30000;" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
-                                        Ingrese un teléfono válido.
-                                    </small>
-                                </div>
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="email">Correo Electrónico</label>
-                                    <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="userside.email" email="true" placeholder="neuromedia@gmail.com" required>
-                                    <small style="color:#c30000;" *ngIf="email.invalid && (email.dirty || email.touched)">
-                                        Ingrese un correo electrónico válido.
-                                    </small>
-                                </div>
-                                <div class="form-row form-group pt-2 pb-2 mb-0">
-                                    <label class="size16 text-gray" for="producto">Producto</label>
-                                    <select class="form-control tipo-producto" id="selectProducto" name="producto" #producto="ngModel" [(ngModel)]="userside.producto" required>
-                                    <option value="" disabled>Elija una opción</option>
-                                    <option>Smart Sales</option>
-                                    <option>On Time</option>
-                                    <option>Mobile Forms</option>
-                                    <option>Care Task</option>
-                                    <option>In track</option>
-                                    <option>On Check</option>
-                                    </select>
-                                    <small style="color:#c30000;" *ngIf="producto.invalid && (producto.dirty || producto.touched)">
-                                        El Producto es un campo requerido.
-                                    </small>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="userside.acepto" class="form-check-input" id="acepto" required>
-                                    <label class="size16 text-gray" for="acepto">Conozco y acepto la política de datos</label>
-                                    <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
-                                        Debe aceptar las condiciones.
-                                    </small>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="submit" class="float-left btn btn-mobileforms-fill size15 border-radius-2 mt-4 w-100 mx-auto d-block mb-2" name="enviar" value="Solicitar demo" [disabled]="formularioSidenav.invalid">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a mat-button class="line-height-1-5 p-cancel-sidebar w-100 border-radius-2 size15 btn-mobileforms mt-4 mb-2 text-decoration-none" (click)="cierraTrabajemos()">Cancelar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-sidebar-mobileforms></app-sidebar-mobileforms>
 </div>

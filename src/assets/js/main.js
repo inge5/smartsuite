@@ -5,3 +5,11 @@ $(document).ready(function() {
         $("#wrapperInterna").toggleClass("toggled");
     });
 });
+
+function flickity(){
+    $('.main-gallery').flickity({
+        // options
+        cellAlign: 'left',
+        contain: true
+    });
+}

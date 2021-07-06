@@ -1,9 +1,27 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import {MatSidenav} from '@angular/material/sidenav';
+import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
+import { HomeService } from '../services/home.service';
 
 declare var $ : any; 
+
+@Pipe({ name: 'safeHtml'})
+export class SafeHtmlPipe implements PipeTransform  {
+  constructor(private sanitized: DomSanitizer) {}
+  public transform(value: any, type: string): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
+    // return this.sanitized.bypassSecurityTrustHtml(value);
+    switch (type) {
+      case 'html': return this.sanitized.bypassSecurityTrustHtml(value);
+      case 'style': return this.sanitized.bypassSecurityTrustStyle(value);
+      case 'script': return this.sanitized.bypassSecurityTrustScript(value);
+      case 'url': return this.sanitized.bypassSecurityTrustUrl(value);
+      case 'resourceUrl': return this.sanitized.bypassSecurityTrustResourceUrl(value);
+      default: throw new Error(`Invalid safe type specified: ${type}`);
+    }
+  }
+}
 
 @Component({
   selector: 'app-ontime',
@@ -13,8 +31,10 @@ declare var $ : any;
 export class OntimeComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
   public userside: any;
-
-  constructor(private http: HttpClient) { 
+  data:any = [];
+  loader = true;
+  
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
     this.userside = {
       empresa: '',
       nombres: '',
@@ -26,6 +46,12 @@ export class OntimeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._homeservice.getHomeOnTime()
+    .subscribe((res:any) => {
+      this.loader = false;
+      this.data = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.data = this.data.changingThisBreaksApplicationSecurity;
+    });
   }
 
   reason = '';

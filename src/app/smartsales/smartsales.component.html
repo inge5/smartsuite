@@ -1,210 +1,101 @@
 <div class="pagina-full" id="wrapper">
-    <div class="sticky-smartsale">
-        <nav class="menu-secondary navbar navbar-expand-lg navbar-light bg-white box-shadow-menu">
-            <div class="container">
-                <a class="navbar-brand" href="/smartsales"><img src="./assets/images/smartsale/smartsales-logo.png" alt="Logo principal" class="img-logo"></a>
-                <ul class="navbar-nav main-menu-list mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-main size16" href="#">Funcionalidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-main size16" href="/precios-smartsales">Precios</a>
-                    </li>
-                </ul>
-                <button mat-raised-button class="demo-smartsale size18 border-radius-2" (click)="abrirSide()">Demo</button>
-            </div>
-        </nav>
+    <app-submenu-smartsales></app-submenu-smartsales>
+    <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+    <div class="container">
+        <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+        <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
     </div>
-    <div class="smartsale-page">
+    <div class="smartsale-page" *ngIf="!loader">
         <div class="seccion1-smartsale pt-5">
             <div class="container">
-                <div class="row mb-5 pt-4">
+                <div class="row mb-5 pt-4" *ngIf="data.banner">
                     <div class="col-md-6 my-auto">
-                        <h2 class="size42 letter-spacing-062 line-height-50 font-weight-700 text-red ubuntu">Aumenta la productividad de tu equipo comercial.</h2> 
-                        <p class="size22 font-weight-300 text-blue-dark letter-spacing-1-28 line-height-29">Transforma, optimiza  y controla la gestión comercial de tu empresa integrando múltiples soluciones.</p>
+                        <p class="ubuntu line-height-30 font-weight-300 line-height-45" [innerHTML]="data.banner.texto | safeHtml: 'html'"></p> 
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" src="../assets/images/smartsale/seccion1.png" alt="Productividad">
+                        <img class="img-fluid" [src]="data.banner.imagen" alt="Productividad">
                     </div>
                 </div>
-                <div class="row pt-3">
+                <div class="row pt-3" *ngIf="data.seccion1">
                     <div class="col-md-6">
-                        <img class="img-fluid" src="../assets/images/smartsale/seccion2.png" alt="Comercial">
+                        <img class="img-fluid" [src]="data.seccion1.imagen" alt="Comercial">
                     </div>
                     <div class="col-md-6 my-auto">
-                        <h3 class="size26 text-blue-dark font-weight-700 letter-spacing-021 line-height-31 ubuntu">Lleva la gestión comercial de tu empresa a través de un sistema móvil eficiente</h3>
-                        <p class="size16 font-weight-300 letter-spacing-025 line-height-19 text-gray"><strong>Smart Sales</strong> te da acceso a toda la información en línea de tus clientes, productos, inventarios, cambios de precios y saldos de cartera; además te permite realizar la trazabilidad de los lugares que visita tu equipo de ventas gracias a su GPS.
+                        <h3 class="size26 text-blue-dark font-weight-700 letter-spacing-021 line-height-31 ubuntu">{{ data.seccion1.titulo }}</h3>
+                        <p class="size16 font-weight-300 letter-spacing-025 line-height-19 text-gray" [innerHTML]="data.seccion1.descripcion | safeHtml: 'html'"></p>
+                    </div>
+                </div>
+                <div class="row mt-5 pt-3" *ngIf="data.seccion2">
+                    <div class="col-md-6 my-auto">
+                        <h3 class="font-weight-700 size25 letter-spacing-069 line-height-33 text-red text-right mb-1">{{ data.seccion2.titulo }}</h3>
+                        <p class="size16 font-weight-700 letter-spacing-044 line-height-19 text-gray text-right" [innerHTML]="data.seccion2.descripcion | safeHtml: 'html'"></p>
+                        <p class="text-right">
+                            <ng-container *ngFor="let icon of data.seccion2.iconos">
+                                <ng-container *ngFor="let logo of icon.logo">
+                                    <img class="img-fluid card-zoom" [src]="logo.url" [alt]="logo.title">
+                                </ng-container>
+                            </ng-container>
                         </p>
                     </div>
-                </div>
-                <div class="row mt-5 pt-3">
-                    <div class="col-md-6 my-auto">
-                        <h3 class="font-weight-700 size25 letter-spacing-069 line-height-33 text-red text-right mb-1">¡Somos una solución en la nube!</h3>
-                        <p class="size16 font-weight-700 letter-spacing-044 line-height-19 text-gray text-right">Smart Sales es la aplicación móvil y web ideal para transformar la gestión de los procesos comerciales de tu negocio. </p>
-                    </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" src="../assets/images/smartsale/seccion3.png" alt="Solución">
+                        <img class="img-fluid" [src]="data.seccion2.imagen" alt="Solución">
                     </div>
                 </div>
-                <div class="row mt-5 pb-5">
+                <div class="row mt-5 pb-5" *ngIf="data.seccion3">
                     <div class="col-md-12">
                         <div class="digitaliza-background p-3-6">
-                            <h3 class="text-blue-dark size38 letter-spacing-1-03 line-height-46 font-weight-700 text-center">¡Es momento de digitalizar todos tus procesos de ventas con Smart Sales! </h3>
-                            <button mat-raised-button class="demo-smartsale size15 text-white mx-auto d-block border-radius-25">¡Hablemos!</button>
+                            <h3 class="text-blue-dark size38 letter-spacing-1-03 line-height-46 font-weight-700 text-center">{{ data.seccion3.titulo }}</h3>
+                            <ng-container *ngIf="data.seccion3.url_boton">
+                                <a mat-raised-button class="w-25 demo-smartsale size15 text-white mx-auto d-block border-radius-25" [href]="data.seccion3.url_boton">{{ data.seccion3.texto_boton }}</a>
+                            </ng-container>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="seccion2-smartsale pt-5 pb-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 my-auto">
-                        <h3 class="font-weight-700 size28 letter-spacing-077 line-height-33 text-red text-right mb-0">Funcionalidades a la medida de tu negocio</h3>
-                        <h3 class="font-weight-300 size28 letter-spacing-077 line-height-33 text-blue-dark text-right mb-1">que aumentan la productividad de tu equipo de ventas</h3>
-                    </div>
-                    <div class="col">
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion1.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Administración y <br>creación de clientes</p>
-                                </div>
-                            </div>
+        <div id="funcionalidades" class="seccion2-smartsale pt-5 pb-5" *ngIf="data.seccion4" style="background-image: linear-gradient(180deg, #FFFFFF 0%, #F3F3FF 100%);">
+            <div style="background:url('{{ data.seccion4.fondo }}');background-repeat: no-repeat;background-position: left;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 my-auto">
+                            <h3 class="font-weight-700 size28 letter-spacing-077 line-height-33 text-red text-right mb-0">{{ data.seccion4.titulo }}</h3>
+                            <h3 class="font-weight-300 size28 letter-spacing-077 line-height-22 text-blue-dark text-right mb-1" [innerHTML]="data.seccion4.descripcion | safeHtml: 'html'"></h3>
                         </div>
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
+                        <div class="col-md-8">
                             <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion2.png" alt="Funcionalidad">
+                                <ng-container *ngFor="let funcionalidad of data.seccion4.funcionalidades">
+                                    <div class="col-md-4 mb-2 card-zoom">
+                                        <div class="row funcionalidad mr-1 ml-1">
+                                            <div class="col-md-3 p-0">
+                                                <div class="item-img-func pt-4 pb-4">
+                                                    <img class="img-fluid" [src]="funcionalidad.icono" alt="Funcionalidad">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 my-auto">
+                                                <p class="font-weight-300 text-gray size14 letter-spacing-041 mb-0">{{ funcionalidad.texto }}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Visor Google maps de actividades programadas</p>
-                                </div>
+                                </ng-container>
                             </div>
-                        </div>
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion3.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Registro de novedades</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion4.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Registro de ventas y recaudos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion5.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Tareas y/o agendamiento diario</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion6.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Visualización de productos</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion7.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Dashboard general de indicadores de gestión</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion8.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Localización GPS por eventos y tracking</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion9.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Sincronización automática y manual de datos off-line</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="funcionalidad mb-2 mr-2 ml-3">
-                            <div class="row">
-                                <div class="col-md-3 p-0">
-                                    <div class="item-img-func pt-4 pb-4">
-                                        <img class="img-fluid" src="../assets/images/smartsale/funcion10.png" alt="Funcionalidad">
-                                    </div>
-                                </div>
-                                <div class="col-md-9 my-auto">
-                                    <p class="font-weight-300 text-gray size14 letter-spacing-041 line-height-17 mb-0">Reporte gráfico de datos capturados</p>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="seccion3-smartsale pt-150 pb-150">
-            <img class="img-back" src="./assets/images/smartsale/seccion4.png" alt="Solución Funcional">
+        <div class="seccion3-smartsale pt-150 pb-150" *ngIf="data.seccion5">
+            <img class="img-back" [src]="data.seccion5.imagen" alt="Solución Funcional" >
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 my-auto">
-                        <p class="text-blue-dark size25 font-weight-300 letter-spacing-069 line-height-33"><span class="font-weight-700">Ofrécele a tu equipo de trabajo una solución funcional</span> que transformará y optimizará la fuerza comercial de tu negocio.
-                        </p>
+                        <p class="text-blue-dark size25 font-weight-300 letter-spacing-069 line-height-33" [innerHTML]="data.seccion5.texto | safeHtml: 'html'"></p>
                         <div class="row">
-                            <div class="col-md-6">
-                                <a class="w-100 border-radius-25 demo-smartsale size15 text-decoration-none mb-2 mt-2" mat-raised-button href="https://www.google.com/" target="_blank">Conoce nuestra solución</a>
+                            <div class="col-md-6" *ngIf="data.seccion5.url_boton_1">
+                                <a class="w-100 border-radius-25 demo-smartsale size15 text-decoration-none mb-2 mt-2" mat-raised-button [href]="data.seccion5.url_boton_1" target="_blank">{{ data.seccion5.texto_boton_1 }}</a>
                             </div>
-                            <div class="col-md-6">
-                                <a class="w-100 border-radius-25 size15 text-gray text-decoration-none mb-2 mt-2" mat-raised-button href="https://www.google.com/" target="_blank">Solicita un demo</a>
+                            <div class="col-md-6" *ngIf="data.seccion5.url_boton_2">
+                                <a class="w-100 btn-white border-radius-25 size15 text-gray text-decoration-none mb-2 mt-2" mat-raised-button [href]="data.seccion5.url_boton_2" target="_blank">{{ data.seccion5.texto_boton_2 }}</a>
                             </div>
                         </div>
                     </div>
@@ -213,199 +104,83 @@
                 </div>
             </div>
         </div>
-        <div class="seccion4-smartsale pt-150 pb-50">
+        <div class="seccion4-smartsale pt-150 pb-50" *ngIf="data.seccion6">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row justify-content-end mb-2">
-                            <div class="beneficio d-flex p-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/smartsale/beneficio1.png" alt="Implementación">
-                                <p class="size18 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Implementación rápida</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2">
-                            <div class="beneficio d-flex p-2 mr-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/smartsale/beneficio2.png" alt="Implementación">
-                                <p class="size18 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Soporte 24/7</p>
-                            </div>
-                            <div class="beneficio d-flex p-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/smartsale/beneficio3.png" alt="Implementación">
-                                <p class="size18 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Infraestructura 24/7</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2">
-                            <div class="beneficio d-flex p-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/smartsale/beneficio4.png" alt="Implementación">
-                                <p class="size18 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Validación por NFC o QR</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2">
-                            <div class="beneficio d-flex p-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/smartsale/beneficio5.png" alt="Implementación">
-                                <p class="size18 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Actualizaciones y mantenimiento</p>
-                            </div>
+                            <ng-container *ngFor="let beneficio of data.seccion6.beneficios">
+                                <div class="beneficio d-flex p-2 m-1 card-zoom">
+                                    <img class="img-fluid d-inline-block float-left mr-2" [src]="beneficio.icono" alt="Implementación">
+                                    <p class="size18 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">{{ beneficio.texto }}</p>
+                                </div>
+                            </ng-container>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <p class="size35 font-weight-300 text-gray letter-spacing-097 line-height-36"><span class="font-weight-700">Haz parte de los beneficios</span> que harán tu equipo comercial más productivo y tu negocio más rentable  </p>
-                        <button mat-raised-button class="text-decoration-none demo-smartsale size15 text-white border-radius-25 font-weight-300">Trabajemos juntos</button>
+                        <p class="size35 font-weight-300 text-gray letter-spacing-097 line-height-36" [innerHTML]="data.seccion6.texto | safeHtml: 'html'"></p>
+                        <a mat-raised-button class="text-decoration-none demo-smartsale size15 text-white border-radius-25 font-weight-300" [href]="data.seccion6.url_boton">{{ data.seccion6.texto_boton }}</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="seccion5-smartsale pt-150 pb-50">
+        <div class="seccion5-smartsale pt-150 pb-50" *ngIf="data.seccion7">
             <div class="container mb-5">
                 <div class="row">
                     <div class="col-md-6 my-auto">
-                        <p class="font-weight-300 size35 letter-spacing-097 line-height-46 text-gray"><span class="font-weight-700">Logra una óptima gestión de tus procesos comerciales</span> integrando a Smart Sales usando APIs o archivos planos. 
-                        </p>
+                        <p class="font-weight-700 text-gray size35 line-height-46">{{ data.seccion7.titulo }}</p>
+                        <p class="font-weight-300 size35 letter-spacing-097 line-height-46 text-gray" [innerHTML]="data.seccion7.descripcion | safeHtml: 'html'"></p>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" src="./assets/images/smartsale/seccion5.png" alt="Procesos">
+                        <img class="img-fluid" [src]="data.seccion7.imagen" alt="Procesos">
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="size35 font-weight-700 letter-spacing-097 line-height-46 text-blue-dark text-center ubuntu">Nuestros clientes</h2>
-                        <div class="gallery js-flickity" data-flickity='{ "autoPlay": true, "wrapAround": true, "prevNextButtons": false,
-                "pageDots": false, "imagesLoaded": true }'>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente1.png" alt="slide1" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente2.png" alt="slide2" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente3.png" alt="slide3" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente4.png" alt="slide4" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente5.png" alt="slide5" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente6.png" alt="slide6" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente7.png" alt="slide7" />
-                            </div>
-                            <div class="carousel-cell">
-                                <img class="img-fluid" src="./assets/images/smartsale/cliente8.png" alt="slide8" />
-                            </div>
-                        </div>
+                        <h2 class="size35 font-weight-700 letter-spacing-097 line-height-46 text-blue-dark text-center ubuntu">{{ data.seccion8.titulo }}</h2>
+                        <owl-carousel-o [options]="customOptions">
+                            <ng-container *ngFor="let galeria of data.seccion8.galeria">
+                              <ng-template carouselSlide [id]="galeria.id">
+                                <img [src]="galeria.url" alt="logos" title="clientes">
+                              </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
                     </div>
                 </div>
             </div>
-            <div class="container mt-5 pt-3">
+            <div class="container mt-5 pt-3" *ngIf="data.seccion9">
                 <div class="row">
                     <div class="col-md-6">
-                        <img class="img-fluid" src="./assets/images/smartsale/seccion6.png" alt="Solución Eficaz" />
+                        <img class="img-fluid" [src]="data.seccion9.imagen" alt="Solución Eficaz" />
                     </div>
                     <div class="col-md-6 my-auto">
-                        <h3 class="ubuntu text-blue-dark font-weight-700 size25 letter-spacing-009 line-height-36">Tu negocio requiere de una solución eficaz que logre  automatizar la gestión comercial. </h3>
-                        <p class="text-gray size25 letter-spacing-009 line-height-36">Suscripción mensual a partir de: <span class="font-weight-700">$20 USD</span></p>
-                        <a mat-raised-button class="demo-smartsale size15 text-white border-radius-25 font-weight-300 text-decoration-none" href="#">Conoce más</a>
+                        <p class="ubuntu text-blue-dark font-weight-700 size25 letter-spacing-009 line-height-36" [innerHTML]="data.seccion9.texto | safeHtml: 'html'"></p>
+                        <ng-container *ngIf="data.seccion9.url_boton">
+                            <a mat-raised-button class="demo-smartsale size15 text-white border-radius-25 font-weight-300 text-decoration-none" [href]="data.seccion9.url_boton">{{ data.seccion9.texto_boton }}</a>
+                        </ng-container>    
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bg-soft-gray pt-5 pb-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 my-auto">
-                        <img class="img-fluid" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
-                    </div>
-                    <div class="col-md-6">
-                        <p class="text-gray size16 letter-spacing-009 line-height-24"><span class="font-weight-700">Sabemos que cuentas con más áreas de trabajo y nosotros con más aplicaciones para que optimices su gestión.</span> Anímate a ampliar tu paquete y conocer todas las soluciones digitales que tenemos para tu negocio con nuestra suite. </p>
+        <div class="bg-soft-gray pt-5 pb-5" *ngIf="data.seccion10">
+            <div style="background:url('{{ data.seccion10.fondo_1 }}');background-repeat: no-repeat;background-position: left top;margin-top:-60px">
+                <div style="background:url('{{ data.seccion10.fondo_2 }}');background-repeat: no-repeat;background-position: right;">
+                    <div class="container pt-5 pb-5">
+                        <div class="row">
+                            <div class="col-md-6 my-auto">
+                                <img class="img-fluid" [src]="data.seccion10.logo" alt="Logo Smartsuite">
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-gray size16 letter-spacing-009 line-height-24" [innerHTML]="data.seccion10.texto | safeHtml: 'html'"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <app-animate-contacto></app-animate-contacto>
     </div>
-    <div class="bg-light border-right p-4" id="sidebar-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <img class="img-fluid" src="./assets/images/smartsale/sidenav.png" alt="Sidenav">
-                </div>
-                <div class="col-md-5 my-auto">
-                    <p class="size21 text-gray font-weight-700 letter-spacing-1-28 line-height-24 text-uppercase">Estás a punto de conocer la mejor herramienta para tu trabajo</p>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <form (ngSubmit)="enviarForm(formularioSidenav)" #formularioSidenav="ngForm" id="formulario-Sidenav" class="sidenav-contact p-3">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="empresa">Empresa</label>
-                                    <input type="text" class="form-control" id="empresa" name="empresa" #empresa="ngModel" [(ngModel)]="userside.empresa" placeholder="Neuromedia Agencia Digital SAS" required>
-                                    <small style="color:#c30000;" *ngIf="empresa.invalid && (empresa.dirty || empresa.touched)">
-                                        Empresa es un campo requerido.
-                                    </small>
-                                </div>
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="nombres">Nombre completo</label>
-                                    <input type="text" class="form-control" id="nombres" name="nombres" #nombres="ngModel" [(ngModel)]="userside.nombres" placeholder="Nombre completo" required>
-                                    <small style="color:#c30000;" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
-                                        Nombres es un campo requerido.
-                                    </small>
-                                </div>
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="telefono">Número de Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="userside.telefono" pattern="^\d+$" placeholder="3120000000" required>
-                                    <small style="color:#c30000;" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
-                                        Ingrese un teléfono válido.
-                                    </small>
-                                </div>
-                                <div class="form-row pt-2 pb-2">
-                                    <label class="size16 text-gray" for="email">Correo Electrónico</label>
-                                    <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="userside.email" email="true" placeholder="neuromedia@gmail.com" required>
-                                    <small style="color:#c30000;" *ngIf="email.invalid && (email.dirty || email.touched)">
-                                        Ingrese un correo electrónico válido.
-                                    </small>
-                                </div>
-                                <div class="form-row form-group pt-2 pb-2 mb-0">
-                                    <label class="size16 text-gray" for="producto">Producto</label>
-                                    <select class="form-control tipo-producto" id="selectProducto" name="producto" #producto="ngModel" [(ngModel)]="userside.producto" required>
-                                    <option value="" disabled>Elija una opción</option>
-                                    <option>Smart Sales</option>
-                                    <option>On Time</option>
-                                    <option>Mobile Forms</option>
-                                    <option>Care Task</option>
-                                    <option>In track</option>
-                                    <option>On Check</option>
-                                    </select>
-                                    <small style="color:#c30000;" *ngIf="producto.invalid && (producto.dirty || producto.touched)">
-                                        El Producto es un campo requerido.
-                                    </small>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="userside.acepto" class="form-check-input" id="acepto" required>
-                                    <label class="size16 text-gray" for="acepto">Conozco y acepto la política de datos</label>
-                                    <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
-                                        Debe aceptar las condiciones.
-                                    </small>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="submit" class="float-left btn btn-smartsale-fill size15 border-radius-2 mt-4 w-100 mx-auto d-block mb-2" name="enviar" value="Solicitar demo" [disabled]="formularioSidenav.invalid">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a mat-button class="line-height-1-5 p-cancel-sidebar w-100 border-radius-2 size15 btn-smartsale mt-4 mb-2 text-decoration-none" (click)="cierraTrabajemos()">Cancelar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-sidebar></app-sidebar>
 </div>

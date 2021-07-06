@@ -1,213 +1,81 @@
 <div class="smartsuite-page">
-    <div class="background-smartsuite seccion1 pb-5">
+    <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+    <div class="background-smartsuite seccion1 pb-5" *ngIf="!loader">
         <div class="container">
-            <div class="row">
+            <div class="row" *ngIf="data.banner">
                 <div class="col-md-6 my-auto">
-                    <p class="pt-5 text-black-dark size17 letter-spacing-025">Llegó la hora de ofrecerle a todas las áreas de tu negocio</p>
-                    <h3 class="ubuntu text-pink font-weight-300 size34 letter-spacing-05 line-height-41"><span class="font-weight-700">herramientas que optimicen su gestión</span> para garantizar los mejores resultados.</h3>
+                    <p class="ubuntu letter-spacing-05 line-height-41" [innerHTML]="data.banner.texto | safeHtml: 'html'"></p>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-fluid" src="../assets/images/seccion1.png" alt="SmartSuite">
+                    <img class="img-fluid" [src]="data.banner.imagen" alt="SmartSuite">
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2">
-                    <mat-card class="card-zoom tarjetas-services mt-2 mb-2">
-                        <img class="mb-1 img-fluid" src="../assets/images/onecheck.png" alt="OneCheck">
-                        <mat-card-content>
-                          <p class="size14 line-height-17 letter-spacing-054 text-center text-black">
-                            Apoyo en la gestión de rondas de vigilancia.
-                          </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div class="col-md-2">
-                    <mat-card class="card-zoom tarjetas-services mt-2 mb-2">
-                        <img class="mb-1 img-fluid" src="../assets/images/smartsales.png" alt="SmartSales">
-                        <mat-card-content>
-                          <p class="size14 line-height-17 letter-spacing-054 text-center text-black">
-                            Automatización de la gestión comercial.
-                          </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div class="col-md-2">
-                    <mat-card class="card-zoom tarjetas-services mt-2 mb-2">
-                        <img class="mb-1 img-fluid" src="../assets/images/onetime.png" alt="OneTime">
-                        <mat-card-content>
-                          <p class="size14 line-height-17 letter-spacing-054 text-center text-black">
-                            Administración de la gestión de rutas escolares y empresariales.
-                          </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div class="col-md-2">
-                    <mat-card class="card-zoom tarjetas-services mt-2 mb-2">
-                        <img class="mb-1 img-fluid" src="../assets/images/mobileforms.png" alt="MobileForms">
-                        <mat-card-content>
-                          <p class="size14 line-height-17 letter-spacing-054 text-center text-black">
-                            Automatización de los procesos de formularios, agendamiento y  registros.
-                          </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div class="col-md-2">
-                    <mat-card class="card-zoom tarjetas-services mt-2 mb-2">
-                        <img class="mb-1 img-fluid" src="../assets/images/intrack.png" alt="Intrack">
-                        <mat-card-content>
-                          <p class="size14 line-height-17 letter-spacing-054 text-center text-black">
-                            Localización geográfica y control en tiempo real.
-                          </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div class="col-md-2">
-                    <mat-card class="card-zoom tarjetas-services mt-2 mb-2">
-                        <img class="mb-1 img-fluid" src="../assets/images/caretask.png" alt="CareTask">
-                        <mat-card-content>
-                          <p class="size14 line-height-17 letter-spacing-054 text-center text-black">
-                            Seguimiento de las actividades de camillería.
-                          </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
+                <ng-container *ngFor="let empresas of data.empresas; let i = index">
+                    <div class="col-md-2">
+                        <mat-card class="card-zoom tarjetas-services tarjetas-services-{{i}} mt-2 mb-2">
+                            <img class="mb-1 img-fluid" [src]="empresas.icono" alt="OneCheck">
+                            <mat-card-content>
+                                <p class="size14 line-height-17 letter-spacing-054 text-center text-black" [innerHTML]="empresas.descripcion"></p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </ng-container>
             </div>
         </div>
     </div>
-    <div class="seccion2 mt-3">
-        <div class="container-fluid">
+    <ngx-skeleton-loader class="container d-flex pt-5 pb-4" count="6" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'250px','border-radius': '10px' }"></ngx-skeleton-loader>
+    <div class="seccion2 mt-3" *ngIf="data.aplicaciones_mobiles">
+        <div class="container-fluid" *ngIf="!loader">
             <div class="row">
                 <div class="col-md-6 pl-0">
-                    <img class="img-fluid" src="../assets/images/background1.png" alt="Background">
+                    <img class="img-fluid" [src]="data.aplicaciones_mobiles.fondo" alt="Background">
                 </div>
                 <div class="col-md-6 my-auto">
-                    <div class="img-apps mb-4">
-                        <img src="./assets/images/launch_iconPNG.png" alt="Apps móviles">
-                      </div>
-                      <h2 class="size38 font-weight-700 text-blue mb-4">Aplicaciones móviles</h2>
-                      <p class="size18 font-weight-400"><strong>Eficientes y dinámicas para una óptima gestión de<br> 
-                        tus procesos empresariales.</strong> Estamos presentes a<br>
-                        nivel nacional e internacional diseñando y optimizando <br>
-                        procesos con nuestras soluciones digitales.</p>
-                      <div class="banderas">
-                        <img class="img-fluid d-inline-block card-zoom" src="./assets/images/bandera-colombia.png" alt="Colombia">
-                        <img class="img-fluid d-inline-block card-zoom" src="./assets/images/bandera-peru.png" alt="Perú">
-                        <img class="img-fluid d-inline-block card-zoom" src="./assets/images/bandera-republica-dominicana.png" alt="Rep. Dominicana">
-                        <img class="img-fluid d-inline-block card-zoom" src="./assets/images/bandera-ecuador.png" alt="Ecuador">
-                      </div>
+                    <div class="img-apps mb-4" *ngIf="data.aplicaciones_mobiles.icono">
+                        <img [src]="data.aplicaciones_mobiles.icono" alt="Apps móviles">
+                    </div>
+                    <h2 class="size38 font-weight-700 text-blue mb-4">{{ data.aplicaciones_mobiles.titulo }}</h2>
+                    <p class="size18 font-weight-400" [innerHTML]="data.aplicaciones_mobiles.descripcion"></p>
+                    <div class="banderas">
+                        <ng-container *ngFor="let bandera of data.aplicaciones_mobiles.banderas">
+                            <img class="img-fluid d-inline-block card-zoom" [src]="bandera.bandera" alt="Nivel nacional e internacional">
+                        </ng-container>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="seccion3 pt-5 bg-soft-blue">
-        <div class="container">
+    <ngx-skeleton-loader  count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+    <div class="seccion3 pt-5 bg-soft-blue" *ngIf="!loader">
+        <div class="container" *ngIf="data.clientes">
             <div class="row">
                 <div class="col-md-12">
-                    <img class="d-block mx-auto mb-4" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
-                    <h2 class="size38 font-weight-700 line-height-46 letter-spacing-056 text-black text-center mb-2">Clientes que confiaron en nosotros</h2>
-                    <p class="text-center text-black size18 letter-spacing-027">y optimizaron con éxito sus procesos</p>
+                    <img class="d-block mx-auto mb-4" [src]="data.clientes.logo" alt="Logo Smartsuite">
+                    <h2 class="size38 font-weight-700 line-height-46 letter-spacing-056 text-black text-center mb-2">{{ data.clientes.titulo }}</h2>
+                    <p class="text-center text-black size18 letter-spacing-027" [innerHTML]="data.clientes.descripcion"></p>
                 </div>
             </div>
         </div>
-        <div class="contenedor mt-5 pb-5">
-            <div class="gallery js-flickity" data-flickity='{ "autoPlay": true, "wrapAround": true, "prevNextButtons": false,
-            "pageDots": false, "imagesLoaded": true }'>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente1.png" alt="slide1" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente2.png" alt="slide2" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente3.png" alt="slide3" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente4.png" alt="slide4" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente5.png" alt="slide5" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente6.png" alt="slide6" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente7.png" alt="slide7" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente8.png" alt="slide8" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente9.png" alt="slide9" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente10.png" alt="slide10" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente11.png" alt="slide11" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente12.png" alt="slide12" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente13.png" alt="slide13" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente14.png" alt="slide14" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente15.png" alt="slide15" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente16.png" alt="slide16" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente17.png" alt="slide17" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente18.png" alt="slide18" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente19.png" alt="slide19" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente20.png" alt="slide20" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente21.png" alt="slide21" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente22.png" alt="slide22" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente23.png" alt="slide23" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente24.png" alt="slide24" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente25.png" alt="slide25" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente26.png" alt="slide26" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente27.png" alt="slide27" />
-                </div>
-                <div class="carousel-cell">
-                    <img class="img-fluid" src="./assets/images/cliente28.png" alt="slide28" />
-                </div>
-            </div>
+        <div class="container-fluid mt-5 pb-5" *ngIf="data.clientes">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let slide of data.clientes.clientes">
+                  <ng-template carouselSlide [id]="slide.id">
+                    <img [src]="slide.url" alt="logos" title="clientes">
+                  </ng-template>
+                </ng-container>
+            </owl-carousel-o>
         </div>
     </div>
-    <div class="seccion4 pt-5">
+    <div class="seccion4 pt-5" *ngIf="data.herramientas_digitales && !loader">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img class="img-fluid" src="./assets/images/herramienta.png" alt="Herramientas">
+                    <img class="img-fluid" [src]="data.herramientas_digitales.imagen" alt="Herramientas">
                 </div>
                 <div class="col-md-6 my-auto">
-                    <h2 class="mb-3 size38 text-black mb-4 font-weight-300 line-height-46 letter-spacing-056"><span class="font-weight-700">Herramientas digitales</span> para<br> transformar tus procesos</h2>
-                    <button class="pl-4 pr-4 d-block text-white bg-blue-dark letter-spacing-027 size18 font-weight-300" mat-raised-button>¡Conoce más!</button>
+                    <h2 class="mb-3 size38 text-black mb-4 font-weight-300 line-height-46 letter-spacing-056" [innerHTML]="data.herramientas_digitales.texto"></h2>
+                    <a class="pl-5 pr-5 pt-2 pb-2 text-white btn-blue letter-spacing-027 size18 font-weight-300" [href]="data.herramientas_digitales.url_boton" mat-raised-button>{{ data.herramientas_digitales.texto_boton }}</a>
                 </div>
             </div>
         </div>

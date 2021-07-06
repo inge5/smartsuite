@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +10,33 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  data:any = [];
+  widgets:any = [];
+  productos:any = [];
+  sesion:any = [];
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { }
 
   ngOnInit(): void {
+    this._homeservice.getMenuPrincipal()
+    .subscribe((res:any) => {
+      this.data = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.data = this.data.changingThisBreaksApplicationSecurity;
+    });
+    this._homeservice.getWidgets()
+    .subscribe((res:any) => {
+      this.widgets = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.widgets = this.widgets.changingThisBreaksApplicationSecurity;
+    });
+    this._homeservice.getMenuProductos()
+    .subscribe((res:any) => {
+      this.productos = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.productos = this.productos.changingThisBreaksApplicationSecurity;
+    });
+    this._homeservice.getMenuInicioSesion()
+    .subscribe((res:any) => {
+      this.sesion = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.sesion = this.sesion.changingThisBreaksApplicationSecurity;
+    });
   }
 
 }

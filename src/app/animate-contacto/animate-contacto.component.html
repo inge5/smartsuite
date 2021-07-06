@@ -1,38 +1,19 @@
 <div class="seccion5 bg-blue-dark pt-5 pb-5">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2 class="text-white size35 font-weight-700 line-height-45 letter-spacing-1-03">¡Anímate a explorar y a encontrar la solución que necesitas con Smartsuite!</h2>
-                <div class="row mb-2">
-                    <div class="col-md-1">
-                        <img src="./assets/images/direccion.png" alt="Dirección">
+        <div class="row align-items-center">
+            <div class="col-md-6" *ngIf="data.datos_de_contacto">
+                <h2 class="text-white size35 font-weight-700 line-height-45 letter-spacing-1-03">{{ data.datos_de_contacto.titulo }}</h2>
+                <ng-container *ngFor="let info of data.datos_de_contacto.informacion">
+                    <div class="row mb-2">
+                        <div class="col-md-1">
+                            <img [src]="info.icono" alt="Dirección">
+                        </div>
+                        <div class="col-md-11">
+                            <h3 class="mb-0 text-white font-weight-700 size18 letter-spacing-053 line-height-22">{{ info.titulo }}</h3>
+                            <p class="text-white size16 line-height-20" [innerHTML]="info.descripcion"></p>
+                        </div>
                     </div>
-                    <div class="col-md-11">
-                        <h3 class="mb-0 text-white font-weight-700 size18 letter-spacing-053 line-height-22">Dirección</h3>
-                        <p class="text-white size16 line-height-20">Carrera 83c # 17 - 52 Barrio ingenio III<br>
-                            Cali, Colombia</p>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md-1">
-                    <img src="./assets/images/phonePNG.png" alt="Teléfono">
-                    </div>
-                    <div class="col-md-11">
-                    <h3 class="mb-0 text-white font-weight-700 size18 letter-spacing-053 line-height-22">Números de Contacto</h3>
-                    <p class="text-white size16 line-height-20">(+57) 312 832 5529<br>
-                        (+57) 485 4805 Ext. 1000</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-1">
-                    <img src="./assets/images/clockPNG.png" alt="Horarios">
-                    </div>
-                    <div class="col-md-11">
-                    <h3 class="mb-0 text-white font-weight-700 size18 letter-spacing-053 line-height-22">Horarios de Atención</h3>
-                    <p class="text-white size16 line-height-20">Lunes a Viernes: 8:00am - 6:00pm<br>
-                        Sábados: 8:00am - 10:00p.m.</p>
-                    </div>
-                </div>
+                </ng-container>
             </div>
             <div class="col-md-6">
                 <form (ngSubmit)="enviarForm(formularioFoot)" #formularioFoot="ngForm" id="formulario-foot" class="foot-contact">
@@ -97,7 +78,7 @@
                             Debe aceptar las condiciones.
                         </small>
                     </div>
-                    <input type="submit" class="btn btn-primary btn-blue mt-4 w-40 mx-auto d-block" name="enviar" value="Enviar" [disabled]="formularioFoot.invalid">
+                    <input type="submit" class="btn btn-submit mt-4 w-25 mx-auto d-block" name="enviar" value="Enviar" [disabled]="formularioFoot.invalid">
                 </form>
             </div>
         </div>
