@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { HomeService } from '../services/home.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import AOS from 'aos';
 
 declare var $ : any; 
 
@@ -43,6 +44,7 @@ export class OnecheckComponent implements OnInit {
       this.loader = false;
       this.data = this._sanitizer.bypassSecurityTrustHtml(res);
       this.data = this.data.changingThisBreaksApplicationSecurity;
+      AOS.init();
     });
   }
 

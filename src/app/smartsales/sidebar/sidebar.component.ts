@@ -2,6 +2,7 @@ import { Component, OnInit, Pipe, PipeTransform, ViewChild } from '@angular/core
 import { MatSidenav } from '@angular/material/sidenav';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { HomeService } from 'src/app/services/home.service';
+import Swal from 'sweetalert2';
 
 declare var $ : any; 
 
@@ -28,18 +29,10 @@ export class SafeHtmlPipe implements PipeTransform  {
 })
 export class SidebarComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
-  public userside: any;
   data:any = [];
 
   constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) {
-    this.userside = {
-      empresa: '',
-      nombres: '',
-      telefono: '',
-      email: '',
-      producto: '',
-      acepto: ''
-    };
+
   }
 
   ngOnInit(): void {
@@ -67,29 +60,4 @@ export class SidebarComponent implements OnInit {
     this.reason = reason;
     this.sidenav.close();
   }
-
-  enviarForm(form) {
-    $.ajax({
-      url: '',
-      type: 'POST',
-      data: JSON.stringify(this.userside),
-      dataType:"json",
-      success: function(data) {
-       
-      }, error: function(error){
-        if(error.status === 200){
-          /*Swal.fire({
-            icon: 'success',
-            title: 'Gracias por regalarnos tus datos. Nos comunicaremos contigo.',
-            showConfirmButton: true
-          });*/ 
-          //console.log(error);
-        form.reset();
-        } else {
-          /*Swal.fire('Oops...', 'Algo pasó. Corrige los errores, por favor!', 'error')*/
-        }
-      }
-    });
-   }
-
 }

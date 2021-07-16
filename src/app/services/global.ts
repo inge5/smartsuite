@@ -19,4 +19,7 @@ export var GLOBAL = {
 
     urlCareTask: 'https://pruebasneuro.co/N-1075/api/caretask/wp-json/wp/v2',
     urlMenuCareTask: 'https://pruebasneuro.co/N-1075/api/caretask/wp-json/menus/v1/menus',
+
+    urlInTrack: 'https://pruebasneuro.co/N-1075/api/intrack/wp-json/wp/v2',
+    urlMenuInTrack: 'https://pruebasneuro.co/N-1075/api/intrack/wp-json/menus/v1/menus',
 };

@@ -20,7 +20,9 @@ a:hover{
 .ubuntu{
     font-family: 'Ubuntu', sans-serif!important;
 }
-
+.d-lg-block{
+    display: flex !important;
+}
 ::-webkit-scrollbar-thumb {
     background: #310087 !important;
     border-radius: 10px;
@@ -31,6 +33,14 @@ a:hover{
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
     border-radius: 15px;
+}
+.dropdown-toggle::after{
+    margin-left: inherit;
+    vertical-align: inherit;
+    border-top: inherit;
+    border-right: inherit;
+    border-bottom: inherit;
+    border-left: inherit;
 }
 /*=========*/
 
@@ -179,9 +189,7 @@ a:hover{
 .size14 {
     font-size: 14px;
 }
-.size15 {
-    font-size: 15px!important;
-}
+
 .size16 {
     font-size: 16px!important;
 }
@@ -242,21 +250,14 @@ a:hover{
 .size36 {
     font-size: 36px!important;
 }
-.size38 {
-    font-size: 38px!important;
-}
 .size42 {
     font-size: 42px!important;
 }
 .size43{
     font-size: 43px!important;
 }
-.size46 {
-    font-size: 46px!important;
-}
-.size48 {
-    font-size: 48px!important;
-}
+
+
 .size50 {
     font-size: 50px;
 }
@@ -382,6 +383,7 @@ a:hover{
 .line-height-1-5{
     line-height: 1.5!important;
 }
+
 .line-height-16{
     line-height: 16px!important;
 }
@@ -413,9 +415,7 @@ a:hover{
 .line-height-32{
     line-height: 32px!important;
 }
-.line-height-33{
-    line-height: 33px!important;
-}
+
 .line-height-35{
     line-height: 35px!important;
 }
@@ -425,9 +425,7 @@ a:hover{
 .line-height-37{
     line-height: 37px!important;
 }
-.line-height-41{
-    line-height: 41px!important;
-}
+
 .line-height-42{
     line-height: 42px!important;
 }
@@ -438,18 +436,11 @@ a:hover{
 .line-height-46{
     line-height: 46px!important;
 }
-.line-height-47{
-    line-height: 47px!important;
-}
-.line-height-50{
-    line-height: 50px!important;
-}
+
 .line-height-52{
     line-height: 52px!important;
 }
-.line-height-66{
-    line-height: 66px!important;
-}
+
 /*==============*/
 
 /* Border-Radius */
@@ -473,6 +464,9 @@ a:hover{
 }
 .border-radius-30{
     border-radius: 30px!important;
+}
+.border-radius-50{
+    border-radius: 50px!important;
 }
 .border-radius-60{
     border-radius: 60px!important;
@@ -1119,9 +1113,7 @@ mat-sidenav{
 .min-height-200{
     min-height: 200px;
 }
-.min-height-220{
-    min-height: 220px;
-}
+
 .dot-ontime {
     height: 19px;
     width: 19px;
@@ -1222,7 +1214,17 @@ mat-sidenav{
 /*========================*/
 
 /* PÁGINA CARETASK */
+.beneficio-caretask{
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 0 rgba(124, 141, 170, 0.4);    
+}
 
+.beneficio-caretask img{
+    background-color: #E5E5F2;
+    border-radius: 2px;
+    padding: 5px;
+}
 .demo-caretask{
     background-color:#05D6FB;
     color:#ffffff;
@@ -1234,6 +1236,17 @@ mat-sidenav{
     background-color:#ffffff;
     color:#05D6FB;
     transition:.3s;
+}
+.btn-caretask-dark-fill{
+    background-color: #1C1991;
+    color:#fff;
+    border: 1px solid #1C1991!important;
+    box-shadow: 10px 10px 14px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-caretask-dark-fill:hover{
+    background-color: #fff !important;
+    color: #1C1991 !important;
+    transition: .3s;
 }
 .btn-caretask-fill{
     background-color: #05D6FB;
@@ -1253,8 +1266,8 @@ mat-sidenav{
     box-shadow: 10px 10px 14px 0 rgba(0, 0, 0, 0.1);
 }
 .btn-caretask:hover{
-    background-color: #05D6FB;
-    color:#fff;
+    background-color: #05D6FB !important;
+    color:#fff !important;
     transition: .3s;
 }
 
@@ -1289,7 +1302,8 @@ mat-sidenav{
 .seccion4-caretask{
     background-image: url(./assets/images/caretask/bg_all.png);
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .dot-caretask {
     height: 19px;
@@ -1299,14 +1313,40 @@ mat-sidenav{
     display: block;
     margin:0 auto;
   }
+ .seccion4-caretask .col1{
+    margin-top: 45px;
+ } 
+ .seccion4-caretask .col2{
+    margin-top: 100px;
+ } 
+ .seccion4-caretask .col3{
+    margin-top: -80px;
+ }
+ .seccion4-caretask .col4{
+    margin-top: -30px;
+ } 
+ .seccion4-caretask .col5{
+    margin-top: 30px;
+ } 
 /*========================*/
 
 /* PÁGINA INTRACK */
+.demo-intrack{
+    background-color:#E70530;
+    color:#ffffff;
+    border: 1px solid #E70530!important;
+    white-space: normal!important;
+    padding: 0 45px!important;
+}
+.demo-intrack:hover{
+    background-color:#ffffff;
+    color:#E70530;
+    transition:.3s;
+}
 .seccion1-intrack{
-    background-image: url(./assets/images/intrack/bg_banner_sec1.png);
-    background-position: right top;
-    background-size: auto;
-    background-repeat: no-repeat;
+    background-position: right top !important;
+    background-size: auto !important;
+    background-repeat: no-repeat !important;
 }
 .tarjetas-soluciones{
     box-shadow: 20px 30px 23px 0 rgba(231, 5, 48, 0.04), -20px -18px 45px 0 rgba(49, 88, 154, 0.13)!important;
@@ -1497,13 +1537,7 @@ mat-sidenav{
     padding: 150px 0 45px;
 }
 
-.seccion5-onecheck{
-    background-image: url(./assets/images/onecheck/back-seccion-5.png);
-    background-position: left;
-    background-size: auto;
-    background-repeat: no-repeat;
-    padding: 150px 0;
-}
+
 
 .seccion6-onecheck .beneficio{
     align-items: center;
@@ -1632,6 +1666,55 @@ footer ul{
     #sidebar-wrapper {
         right: -15rem;
     }
+    .line-height-41{
+        line-height: 41px!important;
+    }
+    .w-25 {
+        width: 25%!important;
+    }
+    .text-right {
+        text-align: right!important;
+    }
+    .line-height-50{
+        line-height: 50px!important;
+    }
+    .size15 {
+        font-size: 15px!important;
+    }
+    .line-height-47{
+        line-height: 47px!important;
+    }
+    .line-height-33{
+        line-height: 33px!important;
+    }
+    .line-height-66{
+        line-height: 66px!important;
+    }
+    .seccion5-onecheck{
+        background-image: url(./assets/images/onecheck/back-seccion-5.png);
+        background-position: left;
+        background-size: auto;
+        background-repeat: no-repeat;
+        padding: 150px 0;
+    }
+    .min-height-220{
+        min-height: 220px;
+    }
+    .line-height-2-5{
+        line-height: 2.5!important;
+    }
+    .size48 {
+        font-size: 48px!important;
+    }
+    .size46 {
+        font-size: 46px!important;
+    }
+    .size38 {
+        font-size: 38px!important;
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu{
+        width: 30rem;
+    }
 }
 
 @media (min-width: 1920px) {
@@ -1641,6 +1724,56 @@ footer ul{
 }
 
 @media (max-width: 767px) {
+    .seccion1-intrack h2,
+    .seccion1-intrack p,
+    .seccion1-intrack span{
+        color:#fff !important;
+    }
+    .col1, .col2, .col3, .col4, .col5, .col6{
+        margin-top: 0 !important;
+    }
+    .size38 {
+        font-size: 30px!important;
+    }
+    .size46 {
+        font-size: 35px!important;
+    }
+    .size48 {
+        font-size: 38px!important;
+    }
+    .line-height-2-5{
+        line-height: 1.5!important;
+    }
+    .min-height-220{
+        min-height: 150px;
+    }
+    .seccion5-onecheck{
+        background-image: none;
+    }
+    .line-height-66{
+        line-height: 44px!important;
+    }
+    .line-height-33{
+        line-height: 28px!important;
+    }
+    .line-height-47{
+        line-height: 32px!important;
+    }
+    .size15 {
+        font-size: 13px!important;
+    }
+    .line-height-50{
+        line-height: 40px!important;
+    }
+    .text-right {
+        text-align: center!important;
+    }
+    .w-25 {
+        width: 75%!important;
+    }
+    .line-height-41{
+        line-height: 30px!important;
+    }
     .smartsuite-page .seccion2 .img-apps img{
         margin: 0 auto;
         display: block;
@@ -1750,6 +1883,21 @@ footer ul{
     .funItem2:last-child{
         margin-top: 0px;
     }
+    .seccion4-caretask .col1{
+        margin-top: 3rem;
+    }
+    .seccion4-caretask .col2{
+        margin-top: 3rem;
+    }
+    .seccion4-caretask .col3{
+        margin-top: 3rem;
+     }
+     .seccion4-caretask .col4{
+        margin-top: 3rem;
+     } 
+     .seccion4-caretask .col5{
+        margin-top: 3rem;
+     }
     .mt-45{
         margin-top: 3rem;
     }
@@ -1840,4 +1988,6 @@ footer ul{
         white-space: normal!important;
     }
 }
+
+
 

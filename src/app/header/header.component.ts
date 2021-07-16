@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
     .subscribe((res:any) => {
       this.data = this._sanitizer.bypassSecurityTrustHtml(res);
       this.data = this.data.changingThisBreaksApplicationSecurity;
+      console.log(this.data);
     });
     this._homeservice.getWidgets()
     .subscribe((res:any) => {

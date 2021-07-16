@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HomeService } from '../services/home.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import AOS from 'aos';
 
 declare var $ : any; 
 
@@ -10,56 +14,51 @@ declare var $ : any;
 })
 export class IntrackComponent implements OnInit {
   public userside: any;
+  data:any = [];
+  loader = true;
+  
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
 
-  constructor(private http: HttpClient) { 
-    this.userside = {
-      empresa: '',
-      nombres: '',
-      telefono: '',
-      email: '',
-      producto: '',
-      acepto: ''
-    };
   }
 
   ngOnInit(): void {
-  }
-
-  reason = '';
-
-  abrirSide(){
-    $("#wrapper").toggleClass("toggled");
-    $('.overlaytrabaja').addClass('active');
-  }
-
-  public cierraTrabajemos() {
-    $('.overlaytrabaja').removeClass('active');
-    $("#wrapper").toggleClass("toggled");
-  }
-
-
-  enviarForm(form) {
-    $.ajax({
-      url: '',
-      type: 'POST',
-      data: JSON.stringify(this.userside),
-      dataType:"json",
-      success: function(data) {
-       
-      }, error: function(error){
-        if(error.status === 200){
-          /*Swal.fire({
-            icon: 'success',
-            title: 'Gracias por regalarnos tus datos. Nos comunicaremos contigo.',
-            showConfirmButton: true
-          });*/ 
-          //console.log(error);
-        form.reset();
-        } else {
-          /*Swal.fire('Oops...', 'Algo pasó. Corrige los errores, por favor!', 'error')*/
-        }
-      }
+    this._homeservice.getHomeInTrack()
+    .subscribe((res:any) => {
+      this.loader = false;
+      this.data = this._sanitizer.bypassSecurityTrustHtml(res);
+      this.data = this.data.changingThisBreaksApplicationSecurity;
+      AOS.init();
     });
-   }
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    autoplay: true,
+    slideTransition: 'linear',
+    autoplaySpeed: 1000,
+    smartSpeed: 1000,
+    navSpeed: 1000,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 8
+      }
+    },
+    nav: false
+  }
+
 
 }

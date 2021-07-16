@@ -40,12 +40,15 @@ import { SidebarOneCheckComponent } from './onecheck/sidebar/sidebar.component';
 import { SidebarMobileFormsComponent } from './mobileforms/sidebar/sidebar.component';
 import { SidebarOntimeComponent } from './ontime/sidebar/sidebar.component';
 import { SidebarCareTaskComponent } from './caretask/sidebar/sidebar.component';
+import { SidebarInTrackComponent } from './intrack/sidebar/sidebar.component';
 
 import { SubmenuMobileformsComponent } from './mobileforms/submenu/submenu.component';
 import { SubmenuSmartsalesComponent } from './smartsales/submenu/submenu.component';
 import { SubmenuOnecheckComponent } from './onecheck/submenu/submenu.component';
 import { SubmenuOntimeComponent } from './ontime/submenu/submenu.component';
 import { SubmenuCareTaskComponent } from './caretask/submenu/submenu.component';
+import { SubmenuInTrackComponent } from './intrack/submenu/submenu.component';
+import { SidebarContactComponent } from './sidebar-contact/sidebar-contact.component';
 
 @NgModule({
   declarations: [
@@ -75,12 +78,15 @@ import { SubmenuCareTaskComponent } from './caretask/submenu/submenu.component';
     SidebarMobileFormsComponent,
     SidebarOntimeComponent,
     SidebarCareTaskComponent,
+    SidebarInTrackComponent,
 
     SubmenuMobileformsComponent,
     SubmenuSmartsalesComponent,
     SubmenuOnecheckComponent,
     SubmenuOntimeComponent,
-    SubmenuCareTaskComponent
+    SubmenuCareTaskComponent,
+    SubmenuInTrackComponent,
+    SidebarContactComponent
   ],
   imports: [
     BrowserModule,

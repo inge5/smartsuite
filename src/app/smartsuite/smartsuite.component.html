@@ -1,9 +1,12 @@
 <div class="smartsuite-page">
     <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
-    <div class="background-smartsuite seccion1 pb-5" *ngIf="!loader">
+    <div class="container">
+        <ngx-skeleton-loader class="d-flex pt-3 pb-3" count="2" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'250px','border-radius': '10px' }"></ngx-skeleton-loader>
+        <ngx-skeleton-loader class="pb-3" count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+    </div>    <div class="background-smartsuite seccion1 pb-5" *ngIf="!loader">
         <div class="container">
             <div class="row" *ngIf="data.banner">
-                <div class="col-md-6 my-auto">
+                <div class="col-md-6  pt-2 pb-2 my-auto">
                     <p class="ubuntu letter-spacing-05 line-height-41" [innerHTML]="data.banner.texto | safeHtml: 'html'"></p>
                 </div>
                 <div class="col-md-6">
@@ -24,14 +27,13 @@
             </div>
         </div>
     </div>
-    <ngx-skeleton-loader class="container d-flex pt-5 pb-4" count="6" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'250px','border-radius': '10px' }"></ngx-skeleton-loader>
     <div class="seccion2 mt-3" *ngIf="data.aplicaciones_mobiles">
-        <div class="container-fluid" *ngIf="!loader">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6 pl-0">
+                <div class="col-md-6 pl-0" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                     <img class="img-fluid" [src]="data.aplicaciones_mobiles.fondo" alt="Background">
                 </div>
-                <div class="col-md-6 my-auto">
+                <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                     <div class="img-apps mb-4" *ngIf="data.aplicaciones_mobiles.icono">
                         <img [src]="data.aplicaciones_mobiles.icono" alt="Apps móviles">
                     </div>
@@ -46,9 +48,8 @@
             </div>
         </div>
     </div>
-    <ngx-skeleton-loader  count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
-    <div class="seccion3 pt-5 bg-soft-blue" *ngIf="!loader">
-        <div class="container" *ngIf="data.clientes">
+    <div class="seccion3 pt-5 bg-soft-blue">
+        <div class="container" *ngIf="data.clientes" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
             <div class="row">
                 <div class="col-md-12">
                     <img class="d-block mx-auto mb-4" [src]="data.clientes.logo" alt="Logo Smartsuite">
@@ -57,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid mt-5 pb-5" *ngIf="data.clientes">
+        <div class="container-fluid mt-5 pb-5" *ngIf="data.clientes" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
             <owl-carousel-o [options]="customOptions">
                 <ng-container *ngFor="let slide of data.clientes.clientes">
                   <ng-template carouselSlide [id]="slide.id">
@@ -67,9 +68,9 @@
             </owl-carousel-o>
         </div>
     </div>
-    <div class="seccion4 pt-5" *ngIf="data.herramientas_digitales && !loader">
+    <div class="seccion4 pt-5" *ngIf="data.herramientas_digitales && !loader" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
         <div class="container">
-            <div class="row">
+            <div class="row pb-3">
                 <div class="col-md-6">
                     <img class="img-fluid" [src]="data.herramientas_digitales.imagen" alt="Herramientas">
                 </div>

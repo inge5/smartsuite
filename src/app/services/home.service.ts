@@ -26,6 +26,9 @@ export class HomeService {
 
   public urlCareTask: string;
   public urlMenuCareTask: string;
+
+  public urlInTrack: string;
+  public urlMenuInTrack: string;
   
 
   constructor(private _http: HttpClient) {
@@ -47,6 +50,9 @@ export class HomeService {
 
     this.urlCareTask = GLOBAL.urlCareTask;
     this.urlMenuCareTask = GLOBAL.urlMenuCareTask;
+
+    this.urlInTrack = GLOBAL.urlInTrack;
+    this.urlMenuInTrack = GLOBAL.urlMenuInTrack;
   }
 
   /* HOME */
@@ -87,6 +93,13 @@ export class HomeService {
   )}
   getHomeCareTask(): Observable<any>{
     return this._http.get(`${this.urlCareTask}/pages/2/`, {})
+    .pipe(
+        map(res => {
+          return res['acf'];
+    })
+  )}
+  getHomeInTrack(): Observable<any>{
+    return this._http.get(`${this.urlInTrack}/pages/2/`, {})
     .pipe(
         map(res => {
           return res['acf'];
@@ -146,6 +159,9 @@ export class HomeService {
   }
   getMenuCareTask(): Observable<any>{
     return this._http.get(`${this.urlMenuCareTask}/2`);
+  }
+  getMenuInTrack(): Observable<any>{
+    return this._http.get(`${this.urlMenuInTrack}/2`);
   }
 }
 

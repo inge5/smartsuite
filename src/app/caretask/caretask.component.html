@@ -1,9 +1,13 @@
 <div class="pagina-full" id="wrapper">
     <app-submenu-caretask></app-submenu-caretask>
-    <div class="caretask-page">
-        <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+    <div class="container">
+        <ngx-skeleton-loader class="d-flex pt-3 pb-3" count="2" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'250px','border-radius': '10px' }"></ngx-skeleton-loader>
+        <ngx-skeleton-loader class="pb-3" count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+    </div>
+    <div class="caretask-page" *ngIf="!loader">
         <div class="seccion1-caretask" *ngIf="data.banner" style="background:url('{{ data.banner.fondo }}');">
-            <div class="container pt-5 pb-5" *ngIf="!loader">
+            <div class="container pt-5 pb-5">
                 <div class="row mb-5 pt-4">
                     <div class="col-md-6 my-auto">
                         <h2 class="size46 letter-spacing-069 line-height-50 font-weight-700 text-white ubuntu mb-2" [innerHTML]="data.banner.texto | safeHtml: 'html'">
@@ -18,112 +22,74 @@
         </div>
         <div class="seccion2-caretask pb-5" >
             <div class="container">
-                <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
-                <div class="row pt-3" *ngIf="!loader">
+                <div class="row pt-3" *ngIf="data.seccion1">
                     <div class="col-md-12 mb-5">
-                        <p class="font-weight-700 size29 text-dark-blue-caretask letter-spacing-025 text-center line-height-35">¡Optimiza procesos y recursos de tu centro de salud con una solución móvil!</p>
-                        <p class="text-gray letter-spacing-035 size24 line-height-29">Con Mobile Forms cuentas con una aplicación que se ajusta a tus necesidades de negocio</p>
+                        <p class="font-weight-700 size29 text-dark-blue-caretask letter-spacing-025 text-center line-height-35">{{ data.seccion1.titulo }}</p>
+                        <p class="text-gray letter-spacing-035 size24 line-height-29" [innerHTML]="data.seccion1.descripcion | safeHtml: 'html'"></p>
                     </div>
-                    <div class="col-md-4">
-                        <img class="img-fluid d-block mb-3 mx-auto" src="./assets/images/caretask/listPNG.png" alt="Gestiona">
-                        <p class="text-center size14 font-weight-300 line-height-19 text-gray">Una solución que le ofrece a los <br>supervisores la <span class="font-weight-700">asignación de tareas al personal de camillerías.</span></p>
-                    </div>
-                    <div class="col-md-4">
-                        <img class="img-fluid d-block mb-3 mx-auto" src="./assets/images/caretask/nfc.svg" alt="Gestiona">
-                        <p class="text-center size14 font-weight-300 line-height-19 text-gray">A través de la tecnología NFC se <span class="font-weight-700">podrá registrar el check-in en cada punto de control</span> del recorrido programado.
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <img class="img-fluid d-block mb-3 mx-auto" src="./assets/images/caretask/trazaPNG.png" alt="Gestiona">
-                        <p class="text-center size14 font-weight-300 line-height-19 text-gray"><span class="font-weight-700">Trazabilidad de actividades in-door</span> realizadas por el personal de movilización de pacientes, documentos y/o medicamentos.
-                        </p>
-                    </div>
+                    <ng-container *ngFor="let proceso of data.seccion1.proceso">
+                        <div class="col-md-4">
+                            <img class="img-fluid d-block mb-3 mx-auto card-zoom" [src]="proceso.icono" alt="Gestiona">
+                            <p class="text-center size14 font-weight-300 line-height-19 text-gray" [innerHTML]="proceso.descripcion | safeHtml: 'html'"></p>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>
         <div class="seccion3-caretask pt-5" style="background-color: #f2f7fd;">
-            <div class="container">
-                <div class="row pb-5">
-                    <div class="col-md-5">
-                        <img class="img-fluid" src="./assets/images/caretask/seccion2.png" alt="Aplicación móvil">
+            <div class="container pt-3">
+                <div class="row align-items-center pb-5">
+                    <div class="col-md-5" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                         <img class="img-fluid" [src]="data.seccion2.imagen" alt="Comercial">
                     </div>
-                    <div class="col-md-7 my-auto">
-                        <p class="size25 letter-spacing-069 text-gray line-height-33 font-weight-700">Ahora contarás con una aplicación móvil y web que trabaja en la nube, logrando gestionar tus procesos en tiempo real.  
-                        </p>
-                        <img class="card-zoom img-fluid" src="./assets/images/ontime/androidPNG.png" alt="Android">
+                    <div class="col-md-7 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <h3 class="line-height-36 mb-2" [innerHTML]="data.seccion2.texto | safeHtml: 'html'"></h3>
+                        <ng-container *ngFor="let icono of data.seccion2.iconos">
+                            <ng-container *ngFor="let logo of icono.logo">
+                                <img class="card-zoom img-fluid" [src]="logo.url" alt="icono">
+                            </ng-container>
+                        </ng-container>
                     </div>
                 </div>
-                <div class="row pb-5">
+                <div class="row pb-5" data-aos="fade-down" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                     <div class="col-md-12">
-                        <h2 class="font-weight-700 text-green size38 letter-spacing-1-03 line-height-47 text-center ubuntu text-dark-blue-caretask">Empieza hoy una gestión optima de camilleros
-                        </h2>
-                        <button mat-raised-button class="text-decoration-none bg-blue-dark size18 text-white border-radius-3 font-weight-500 d-block mx-auto">¡Hablemos!</button>
+                        <h2 class="font-weight-700 text-green size38 letter-spacing-1-03 line-height-47 text-center ubuntu text-dark-blue-caretask">{{data.seccion2.titulo_boton}}</h2>
+                        <a mat-raised-button class="btn-caretask-dark-fill text-decoration-none size18 w-15 border-radius-3 font-weight-500 d-block mx-auto" [href]="data.seccion2.url_boton">{{ data.seccion2.texto_boton }}</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="seccion4-caretask pt-50" style="background-color: #F2F7FD;">
+        <div class="seccion4-caretask pt-100" style="background-color: #F2F7FD;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 pt-5 pb-5" style="background-image: url('./assets/images/caretask/background-gestion.png');background-size: cover;background-position: center;">
+                    <div class="col-md-6 pt-5 pb-5" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000" style="background-image: url('{{ data.seccion3.imagen }}');background-size: cover;background-position: center;">
                         <div class="row">
-                            <div class="col">
-                                <div class="p-2 gestion">
-                                    <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza1.png" alt="Gestión">
-                                    <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Historial de actividades realizadas</p>
+                            <ng-container *ngFor="let gestion of data.seccion3.gestion; let i = index">
+                                <div class="col-xs-12 col-sm-4 pt-4 col{{i}}">
+                                    <div class="p-3 gestion card-zoom">
+                                        <img class="img-fluid mx-auto d-block" [src]="gestion.icono" alt="Gestión">
+                                        <p class="m-0 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask" [innerHTML]="gestion.descripcion | safeHtml: 'html'"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col mt-45">
-                                <div class="p-2 gestion">
-                                    <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza2.png" alt="Gestión">
-                                    <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Visor de datos detallados de las asignaciones</p>
-                                </div>
-                            </div>
-                            <div class="col mt-100">
-                                <div class="p-2 gestion">
-                                    <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza3.png" alt="Gestión">
-                                    <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Validación del inicio y finalización de tareas usando NFC</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-80n">
-                            <div class="col">
-                                <div class="p-2 gestion">
-                                    <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza1.png" alt="Gestión">
-                                    <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Historial de actividades realizadas</p>
-                                </div>
-                            </div>
-                            <div class="col mt-45">
-                                <div class="p-2 gestion">
-                                    <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza2.png" alt="Gestión">
-                                    <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Visor de datos detallados de las asignaciones</p>
-                                </div>
-                            </div>
-                            <div class="col mt-100">
-                                <div class="p-2 gestion">
-                                    <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/empieza3.png" alt="Gestión">
-                                    <p class="size13 font-weight-700 text-center letter-spacing-027 line-height-17 text-dark-blue-caretask">Historial de actividades realizadas</p>
-                                </div>
-                            </div>
+                            </ng-container>
                         </div>
                     </div>
-                    <div class="col-md-6 my-auto">
-                        <p class="font-weight-300 size38 letter-spacing-1-03 line-height-46 text-dark-blue-caretask">Empieza hoy una<br> <span class="font-weight-700">gestión optima de camilleros</span></p>
+                    <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <p class="font-weight-300 size38 letter-spacing-1-03 line-height-46 text-dark-blue-caretask" [innerHTML]="data.seccion3.texto | safeHtml: 'html'"></p>
                     </div>
                 </div>
             </div>
             <div class="container mt-5 pt-150">
                 <div class="row">
-                    <img class="img-fluid img-sec3-caretask" src="./assets/images/caretask/seccion3.png" alt="Tareas">
-                    <div class="col-md-6">
-                        <p class="size25 text-dark-blue-caretask font-weight-700 letter-spacing-069 line-height-33">Lleva de manera sistemática y controlada la demanda  tareas a tu equipo de camillerias a través de una herramienta digital.</p>
+                    <img class="img-fluid img-sec3-caretask" [src]="data.seccion4.imagen" alt="Tareas" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                    <div class="col-md-6" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <p class="size25 text-dark-blue-caretask font-weight-700 letter-spacing-069 line-height-33" [innerHTML]="data.seccion4.texto | safeHtml: 'html'"></p>
                         <div class="row">
                             <div class="col-md-6">
-                                <a class="w-100 border-radius-3 bg-blue-dark size18 text-white border-dark-blue text-decoration-none mt-2 mb-2" mat-raised-button href="https://www.google.com/" target="_blank">¡Conoce más aquí!
-                                </a>
+                                <a *ngIf="data.seccion4.url_boton_1" class="w-100 btn-caretask-dark-fill border-radius-3 size18 border-dark-blue text-decoration-none mt-2 mb-2" mat-raised-button [href]="data.seccion4.url_boton_1" target="_blank">{{ data.seccion4.texto_boton_1 }}</a>
                             </div>
                             <div class="col-md-6">
-                                <a class="w-100 text-sea-blue border-radius-3 size18 text-sea-blue bg-transparent border-sea-blue mt-2 mb-2 text-decoration-none" mat-raised-button href="https://www.google.com/" target="_blank">Solicita un demo</a>
+                                <a *ngIf="data.seccion4.url_boton_2" class="w-100 border-radius-3 size18 btn-caretask mt-2 mb-2 text-decoration-none" mat-raised-button [href]="data.seccion4.url_boton_2" target="_blank">{{ data.seccion4.texto_boton_2 }}</a>
                             </div>
                         </div>
                     </div>
@@ -132,83 +98,63 @@
                 </div>
             </div>
             <div class="container mt-100 pt-150">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 mr-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios1.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Implementación rápida</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 mr-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios2.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Soporte 24/7</p>
-                            </div>
-                            <div class="beneficio-mobileforms d-flex p-2 mr-2 align-items-center">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios3.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Infraestructura 24/7</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 mr-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios4.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Validación por NFC o QR</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end mb-2 align-items-center">
-                            <div class="beneficio-mobileforms d-flex p-2 mr-2">
-                                <img class="img-fluid d-inline-block float-left mr-2" src="./assets/images/caretask/beneficios5.png" alt="Implementación">
-                                <p class="size17 font-weight-700 line-height-22 letter-spacing-05 text-gray d-flex align-self-center mb-0">Actualizaciones y mantenimiento gratis</p>
-                            </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <div class="row justify-content-end mb-2">
+                            <ng-container *ngFor="let beneficio of data.seccion5.beneficios">
+                                <div class="beneficio-caretask d-flex p-2 m-1 card-zoom">
+                                    <img class="img-fluid d-inline-block float-left mr-2" [src]="beneficio.icono" alt="Implementación">
+                                    <p class="line-height-22 letter-spacing-05 d-flex align-self-center mb-0">{{ beneficio.texto }}</p>
+                                </div>
+                            </ng-container>
                         </div>
                     </div>
-                    <div class="col-md-6 my-auto">
-                        <p class="size30 font-weight-300 text-gray letter-spacing-097 line-height-46"><span class="font-weight-700 size35">Una aplicación que<br> garantiza un seguimiento<br></span>
-                            eficiente y ofrece optimos beneficios</p>
-                        <button mat-raised-button class="text-decoration-none bg-blue-dark border-dark-blue size18 text-white border-radius-3 font-weight-500 ubuntu">¡Empecemos a trabajar!</button>
+                    <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <p class="size32 text-gray letter-spacing-097 line-height-36" [innerHTML]="data.seccion5.descripcion | safeHtml: 'html'"></p>
+                        <a *ngIf="data.seccion5.url_boton" mat-raised-button class="text-decoration-none btn-caretask-dark-fill size18 border-radius-3 font-weight-500" [href]="data.seccion5.url_boton">{{ data.seccion5.texto_boton }}</a>
                     </div>
                 </div>
             </div>
             <div class="container mb-5 mt-5">
                 <div class="row">
-                    <div class="col-md-6 my-auto">
-                        <p class="font-weight-300 size24 letter-spacing-069 line-height-30 text-gray"><span class="font-weight-700 text-dark-blue-caretask">¿Necesitas integrar otras herramientas a tu aplicación? ¡No te peorcupes, lo hacemos!</span><br>
-                            Queremos que cuentes con una aplicación a la medida de tus necesidades para que logres optimizar tus procesos.
-                        </p>
+                    <div class="col-md-6 my-auto" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <p class="font-weight-300 size24 letter-spacing-069 line-height-30 text-gray" [innerHTML]="data.seccion6.descripcion | safeHtml: 'html'"></p>
                     </div>
-                    <div class="col-md-6">
-                        <img class="img-fluid mx-auto d-block" src="./assets/images/caretask/seccion4.png" alt="Integración">
+                    <div class="col-md-6" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <img class="img-fluid mx-auto d-block" [src]="data.seccion6.imagen" alt="Integración">
                     </div>
                 </div>
             </div>
-            <div class="seccion5-caretask">
-                <img class="img-fluid" src="./assets/images/caretask/seccion5.png" alt="Clínica background">
-                <img class="img-fluid clinica" src="./assets/images/caretask/clinica.png" alt="Clínica">
+            <div class="seccion5-caretask" data-aos="fade-top" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                <img class="img-fluid" [src]="data.seccion7.imagen" alt="Clínica background">
+                <img class="img-fluid clinica" [src]="data.seccion7.logo" alt="Clínica">
             </div>
         </div>
         <div class="seccion6-caretask pt-5 pb-5" style="background-color: #F2F7FD;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <img class="img-fluid" src="./assets/images/caretask/seccion6.png" alt="NFC">
+                    <div class="col-md-6" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <img class="img-fluid" [src]="data.seccion8.imagen" alt="NFC">
                     </div>
-                    <div class="col-md-6 my-auto">
-                        <p class="size25 font-weight-700 letter-spacing-009 line-height-35 text-dark-blue-caretask">Una eficiente solución para llevar a cabo la gestión y supervición de camillerias.</p>  
-                        <p class="size25 letter-spacing-009 line-height-35 text-gray">Suscripción mensual desde <strong>$15 USD</strong></p>   
+                    <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+                        <p class="size25 font-weight-700 letter-spacing-009 line-height-35 text-dark-blue-caretask">{{ data.seccion8.titulo }}</p>  
+                        <p class="size25 letter-spacing-009 line-height-35 text-gray" [innerHTML]="data.seccion8.descripcion | safeHtml: 'html'"></p>   
                     </div>
                 </div>
             </div>
         </div>
-        <div class="pt-5 pb-5" style="background-color: #FAFAFA;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 my-auto">
-                        <img class="img-fluid mx-auto d-block mb-2" src="./assets/images/logo_smartsuit.png" alt="Logo Smartsuite">
-                    </div>
-                    <div class="col-md-8">
-                        <p class="text-gray size16 letter-spacing-009 line-height-24"><span class="font-weight-700">Sabemos que cuentas con más áreas de trabajo y nosotros con más aplicaciones para que optimices su gestión.</span> Anímate a ampliar tu paquete y conocer todas las soluciones digitales que tenemos para tu negocio con nuestra suite. 
-                        </p>
+        <div class="bg-white pt-5 pb-0" *ngIf="data.seccion9" style="background-color: #FAFAFA;">
+            <div class="mt-0" style="background:url('{{ data.seccion9.icono_fondo_1 }}');background-repeat: no-repeat;background-position: left top;margin-top:-60px">
+                <div style="background:url('{{ data.seccion9.icono_fondo_2 }}');background-repeat: no-repeat;background-position: right;">
+                    <div class="container pt-5 pb-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img class="img-fluid mx-auto d-block mb-2" [src]="data.seccion9.imagen" alt="Logo Smartsuite">
+                            </div>
+                            <div class="col-md-8">
+                                <p class="text-gray size16 letter-spacing-009 line-height-24" [innerHTML]="data.seccion9.descripcion | safeHtml: 'html'"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

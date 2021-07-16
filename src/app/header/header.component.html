@@ -17,29 +17,35 @@
                         </li>
                     </ng-container>
                 </ul> -->
-                <ul id="menuPrincipal" class="navbar-nav main-menu-list mr-auto">
+                <ul id="menuPrincipal" class="d-none d-sm-none d-md-none d-lg-block navbar-nav main-menu-list mr-auto">
                     <ng-container *ngFor="let item of data.items; first as isFirst ">
-                        <li class="nav-item" [ngClass]="(isFirst) ? 'megamenu' : ''">
-                            <a class="nav-link nav-link-main size14"  [href]="item.url">{{ item.title }}</a>
-                            <div class="sub-menu" *ngIf="item.title == 'Productos'">
-                                <ng-container *ngFor="let childItem of item.child_items">
-                                    <div class="icon-box">
-                                        <a [href]="childItem.url">
-                                            <div class="text">
-                                                <!-- <div class="title">{{ childItem.title }} <svg class="svg-inline--fa fa-arrow-right fa-w-14" aria-hidden="true" focusable="false" data-prefix="far" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M218.101 38.101L198.302 57.9c-4.686 4.686-4.686 12.284 0 16.971L353.432 230H12c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h341.432l-155.13 155.13c-4.686 4.686-4.686 12.284 0 16.971l19.799 19.799c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L235.071 38.101c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg><i class="far fa-arrow-right"></i> Font Awesome fontawesome.com</div> -->
-                                                <div class="title"><img [src]="childItem.thumbnail_src"></div>
-                                                <div class="sub-text">{{ childItem.description }}</div>
-                                            </div>
-                                        </a>
+                        <li class="nav-item dropdown has-megamenu" [ngClass]="(isFirst) ? 'megamenu' : ''">
+                            <a class="nav-link nav-link-main size14 " [ngClass]="(isFirst) ? 'dropdown-toggle' : ''" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"  [href]="item.url">{{ item.title }}</a>
+                            <div [ngClass]="(isFirst) ? 'dropdown-menu menuServicio megamenu p-3' : ''">
+                                <div class="row">
+                                  <ng-container *ngFor="let childItem of item.child_items; first as isFirst">
+                                    <div class="col-md-6">
+                                      <div class="col-megamenu">
+                                        <ul class="list-unstyled">
+                                          <li>
+                                            <a [href]="[ childItem.url ]">
+                                                <img src="{{ childItem.thumbnail_src }}" alt="logos">
+                                                <p class="textoItemMenu">{{ childItem.description }}</p>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </div>
                                     </div>
-                                </ng-container>
-                                <div class="sub-menu-holder"></div>
-                            </div>
+                                  </ng-container>
+                                </div>
+                              </div>
                         </li>
                     </ng-container>
                 </ul>
+                
                 <ul class="navbar-nav iniciar-sesion">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown text-center">
                         <a class="nav-link dropdown-toggle size14" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ sesion.name }}
                         </a>

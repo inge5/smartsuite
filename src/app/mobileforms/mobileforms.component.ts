@@ -5,6 +5,7 @@ import {MatSidenav} from '@angular/material/sidenav';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { HomeService } from '../services/home.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import AOS from 'aos';
 
 declare var $ : any; 
 
@@ -46,6 +47,7 @@ export class MobileformsComponent implements OnInit {
       this.loader = false;
       this.data = this._sanitizer.bypassSecurityTrustHtml(res);
       this.data = this.data.changingThisBreaksApplicationSecurity;
+      AOS.init();
     });
   }
 
@@ -61,35 +63,10 @@ export class MobileformsComponent implements OnInit {
     $("#wrapper").toggleClass("toggled");
   }
 
-
   close(reason: string) {
     this.reason = reason;
     this.sidenav.close();
   }
-
-  enviarForm(form) {
-    $.ajax({
-      url: '',
-      type: 'POST',
-      data: JSON.stringify(this.userside),
-      dataType:"json",
-      success: function(data) {
-       
-      }, error: function(error){
-        if(error.status === 200){
-          /*Swal.fire({
-            icon: 'success',
-            title: 'Gracias por regalarnos tus datos. Nos comunicaremos contigo.',
-            showConfirmButton: true
-          });*/ 
-          //console.log(error);
-        form.reset();
-        } else {
-          /*Swal.fire('Oops...', 'Algo pasó. Corrige los errores, por favor!', 'error')*/
-        }
-      }
-    });
-   }
 
    customOptions: OwlOptions = {
     loop: true,

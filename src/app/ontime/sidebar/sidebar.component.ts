@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HomeService } from 'src/app/services/home.service';
+import { min } from '../../../../../athletic/Athletic_Backend/public/assets/lte/bower_components/moment/moment';
 
 declare var $ : any; 
 
@@ -14,17 +15,22 @@ export class SidebarOntimeComponent implements OnInit {
   data:any = [];
 
   constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
-    this.userside = {
-      empresa: '',
-      nombres: '',
-      telefono: '',
-      email: '',
-      producto: '',
-      acepto: ''
-    };
-  }
 
+  }
   ngOnInit(): void {
+
+    var obj = {
+      name: 'Jhon',
+      lastname: 'Bliss',
+      city: 'Florida'
+    }
+    Object.keys(obj);
+    for (var i in obj) {
+      // console.log(obj[i]);
+      // console.log(i);
+      
+    }
+    // console.log(obj);
     this._homeservice.getHomeOnTime()
     .subscribe((res:any) => {
       this.data = this._sanitizer.bypassSecurityTrustHtml(res);
@@ -40,28 +46,4 @@ export class SidebarOntimeComponent implements OnInit {
     $('.overlaytrabaja').removeClass('active');
     $("#wrapper").toggleClass("toggled");
   }
-
-  enviarForm(form) {
-    $.ajax({
-      url: '',
-      type: 'POST',
-      data: JSON.stringify(this.userside),
-      dataType:"json",
-      success: function(data) {
-       
-      }, error: function(error){
-        if(error.status === 200){
-          /*Swal.fire({
-            icon: 'success',
-            title: 'Gracias por regalarnos tus datos. Nos comunicaremos contigo.',
-            showConfirmButton: true
-          });*/ 
-          //console.log(error);
-        form.reset();
-        } else {
-          /*Swal.fire('Oops...', 'Algo pasó. Corrige los errores, por favor!', 'error')*/
-        }
-      }
-    });
-   }
 }

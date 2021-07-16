@@ -21,7 +21,7 @@
                     <div class="col-md-6">
                         <div class="form-row pt-2 pb-2">
                         <label class="size16 text-soft-white" for="nombres">Nombres</label>
-                        <input type="text" class="form-control" id="nombres" name="nombres" #nombres="ngModel" [(ngModel)]="user.nombres" required>
+                        <input type="text" class="form-control" id="nombres" name="nombres" #nombres="ngModel" [(ngModel)]="form.nombres" required>
                         <small style="color:#c30000;" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
                             Nombres es un campo requerido.
                         </small>
@@ -30,7 +30,7 @@
                     <div class="col-md-6">
                         <div class="form-row pt-2 pb-2">
                         <label class="size16 text-soft-white" for="apellidos">Apellidos</label>
-                        <input type="text" class="form-control" id="apellidos" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" #apellidos="ngModel" [(ngModel)]="form.apellidos" required>
                         <small style="color:#c30000;" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
                             Apellidos es un campo requerido.
                         </small>
@@ -39,7 +39,7 @@
                     <div class="col-md-6">
                         <div class="form-row pt-2 pb-2">
                         <label class="size16 text-soft-white" for="telefono">Número de Teléfono</label>
-                        <input type="tel" class="form-control" id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="user.telefono" pattern="^\d+$" required>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" #telefono="ngModel" [(ngModel)]="form.telefono" pattern="^\d+$" required>
                         <small style="color:#c30000;" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
                             Ingrese un teléfono válido.
                         </small>
@@ -48,7 +48,7 @@
                     <div class="col-md-6">
                         <div class="form-row pt-2 pb-2">
                         <label class="size16 text-soft-white" for="ciudad">Ciudad</label>
-                        <input type="text" class="form-control" id="ciudad" name="ciudad" #ciudad="ngModel" [(ngModel)]="user.ciudad" required>
+                        <input type="text" class="form-control" id="ciudad" name="ciudad" #ciudad="ngModel" [(ngModel)]="form.ciudad" required>
                         <small style="color:#c30000;" *ngIf="ciudad.invalid && (ciudad.dirty || ciudad.touched)">
                             Ciudad es un campo requerido.
                         </small>
@@ -58,7 +58,7 @@
                     
                     <div class="form-row pt-2 pb-2">
                         <label class="size16 text-soft-white" for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" email="true" required>
+                        <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="form.email" email="true" required>
                         <small style="color:#c30000;" *ngIf="email.invalid && (email.dirty || email.touched)">
                             Ingrese un correo electrónico válido.
                         </small>
@@ -66,14 +66,14 @@
                 
                     <div class="form-row pt-2 pb-2">
                         <label class="size16 text-soft-white" for="mensaje">Mensaje</label>
-                        <textarea class="form-control h-100px mb-3" id="mensaje" name="mensaje" placeholder="Escribe aquí tu mensaje" #mensaje="ngModel" [(ngModel)]="user.mensaje" required></textarea>
+                        <textarea class="form-control h-100px mb-3" id="mensaje" name="mensaje" placeholder="Escribe aquí tu mensaje" #mensaje="ngModel" [(ngModel)]="form.mensaje" required></textarea>
                         <small style="color:#c30000;" *ngIf="mensaje.invalid && (mensaje.dirty || mensaje.touched)">
                             El mensaje es un campo requerido.
                         </small>
                     </div>
                     <div class="form-check text-center">
-                        <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="user.acepto" class="form-check-input" id="acepto" required>
-                        <label class="size16 text-soft-white" for="acepto">Conozco y acepto la política de datos</label>
+                        <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="form.acepto" class="form-check-input" id="acepto" required>
+                        <label class="size16 text-soft-white" for="acepto">Conozco y <a class="text-sea-blue" href="http://pruebasneuro.co/N-1075/api/wp-content/uploads/2021/07/Politica-de-tratamiento-de-datos.pdf" target="blank_">acepto la política de datos</a></label>
                         <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
                             Debe aceptar las condiciones.
                         </small>
