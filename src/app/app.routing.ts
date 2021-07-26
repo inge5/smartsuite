@@ -36,9 +36,11 @@ const appRoutes: Routes = [
 
 // export const appRoutingProviders: any[] = [];
 // export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
-export const APP_ROUTING = RouterModule.forRoot(appRoutes, {
-    useHash: true,
-    onSameUrlNavigation: "ignore",
-    anchorScrolling: 'enabled',
-    scrollPositionRestoration: 'enabled'
-});
+// export const APP_ROUTING = RouterModule.forRoot(appRoutes, {
+//     useHash: true,
+//     onSameUrlNavigation: "ignore",
+//     anchorScrolling: 'enabled',
+//     scrollPositionRestoration: 'enabled'
+// });
+export const appRoutingProviders: any[] = [];
+export const APP_ROUTING: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);

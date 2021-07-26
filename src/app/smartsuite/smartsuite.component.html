@@ -3,7 +3,8 @@
     <div class="container">
         <ngx-skeleton-loader class="d-flex pt-3 pb-3" count="2" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'250px','border-radius': '10px' }"></ngx-skeleton-loader>
         <ngx-skeleton-loader class="pb-3" count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
-    </div>    <div class="background-smartsuite seccion1 pb-5" *ngIf="!loader">
+    </div>    
+    <div class="background-smartsuite seccion1 pb-5" *ngIf="!loader">
         <div class="container">
             <div class="row" *ngIf="data.banner">
                 <div class="col-md-6  pt-2 pb-2 my-auto">
@@ -13,7 +14,7 @@
                     <img class="img-fluid" [src]="data.banner.imagen" alt="SmartSuite">
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="empresa" (scroll)="onElementScroll($event)">
                 <ng-container *ngFor="let empresas of data.empresas; let i = index">
                     <div class="col-md-2">
                         <mat-card class="card-zoom tarjetas-services tarjetas-services-{{i}} mt-2 mb-2">
@@ -68,13 +69,13 @@
             </owl-carousel-o>
         </div>
     </div>
-    <div class="seccion4 pt-5" *ngIf="data.herramientas_digitales && !loader" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+    <div class="seccion4 pt-5" *ngIf="data.herramientas_digitales && !loader">
         <div class="container">
             <div class="row pb-3">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                     <img class="img-fluid" [src]="data.herramientas_digitales.imagen" alt="Herramientas">
                 </div>
-                <div class="col-md-6 my-auto">
+                <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                     <h2 class="mb-3 size38 text-black mb-4 font-weight-300 line-height-46 letter-spacing-056" [innerHTML]="data.herramientas_digitales.texto"></h2>
                     <a class="pl-5 pr-5 pt-2 pb-2 text-white btn-blue letter-spacing-027 size18 font-weight-300" [href]="data.herramientas_digitales.url_boton" mat-raised-button>{{ data.herramientas_digitales.texto_boton }}</a>
                 </div>

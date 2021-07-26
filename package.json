@@ -23,6 +23,7 @@
     "@angular/router": "~11.2.13",
     "aos": "^2.3.4",
     "flickity": "^2.2.2",
+    "ng-smooth-scroll": "^1.7.3",
     "ngx-owl-carousel-o": "^5.0.0",
     "ngx-skeleton-loader": "^2.9.1",
     "rxjs": "~6.6.0",

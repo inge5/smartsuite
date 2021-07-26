@@ -1,4 +1,4 @@
-import { Component, OnInit,Pipe, PipeTransform, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit,Pipe, PipeTransform, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {DomSanitizer,SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl} from '@angular/platform-browser';
 
@@ -40,6 +40,13 @@ export class SmartsuiteComponent implements OnInit {
   dataMenuP:any = [];
   loader = true;
 
+  @HostListener('window:scroll', ['$event']) 
+  @HostListener("scroll", ['$event'])
+  onElementScroll($event:Event){
+    let scrollOffset = $event.currentTarget;
+    console.log("scroll: ", scrollOffset);
+  }
+  
   constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
 
   }
@@ -53,6 +60,8 @@ export class SmartsuiteComponent implements OnInit {
       AOS.init();
     });
   }
+
+  
 
    public selectPill(index:number) {
     this.activePillIndex = index;
@@ -86,5 +95,6 @@ export class SmartsuiteComponent implements OnInit {
     },
     nav: false
   }
-
+  
 }
+
