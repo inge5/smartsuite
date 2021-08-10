@@ -40,13 +40,6 @@ export class SmartsuiteComponent implements OnInit {
   dataMenuP:any = [];
   loader = true;
 
-  @HostListener('window:scroll', ['$event']) 
-  @HostListener("scroll", ['$event'])
-  onElementScroll($event:Event){
-    let scrollOffset = $event.currentTarget;
-    console.log("scroll: ", scrollOffset);
-  }
-  
   constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
 
   }

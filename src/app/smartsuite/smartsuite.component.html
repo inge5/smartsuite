@@ -14,7 +14,7 @@
                     <img class="img-fluid" [src]="data.banner.imagen" alt="SmartSuite">
                 </div>
             </div>
-            <div class="row" id="empresa" (scroll)="onElementScroll($event)">
+            <div class="row" id="empresa">
                 <ng-container *ngFor="let empresas of data.empresas; let i = index">
                     <div class="col-md-2">
                         <mat-card class="card-zoom tarjetas-services tarjetas-services-{{i}} mt-2 mb-2">
