@@ -8,7 +8,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
-import { APP_ROUTING } from './app.routing';
+// import { APP_ROUTING } from './app.routing';
 
 import { AppComponent } from './app.component';
 
@@ -49,6 +49,8 @@ import { SubmenuOntimeComponent } from './ontime/submenu/submenu.component';
 import { SubmenuCareTaskComponent } from './caretask/submenu/submenu.component';
 import { SubmenuInTrackComponent } from './intrack/submenu/submenu.component';
 import { SidebarContactComponent } from './sidebar-contact/sidebar-contact.component';
+import { RouterModule } from '@angular/router';
+import {  appRoutes } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,7 @@ import { SidebarContactComponent } from './sidebar-contact/sidebar-contact.compo
     MatSidenavModule,
     CarouselModule,
     NgxSkeletonLoaderModule.forRoot(),
-    APP_ROUTING
+    RouterModule.forRoot(appRoutes,{useHash: true})
   ],
   providers: [],
   bootstrap: [AppComponent]

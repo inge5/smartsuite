@@ -6,6 +6,7 @@ import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl
 import { HomeService } from '../services/home.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import AOS from 'aos';
+import { CommonService } from '../services/common.service';
 
 declare var $ : any; 
 
@@ -37,11 +38,12 @@ export class MobileformsComponent implements OnInit {
   loader = true;
   submenu:any = [];
 
-  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService, private common: CommonService) { 
     
   }
 
   ngOnInit(): void {
+    this.common.paginaMobileFormsMetaData();
     this._homeservice.getHomeMobileForms()
     .subscribe((res:any) => {
       this.loader = false;

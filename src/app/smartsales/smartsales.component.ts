@@ -6,6 +6,7 @@ import { HomeService } from '../services/home.service';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import AOS from 'aos';
+import { CommonService } from '../services/common.service';
 
 declare var $ : any; 
 
@@ -36,11 +37,12 @@ export class SmartsalesComponent implements OnInit {
   submenu:any = [];
   data:any = [];
 
-  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService, private common: CommonService) { 
 
   }
 
   ngOnInit(): void {
+    this.common.paginaSmartSalesMetaData();
     this._homeservice.getMenuSmartsales()
     .subscribe((res:any) => {
       this.submenu = this._sanitizer.bypassSecurityTrustHtml(res);

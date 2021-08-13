@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HomeService } from 'src/app/services/home.service';
-import { min } from '../../../../../athletic/Athletic_Backend/public/assets/lte/bower_components/moment/moment';
+
+//import { min } from '../../../../../athletic/Athletic_Backend/public/assets/lte/bower_components/moment/moment';
 
 declare var $ : any; 
 

@@ -5,6 +5,7 @@ import {MatSidenav} from '@angular/material/sidenav';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { HomeService } from '../services/home.service';
 import AOS from 'aos';
+import { CommonService } from '../services/common.service';
 
 declare var $ : any; 
 
@@ -34,10 +35,11 @@ export class OntimeComponent implements OnInit {
   data:any = [];
   loader = true;
   
-  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService, private common: CommonService) { 
   }
 
   ngOnInit(): void {
+    this.common.paginaOneTimeMetaData();
     this._homeservice.getHomeOnTime()
     .subscribe((res:any) => {
       this.loader = false;

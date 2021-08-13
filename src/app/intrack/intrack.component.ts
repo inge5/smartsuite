@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { HomeService } from '../services/home.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import AOS from 'aos';
+import { CommonService } from '../services/common.service';
 
 declare var $ : any; 
 
@@ -17,11 +18,12 @@ export class IntrackComponent implements OnInit {
   data:any = [];
   loader = true;
   
-  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) { 
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService, private common: CommonService) { 
 
   }
 
   ngOnInit(): void {
+    this.common.paginaInTrackMetaData();
     this._homeservice.getHomeInTrack()
     .subscribe((res:any) => {
       this.loader = false;

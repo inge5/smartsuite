@@ -15,7 +15,7 @@ import { PreciosIntrackComponent } from './precios-intrack/precios-intrack.compo
 import { OnecheckComponent } from './onecheck/onecheck.component';
 import { PreciosOnecheckComponent } from './precios-onecheck/precios-onecheck.component';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
     { path: '', component: SmartsuiteComponent},
     // { path: 'smartsuite', component: SmartsuiteComponent},
     { path: 'smartsales', component: SmartsalesComponent},
@@ -42,5 +42,5 @@ const appRoutes: Routes = [
 //     anchorScrolling: 'enabled',
 //     scrollPositionRestoration: 'enabled'
 // });
-export const appRoutingProviders: any[] = [];
-export const APP_ROUTING: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
+// export const appRoutingProviders: any[] = [];
+// export const APP_ROUTING: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
