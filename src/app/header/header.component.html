@@ -5,7 +5,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ng-container *ngFor="let logo of widgets.logo">
-                <a class="navbar-brand" [href]="logo.instance.link_url">
+                <a class="navbar-brand" [routerLink]="logo.instance.link_url">
                     <img src="{{ logo.instance.url }}" alt="Logo principal" class="img-logo">
                 </a>
             </ng-container>
@@ -34,7 +34,7 @@
                                       <div class="col-megamenu">
                                         <ul class="list-unstyled">
                                           <li>
-                                            <a [href]="[ childItem.url ]">
+                                            <a [routerLink]="[ childItem.url ]">
                                                 <img src="{{ childItem.thumbnail_src }}" alt="logos">
                                                 <p class="textoItemMenu">{{ childItem.description }}</p>
                                             </a>
@@ -54,7 +54,7 @@
                         <a class="nav-link dropdown-toggle size14" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ sesion.name }}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu contenedor-sesion" aria-labelledby="navbarDropdownMenuLink">
                             <ng-container *ngFor="let sesion of sesion.items">
                                 <a class="dropdown-item {{ sesion.classes }}" [href]="sesion.url" target="blank_"><img src="{{ sesion.thumbnail_src }}"> {{ sesion.title }}</a>
                             </ng-container>

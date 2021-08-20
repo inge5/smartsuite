@@ -91,7 +91,7 @@ import {  appRoutes } from './app.routing';
     SidebarContactComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -101,7 +101,7 @@ import {  appRoutes } from './app.routing';
     MatSidenavModule,
     CarouselModule,
     NgxSkeletonLoaderModule.forRoot(),
-    RouterModule.forRoot(appRoutes,{useHash: true})
+    RouterModule.forRoot(appRoutes, { useHash: true, initialNavigation: 'enabled' })
   ],
   providers: [],
   bootstrap: [AppComponent]

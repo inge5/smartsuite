@@ -11,7 +11,7 @@ export class CommonService {
   paginaInicioMetaData(){
     this.paginaMetaData(
       'optimiza tu gestion comercial con las mejores apps desde la nube',
-      'Automatiza tus procesos y optimiza a tu equipo de trabajo con las mejores herramient',
+      'Automatiza tus procesos y optimiza a tu equipo de trabajo con las mejores herramientas',
       'Seguridad o trazabilidad gps con Smarsuite',
       ''
     )
