@@ -61,7 +61,7 @@
                             </ng-container>
                         </ng-container>
                         <p class="font-weight-300 size18 letter-spacing-05 line-height-36 text-gray mb-0 mt-2">{{ data.seccion2.titulo_boton }}</p>
-                        <a mat-raised-button class="btn-onecheck-fill size15 font-weight-300 w-50 d-block border-radius-12 white-space-normal" [href]="data.seccion2.url_boton">{{ data.seccion2.texto_boton }}</a>
+                        <a mat-raised-button class="btn-onecheck-fill size15 font-weight-300 w-50 d-block border-radius-12 white-space-normal" [href]="data.seccion2.url_boton" target="blank">{{ data.seccion2.texto_boton }}</a>
                     </div>
                 </div>
             </div>
@@ -114,10 +114,10 @@
                             <p class="text-black-intrack size30 letter-spacing-069 line-height-42" [innerHTML]="data.seccion5.titulo | safeHtml: 'html'"></p>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <a class="w-100 border-radius-11 btn-onecheck-fill2 size15 text-decoration-none mb-2 mt-2" mat-raised-button [href]="data.seccion5.url_boton_1" target="_blank">{{ data.seccion5.texto_boton_1 }}</a>
+                                    <a class="w-100 border-radius-11 btn-onecheck-fill2 size15 text-decoration-none mb-2 mt-2" mat-raised-button [routerLink]="[data.seccion5.url_boton_1]">{{ data.seccion5.texto_boton_1 }}</a>
                                 </div>
                                 <div class="col-md-4">
-                                    <a class="w-100 border-radius-11 size15 text-gray btn-onecheck text-decoration-none mb-2 mt-2" mat-raised-button [href]="data.seccion5.url_boton_2" target="_blank">{{ data.seccion5.texto_boton_2 }}</a>
+                                    <a class="w-100 border-radius-11 size15 text-gray btn-onecheck text-decoration-none mb-2 mt-2" mat-raised-button (click)="abrirSide()">{{ data.seccion5.texto_boton_2 }}</a>
                                 </div>
                                 <div class="col-md-4"></div>
                             </div>
@@ -141,7 +141,7 @@
                     </div>
                     <div class="col-md-5 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1200">
                         <p class="size32 text-gray letter-spacing-097 line-height-36" [innerHTML]="data.seccion6.descripcion | safeHtml: 'html'"></p>
-                        <a *ngIf="data.seccion6.url_boton" mat-raised-button class="text-decoration-none btn-onecheck-fill size15 border-radius-11 font-weight-300" [href]="data.seccion6.url_boton">{{ data.seccion6.texto_boton }}</a>
+                        <a *ngIf="data.seccion6.url_boton" mat-raised-button class="text-decoration-none btn-onecheck-fill size15 border-radius-11 font-weight-300" [routerLink]="[data.seccion6.url_boton]">{{ data.seccion6.texto_boton }}</a>
                     </div>
                 </div>
             </div>

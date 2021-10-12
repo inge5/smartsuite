@@ -4,7 +4,7 @@
             <ul class="navbar-nav main-menu-list mr-auto">
                 <ng-container *ngFor="let subitem of submenu.items">
                     <li class="nav-item">
-                        <a class="nav-link nav-link-main size16 navbar-brand" [href]="subitem.url">
+                        <a class="nav-link nav-link-main size16 navbar-brand" [routerLink]="[subitem.url]">
                             <img *ngIf="subitem.thumbnail_src" [src]="subitem.thumbnail_src" alt="Logo principal" class="img-logo">
                             <span class="{{ subitem.title_position }}">{{ subitem.title }}</span>
                         </a>

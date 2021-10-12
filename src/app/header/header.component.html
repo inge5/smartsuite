@@ -22,10 +22,10 @@
                         <li class="nav-item dropdown has-megamenu" [ngClass]="(isFirst) ? 'megamenu' : ''">
                             <ng-container *ngIf="i == 0">
                                 <a class="nav-link nav-link-main size14 dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"  [href]="item.url">{{ item.title }}</a>
+                            aria-haspopup="true" aria-expanded="false"  [href]="item.url" target="blank">{{ item.title }}</a>
                             </ng-container>
                             <ng-container *ngIf="i != 0">  
-                                <a class="nav-link nav-link-main size14" [href]="item.url">{{ item.title }}</a>
+                                <a class="nav-link nav-link-main size14" [href]="item.url" target="blank">{{ item.title }}</a>
                             </ng-container>
                             <div [ngClass]="(isFirst) ? 'dropdown-menu menuServicio megamenu p-3' : ''">
                                 <div class="row">

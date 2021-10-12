@@ -47,7 +47,7 @@
                                     </ng-container>
                                 </div>
                            </ng-container>
-                           <a mat-raised-button class="line-height-2-5 text-decoration-none size15 letter-spacing-042 font-weight-400 mt-5 border-radius-25 btn-intrack" [href]="data.seccion2.url_boton">{{ data.seccion2.texto_boton }} <span class="material-icons">arrow_right_alt</span></a>
+                           <a mat-raised-button class="line-height-2-5 text-decoration-none size15 letter-spacing-042 font-weight-400 mt-5 border-radius-25 btn-intrack" [routerLink]="[data.seccion2.url_boton]">{{ data.seccion2.texto_boton }} <span class="material-icons">arrow_right_alt</span></a>
                        </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@
                     <div class="col-md-6 my-auto" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                         <p class="line-height-32 font-weight-300" [innerHTML]="data.seccion4.descripcion | safeHtml: 'html'"></p>
                         <div class="mt-5 d-flex align-items-center flex-wrap justify-content-start">
-                            <a *ngIf="data.seccion4.texto_boton_1" class="size15 letter-spacing-042 border-radius-50 text-decoration-none btn-intrack-fill py-2 mt-2 mb-2" mat-raised-button [href]="data.seccion4.url_boton_1">{{ data.seccion4.texto_boton_1 }}</a>
-                            <a *ngIf="data.seccion4.texto_boton_2" class="size15 letter-spacing-042 border-radius-50 text-decoration-none btn-intrack py-2 mt-2 mb-2 ml-3" mat-raised-button [href]="data.seccion4.url_boton_2">{{ data.seccion4.texto_boton_2 }} <span class="material-icons">arrow_right_alt</span></a>
+                            <a *ngIf="data.seccion4.texto_boton_1" class="size15 letter-spacing-042 border-radius-50 text-decoration-none btn-intrack-fill py-2 mt-2 mb-2" mat-raised-button [routerLink]="[data.seccion4.url_boton_1]">{{ data.seccion4.texto_boton_1 }}</a>
+                            <a *ngIf="data.seccion4.texto_boton_2" class="size15 letter-spacing-042 border-radius-50 text-decoration-none btn-intrack py-2 mt-2 mb-2 ml-3" mat-raised-button (click)="abrirSide()">{{ data.seccion4.texto_boton_2 }} <span class="material-icons">arrow_right_alt</span></a>
                         </div>
                     </div>
                     <div class="col-md-6" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
@@ -106,7 +106,7 @@
                         </div>
                         <div class="col-md-5 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                             <p class="text-gray letter-spacing-097 line-height-36" [innerHTML]="data.seccion5.descripcion | safeHtml: 'html'"></p>
-                            <a mat-raised-button class="line-height-2-5 text-decoration-none btn-intrack-fill size15 border-radius-25 font-weight-400" [href]="data.seccion5.url_boton">{{ data.seccion5.texto_boton }}<span class="material-icons">arrow_right_alt</span></a>
+                            <a mat-raised-button class="line-height-2-5 text-decoration-none btn-intrack-fill size15 border-radius-25 font-weight-400" [href]="data.seccion5.url_boton" target="blank">{{ data.seccion5.texto_boton }}<span class="material-icons">arrow_right_alt</span></a>
                         </div>
                     </div>
                 </div>

@@ -95,7 +95,7 @@
                                 <a class="w-100 border-radius-25 demo-smartsale size15 text-decoration-none mb-2 mt-2" mat-raised-button [href]="data.seccion5.url_boton_1" target="_blank">{{ data.seccion5.texto_boton_1 }}</a>
                             </div>
                             <div class="col-md-6" *ngIf="data.seccion5.url_boton_2">
-                                <a class="w-100 btn-white border-radius-25 size15 text-gray text-decoration-none mb-2 mt-2" mat-raised-button [href]="data.seccion5.url_boton_2" target="_blank">{{ data.seccion5.texto_boton_2 }}</a>
+                                <a class="w-100 btn-white border-radius-25 size15 text-gray text-decoration-none mb-2 mt-2" mat-raised-button (click)="abrirSide()">{{ data.seccion5.texto_boton_2 }}</a>
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                     <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                         <p class="ubuntu text-blue-dark font-weight-700 size25 letter-spacing-009 line-height-36" [innerHTML]="data.seccion9.texto | safeHtml: 'html'"></p>
                         <ng-container *ngIf="data.seccion9.url_boton">
-                            <a mat-raised-button class="demo-smartsale size15 text-white border-radius-25 font-weight-300 text-decoration-none" [href]="data.seccion9.url_boton">{{ data.seccion9.texto_boton }}</a>
+                            <a mat-raised-button class="demo-smartsale size15 text-white border-radius-25 font-weight-300 text-decoration-none" [routerLink]="[data.seccion9.url_boton]">{{ data.seccion9.texto_boton }}</a>
                         </ng-container>    
                     </div>
                 </div>

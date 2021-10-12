@@ -49,4 +49,8 @@ export class CaretaskComponent implements OnInit {
       AOS.init();
     });
   }
+  abrirSide(){
+    $("#wrapper").toggleClass("toggled");
+    $('.overlaytrabaja').addClass('active');
+  }
 }

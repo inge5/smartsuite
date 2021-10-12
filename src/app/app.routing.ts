@@ -20,16 +20,16 @@ export const appRoutes: Routes = [
     // { path: 'smartsuite', component: SmartsuiteComponent},
     { path: 'smartsales', component: SmartsalesComponent},
     { path: 'smartsales/precios', component: PreciosSmartsalesComponent},
-    // { path: 'precios-ontime', component: PreciosOntimeComponent},
     { path: 'mobileforms', component: MobileformsComponent},
     { path: 'mobileforms/precios', component: PreciosMobileformsComponent},
     { path: 'onecheck', component: OnecheckComponent},
+    { path: 'onecheck/precios', component: PreciosOnecheckComponent},
     { path: 'caretask', component: CaretaskComponent},
+    { path: 'caretask/precios', component: PreciosCaretaskComponent},
     { path: 'ontime', component: OntimeComponent},
-    // { path: 'precios-caretask', component: PreciosCaretaskComponent},
+    { path: 'ontime/precios', component: PreciosOntimeComponent},
     { path: 'intrack', component: IntrackComponent},
-    // { path: 'precios-intrack', component: PreciosIntrackComponent},
-    // { path: 'precios-onecheck', component: PreciosOnecheckComponent},
+    { path: 'intrack/precios', component: PreciosIntrackComponent},
     {path: '**', pathMatch: 'full', component: SmartsuiteComponent}
 
 ];

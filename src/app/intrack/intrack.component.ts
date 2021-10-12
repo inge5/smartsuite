@@ -62,5 +62,10 @@ export class IntrackComponent implements OnInit {
     nav: false
   }
 
+  abrirSide(){
+    $("#wrapper").toggleClass("toggled");
+    $('.overlaytrabaja').addClass('active');
+  }
+
 
 }
