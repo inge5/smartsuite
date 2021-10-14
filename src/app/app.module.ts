@@ -101,7 +101,13 @@ import {  appRoutes } from './app.routing';
     MatSidenavModule,
     CarouselModule,
     NgxSkeletonLoaderModule.forRoot(),
-    RouterModule.forRoot(appRoutes, { useHash: true, initialNavigation: 'enabled' })
+    RouterModule.forRoot(appRoutes, { 
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      // scrollOffset: [0, 64],
+      
+      useHash: true, initialNavigation: 'enabled'
+     })
   ],
   providers: [],
   bootstrap: [AppComponent]

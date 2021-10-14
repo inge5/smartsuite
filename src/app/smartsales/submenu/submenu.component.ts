@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { HomeService } from 'src/app/services/home.service';
 
 declare var $ : any; 
@@ -35,6 +36,12 @@ export class SubmenuSmartsalesComponent implements OnInit {
     $('.overlaytrabaja').removeClass('active');
     $("#wrapper").toggleClass("toggled");
   }
+
+  scrollConClick( url:string ){
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
 
   reason = '';
 

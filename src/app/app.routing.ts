@@ -23,13 +23,13 @@ export const appRoutes: Routes = [
     { path: 'mobileforms', component: MobileformsComponent},
     { path: 'mobileforms/precios', component: PreciosMobileformsComponent},
     { path: 'onecheck', component: OnecheckComponent},
-    { path: 'onecheck/precios', component: PreciosOnecheckComponent},
+    // { path: 'onecheck/precios', component: PreciosOnecheckComponent},
     { path: 'caretask', component: CaretaskComponent},
-    { path: 'caretask/precios', component: PreciosCaretaskComponent},
+    // { path: 'caretask/precios', component: PreciosCaretaskComponent},
     { path: 'ontime', component: OntimeComponent},
-    { path: 'ontime/precios', component: PreciosOntimeComponent},
+    // { path: 'ontime/precios', component: PreciosOntimeComponent},
     { path: 'intrack', component: IntrackComponent},
-    { path: 'intrack/precios', component: PreciosIntrackComponent},
+    // { path: 'intrack/precios', component: PreciosIntrackComponent},
     {path: '**', pathMatch: 'full', component: SmartsuiteComponent}
 
 ];

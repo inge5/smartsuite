@@ -92,7 +92,7 @@
                         <p class="text-blue-dark size25 font-weight-300 letter-spacing-069 line-height-33" [innerHTML]="data.seccion5.texto | safeHtml: 'html'"></p>
                         <div class="row">
                             <div class="col-md-6" *ngIf="data.seccion5.url_boton_1">
-                                <a class="w-100 border-radius-25 demo-smartsale size15 text-decoration-none mb-2 mt-2" mat-raised-button [href]="data.seccion5.url_boton_1" target="_blank">{{ data.seccion5.texto_boton_1 }}</a>
+                                <a class="w-100 border-radius-25 demo-smartsale size15 text-decoration-none mb-2 mt-2" mat-raised-button (click)="scrollConClick(data.seccion5.url_boton_1)">{{ data.seccion5.texto_boton_1 }}</a>
                             </div>
                             <div class="col-md-6" *ngIf="data.seccion5.url_boton_2">
                                 <a class="w-100 btn-white border-radius-25 size15 text-gray text-decoration-none mb-2 mt-2" mat-raised-button (click)="abrirSide()">{{ data.seccion5.texto_boton_2 }}</a>

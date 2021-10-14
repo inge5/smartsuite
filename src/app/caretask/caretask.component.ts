@@ -53,4 +53,10 @@ export class CaretaskComponent implements OnInit {
     $("#wrapper").toggleClass("toggled");
     $('.overlaytrabaja').addClass('active');
   }
+  scrollConClick( url:string ){
+    console.log(url);
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
 }

@@ -33,4 +33,10 @@ export class SubmenuMobileformsComponent implements OnInit {
     $('.overlaytrabaja').removeClass('active');
     $("#wrapper").toggleClass("toggled");
   }
+  scrollConClick( url:string ){
+    console.log(url);
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
 }

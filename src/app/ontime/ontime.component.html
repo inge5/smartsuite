@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div> 
-        <div class="container">
+        <div class="container" id="funcionalidades">
             <div class="row pt-3" *ngIf="data.seccion1">
                 <div class="col-md-12 mb-3">
                     <p class="text-black-dark letter-spacing-077 text-center line-height-35" [innerHTML]="data.seccion1.descripcion | safeHtml: 'html'"></p>
@@ -64,7 +64,7 @@
                         <p class="text-blue-dark font-weight-300 letter-spacing-069 line-height-33" [innerHTML]="data.seccion3.titulo | safeHtml: 'html'"></p>
                         <div class="row">
                             <div class="col-md-6" *ngIf="data.seccion3.url_boton_1">
-                                <a class="w-100 border-radius-25 demo-ontime size15 text-white text-decoration-none mt-2 mb-2" mat-raised-button [routerLink]="[data.seccion3.url_boton_1]">{{ data.seccion3.texto_boton_1 }}</a>
+                                <a class="w-100 border-radius-25 demo-ontime size15 text-white text-decoration-none mt-2 mb-2" mat-raised-button (click)="scrollConClick(data.seccion3.url_boton_1)">{{ data.seccion3.texto_boton_1 }}</a>
                             </div>
                             <div class="col-md-6" *ngIf="data.seccion3.url_boton_2">
                                 <a class="w-100 border-radius-25 size15 demo-ontime-outline text-decoration-none mt-2 mb-2" mat-raised-button (click)="abrirSide()">{{ data.seccion3.texto_boton_2 }}</a>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container mt-5 pt-3" *ngIf="data.seccion6">
+            <div class="container mt-5 pt-3" id="precios" *ngIf="data.seccion6">
                 <div class="row">
                     <div class="col-md-6" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1200">
                         <img class="img-fluid" [src]="data.seccion6.imagen" alt="Solución Eficaz" />

@@ -24,4 +24,10 @@ export class SubmenuOnecheckComponent implements OnInit {
     $('.overlaytrabaja').addClass('active');
   }
 
+  scrollConClick( url:string ){
+    console.log(url);
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
 }

@@ -84,4 +84,10 @@ export class OnecheckComponent implements OnInit {
     },
     nav: false
   }
+  scrollConClick( url:string ){
+    console.log(url);
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
 }

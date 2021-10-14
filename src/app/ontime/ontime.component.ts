@@ -51,6 +51,13 @@ export class OntimeComponent implements OnInit {
 
   reason = '';
 
+  scrollConClick( url:string ){
+    console.log(url);
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
+
   abrirSide(){
     $("#wrapper").toggleClass("toggled");
     $('.overlaytrabaja').addClass('active');

@@ -64,6 +64,13 @@ export class MobileformsComponent implements OnInit {
     $('.overlaytrabaja').removeClass('active');
     $("#wrapper").toggleClass("toggled");
   }
+  
+  scrollConClick( url:string ){
+    console.log(url);
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
 
   close(reason: string) {
     this.reason = reason;
