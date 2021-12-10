@@ -54,7 +54,7 @@
                 <div class="row pb-5" data-aos="fade-down" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                     <div class="col-md-12">
                         <h2 class="font-weight-700 text-green size38 letter-spacing-1-03 line-height-47 text-center ubuntu text-dark-blue-caretask">{{data.seccion2.titulo_boton}}</h2>
-                        <a mat-raised-button class="btn-caretask-dark-fill text-decoration-none size18 w-15 border-radius-3 font-weight-500 d-block mx-auto" [href]="data.seccion2.url_boton" target="blank">{{ data.seccion2.texto_boton }}</a>
+                        <a mat-raised-button class="btn-caretask-dark-fill text-decoration-none size18 w-15 border-radius-3 font-weight-500 d-block mx-auto" [href]="data.seccion2.url_boton" target="_blank">{{ data.seccion2.texto_boton }}</a>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                         <p class="size25 text-dark-blue-caretask font-weight-700 letter-spacing-069 line-height-33" [innerHTML]="data.seccion4.texto | safeHtml: 'html'"></p>
                         <div class="row">
                             <div class="col-md-6">
-                                <a *ngIf="data.seccion4.url_boton_1" class="w-100 btn-caretask-dark-fill border-radius-3 size18 border-dark-blue text-decoration-none mt-2 mb-2" mat-raised-button (click)="scrollConClick(data.seccion4.url_boton_1)">{{ data.seccion4.texto_boton_1 }}</a>
+                                <a *ngIf="data.seccion4.url_boton_1" class="w-100 btn-caretask-dark-fill border-radius-3 size18 border-dark-blue text-decoration-none mt-2 mb-2" mat-raised-button [href]="data.seccion4.url_boton_1" target="_blank">{{ data.seccion4.texto_boton_1 }}</a>
                             </div>
                             <div class="col-md-6">
                                 <a *ngIf="data.seccion4.url_boton_2" class="w-100 border-radius-3 size18 btn-caretask mt-2 mb-2 text-decoration-none" mat-raised-button (click)="abrirSide()">{{ data.seccion4.texto_boton_2 }}</a>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
                         <p class="size32 text-gray letter-spacing-097 line-height-36" [innerHTML]="data.seccion5.descripcion | safeHtml: 'html'"></p>
-                        <a *ngIf="data.seccion5.url_boton" mat-raised-button class="text-decoration-none btn-caretask-dark-fill size18 border-radius-3 font-weight-500" (click)="abrirSide()">{{ data.seccion5.texto_boton }}</a>
+                        <a *ngIf="data.seccion5.url_boton" mat-raised-button class="text-decoration-none btn-caretask-dark-fill size18 border-radius-3 font-weight-500" [href]="data.seccion5.url_boton" target="_blank">{{ data.seccion5.texto_boton }}</a>
                     </div>
                 </div>
             </div>
