@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { merge, Observable, throwError } from 'rxjs';
-import { GLOBAL } from './global';
 import { map, catchError, concatAll, concatMap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -32,27 +32,27 @@ export class HomeService {
   
 
   constructor(private _http: HttpClient) {
-    this.urlMenu = GLOBAL.urlMenu;
+    this.urlMenu = environment.urlMenu;
 
-    this.urlSmartsuite = GLOBAL.urlSmartsuite;
+    this.urlSmartsuite = environment.urlSmartsuite;
 
-    this.urlSmartsales = GLOBAL.urlSmartsales;
-    this.urlMenuSmartsales = GLOBAL.urlMenuSmartsales;
+    this.urlSmartsales = environment.urlSmartsales;
+    this.urlMenuSmartsales = environment.urlMenuSmartsales;
 
-    this.urlMobileForms = GLOBAL.urlMobileForms;
-    this.urlMenuMobileForms = GLOBAL.urlMenuMobileForms;
+    this.urlMobileForms = environment.urlMobileForms;
+    this.urlMenuMobileForms = environment.urlMenuMobileForms;
 
-    this.urlOneCheck = GLOBAL.urlOneCheck;
-    this.urlMenuOneCheck = GLOBAL.urlMenuOneCheck;
+    this.urlOneCheck = environment.urlOneCheck;
+    this.urlMenuOneCheck = environment.urlMenuOneCheck;
 
-    this.urlOnTime = GLOBAL.urlOnTime;
-    this.urlMenuOnTime = GLOBAL.urlMenuOnTime;
+    this.urlOnTime = environment.urlOnTime;
+    this.urlMenuOnTime = environment.urlMenuOnTime;
 
-    this.urlCareTask = GLOBAL.urlCareTask;
-    this.urlMenuCareTask = GLOBAL.urlMenuCareTask;
+    this.urlCareTask = environment.urlCareTask;
+    this.urlMenuCareTask = environment.urlMenuCareTask;
 
-    this.urlInTrack = GLOBAL.urlInTrack;
-    this.urlMenuInTrack = GLOBAL.urlMenuInTrack;
+    this.urlInTrack = environment.urlInTrack;
+    this.urlMenuInTrack = environment.urlMenuInTrack;
   }
 
   /* HOME */

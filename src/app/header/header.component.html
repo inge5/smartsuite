@@ -25,12 +25,17 @@
                             aria-haspopup="true" aria-expanded="false"  [href]="item.url" target="blank">{{ item.title }}</a>
                             </ng-container>
                             <ng-container *ngIf="i != 0">  
-                                <a class="nav-link nav-link-main size14" [href]="item.url" target="blank">{{ item.title }}</a>
+                                <ng-container *ngIf="item.title_position == 'hide'; else noOculto">
+                                    <a class="nav-link nav-link-main size14" [routerLink]="['/']" fragment="soporte">{{ item.title }}</a>
+                                </ng-container>
+                                <ng-template #noOculto>
+                                    <a class="nav-link nav-link-main size14" [href]="item.url" target="_blank">{{ item.title }}</a>
+                                </ng-template>
                             </ng-container>
-                            <div [ngClass]="(isFirst) ? 'dropdown-menu menuServicio megamenu p-3' : ''">
+                            <div [ngClass]="(isFirst) ? 'dropdown-menu menuServicio megamenu p-0 px-3' : ''">
                                 <div class="row">
                                   <ng-container *ngFor="let childItem of item.child_items; first as isFirst">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 hover-bg">
                                       <div class="col-megamenu">
                                         <ul class="list-unstyled">
                                           <li>
@@ -49,7 +54,7 @@
                     </ng-container>
                 </ul>
                 
-                <ul class="navbar-nav iniciar-sesion">
+                <!-- <ul class="navbar-nav iniciar-sesion">
                     <li class="nav-item dropdown text-center">
                         <a class="nav-link dropdown-toggle size14" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ sesion.name }}
@@ -60,7 +65,7 @@
                             </ng-container>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </nav>
