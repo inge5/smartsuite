@@ -16,6 +16,7 @@ export class AnimateContactoComponent implements OnInit {
   public form: any;
   data:any = [];
   formulario: FormGroup;
+  dominio: string = environment.domain;
   constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService, private fb: FormBuilder) { 
     this.crearFormulario();
   }

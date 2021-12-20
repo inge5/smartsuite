@@ -1,9 +1,5 @@
-import { Component, HostListener, OnInit,Pipe, PipeTransform, ViewChild } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit,Pipe, PipeTransform } from '@angular/core';
 import {DomSanitizer,SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl} from '@angular/platform-browser';
-
-import {MatIconRegistry} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
 import { HomeService } from './../services/home.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import AOS from 'aos';

@@ -4,6 +4,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HomeService } from '../services/home.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -38,6 +40,13 @@ export class HeaderComponent implements OnInit {
       this.sesion = this.sesion.changingThisBreaksApplicationSecurity;
     });
   }
+
+  scrollConClick( url:string ){
+    console.log(url);
+    $('html, body').animate({
+      scrollTop: $(url).offset().top
+    }, .5);
+}
 
 }
 

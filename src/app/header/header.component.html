@@ -5,31 +5,24 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ng-container *ngFor="let logo of widgets.logo">
-                <a class="navbar-brand" [routerLink]="logo.instance.link_url">
+                <a class="navbar-brand" [href]="logo.instance.link_url">
                     <img src="{{ logo.instance.url }}" alt="Logo principal" class="img-logo">
                 </a>
             </ng-container>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- <ul class="navbar-nav ml-auto d-lg-none d-xl-none">
-                    <ng-container *ngFor="let item of data.items">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-main" [href]="item.url">{{ item.title }}</a>
-                        </li>
-                    </ng-container>
-                </ul> -->
                 <ul id="menuPrincipal" class="d-none d-sm-none d-md-none d-lg-block navbar-nav main-menu-list mr-auto">
                     <ng-container *ngFor="let item of data.items; first as isFirst;let i = index ">
                         <li class="nav-item dropdown has-megamenu" [ngClass]="(isFirst) ? 'megamenu' : ''">
                             <ng-container *ngIf="i == 0">
                                 <a class="nav-link nav-link-main size14 dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"  [href]="item.url" target="blank">{{ item.title }}</a>
+                            aria-haspopup="true" aria-expanded="false"  [href]="item.url" target="blank" rel="noopener" or rel="noreferrer">{{ item.title }}</a>
                             </ng-container>
                             <ng-container *ngIf="i != 0">  
                                 <ng-container *ngIf="item.title_position == 'hide'; else noOculto">
-                                    <a class="nav-link nav-link-main size14" [routerLink]="['/']" fragment="soporte">{{ item.title }}</a>
+                                    <a class="nav-link nav-link-main size14" (click)="scrollConClick(item.url)" style="cursor: pointer;">{{ item.title }}</a>
                                 </ng-container>
                                 <ng-template #noOculto>
-                                    <a class="nav-link nav-link-main size14" [href]="item.url" target="_blank">{{ item.title }}</a>
+                                    <a class="nav-link nav-link-main size14" [href]="item.url" target="_blank" rel="noopener" or rel="noreferrer">{{ item.title }}</a>
                                 </ng-template>
                             </ng-container>
                             <div [ngClass]="(isFirst) ? 'dropdown-menu menuServicio megamenu p-0 px-3' : ''">
@@ -39,7 +32,7 @@
                                       <div class="col-megamenu">
                                         <ul class="list-unstyled">
                                           <li>
-                                            <a [routerLink]="[ childItem.url ]">
+                                            <a [href]="[ childItem.url ]">
                                                 <img src="{{ childItem.thumbnail_src }}" alt="logos">
                                                 <p class="textoItemMenu">{{ childItem.description }}</p>
                                             </a>

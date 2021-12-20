@@ -10,6 +10,19 @@ import { existsSync } from 'fs';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
+  const domino = require("domino");
+  const fs = require("fs");
+  const path = require("path");
+  const templateA = fs
+    .readFileSync(path.join("dist/smartsuite/browser", "index.html"))
+    .toString();
+  const win = domino.createWindow(templateA);
+  win.Object = Object;
+  win.Math = Math;
+  
+  global["window"] = win;
+  global["document"] = win.document;
+  
   const server = express();
   const distFolder = join(process.cwd(), 'dist/smartsuite/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
@@ -38,7 +51,7 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env.PORT || 4000;
+  const port = process.env.PORT || 9000;
 
   // Start up the Node server
   const server = app();

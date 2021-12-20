@@ -73,7 +73,7 @@
                     </div>
                     <div class="form-check text-center">
                         <input type="checkbox" name="acepto" formControlName="acepto" class="form-check-input" id="acepto">
-                        <label class="size16 text-soft-white" for="acepto">Conozco y <a class="text-sea-blue" href="http://pruebasneuro.co/N-1075/api/wp-content/uploads/2021/07/Politica-de-tratamiento-de-datos.pdf" target="blank_">acepto la política de datos</a></label>
+                        <label class="size16 text-soft-white" for="acepto">Conozco y <a class="text-sea-blue" href="{{dominio}}/wp-content/uploads/2021/07/Politica-de-tratamiento-de-datos.pdf" target="blank_" rel="noopener" or rel="noreferrer">acepto la política de datos</a></label>
                         <small style="color:#c30000;" *ngIf="formulario.get('acepto').invalid && (formulario.get('acepto').dirty || formulario.get('acepto').touched)">
                             Debe aceptar las condiciones.
                         </small>

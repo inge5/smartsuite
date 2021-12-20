@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { HomeService } from '../services/home.service';
 declare var $ : any; 
@@ -15,9 +17,12 @@ export class SidebarContactComponent implements OnInit {
   public form: any;
   data:any = [];
   url:string;
+  dominio: string = environment.domain;
 
-  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService) {
-    this.url = window.location.hash.substr(1);
+  constructor(private _sanitizer: DomSanitizer, private _homeservice:HomeService, @Inject(PLATFORM_ID) private platform_id) {
+    if(isPlatformBrowser(this.platform_id)){
+      this.url = window.location.hash.substr(1);
+    }
     this.url = this.url.replace("/","");
     this.url = this.url.toUpperCase();
     this.form = {
@@ -36,8 +41,10 @@ export class SidebarContactComponent implements OnInit {
   reason = '';
   
   public cierraTrabajemos() {
-    $('.overlaytrabaja').removeClass('active');
-    $("#wrapper").toggleClass("toggled");
+    if(isPlatformBrowser(this.platform_id)){
+      $('.overlaytrabaja').removeClass('active');
+      $("#wrapper").toggleClass("toggled");
+    }
   }
 
   close(reason: string) {
@@ -47,7 +54,7 @@ export class SidebarContactComponent implements OnInit {
 
   enviarForm(form) {
     $.ajax({
-      url: 'https://pruebasneuro.co/N-1075/api/wp-content/plugins/form-contactenos/mailProducts.php',
+      url: `${environment.domain}/wp-content/plugins/form-contactenos/mailProducts.php`,
       type: 'POST',
       data: JSON.stringify(this.form),
       dataType:"json",

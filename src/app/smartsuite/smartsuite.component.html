@@ -20,7 +20,7 @@
                         <mat-card class="card-zoom tarjetas-services tarjetas-services-{{i}} mt-2 mb-2">
                             <img class="mb-1 img-fluid" [src]="empresas.icono" alt="OneCheck">
                             <mat-card-content>
-                                <p class="size14 line-height-17 letter-spacing-054 text-center text-black" [innerHTML]="empresas.descripcion"></p>
+                                <p class="size14 line-height-17 letter-spacing-054 text-center text-black" [innerHTML]="empresas.descripcion  | safeHtml: 'html'"></p>
                             </mat-card-content>
                         </mat-card>
                     </div>
@@ -39,7 +39,7 @@
                         <img [src]="data.aplicaciones_mobiles.icono" alt="Apps móviles">
                     </div>
                     <h2 class="size38 font-weight-700 text-blue mb-4">{{ data.aplicaciones_mobiles.titulo }}</h2>
-                    <p class="size18 font-weight-400" [innerHTML]="data.aplicaciones_mobiles.descripcion"></p>
+                    <p class="size18 font-weight-400" [innerHTML]="data.aplicaciones_mobiles.descripcion | safeHtml: 'html'"></p>
                     <div class="banderas">
                         <ng-container *ngFor="let bandera of data.aplicaciones_mobiles.banderas">
                             <img class="img-fluid d-inline-block card-zoom" [src]="bandera.bandera" alt="Nivel nacional e internacional">
@@ -55,7 +55,7 @@
                 <div class="col-md-12">
                     <img class="d-block mx-auto mb-4" [src]="data.clientes.logo" alt="Logo Smartsuite">
                     <h2 class="size38 font-weight-700 line-height-46 letter-spacing-056 text-black text-center mb-2">{{ data.clientes.titulo }}</h2>
-                    <p class="text-center text-black size18 letter-spacing-027" [innerHTML]="data.clientes.descripcion"></p>
+                    <p class="text-center text-black size18 letter-spacing-027" [innerHTML]="data.clientes.descripcion | safeHtml: 'html'"></p>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     <img class="img-fluid" [src]="data.herramientas_digitales.imagen" alt="Herramientas">
                 </div>
                 <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
-                    <h2 class="mb-3 size38 text-black mb-4 font-weight-300 line-height-46 letter-spacing-056" [innerHTML]="data.herramientas_digitales.texto"></h2>
+                    <h2 class="mb-3 size38 text-black mb-4 font-weight-300 line-height-46 letter-spacing-056" [innerHTML]="data.herramientas_digitales.texto | safeHtml: 'html'"></h2>
                     <a class="pl-5 pr-5 pt-2 pb-2 text-white btn-blue letter-spacing-027 size18 font-weight-300" [href]="data.herramientas_digitales.url_boton" mat-raised-button>{{ data.herramientas_digitales.texto_boton }}</a>
                 </div>
             </div>

@@ -35,7 +35,7 @@
                         <input class="form-control hide" id="Producto" name="producto" #producto="ngModel" [(ngModel)]="form.producto" [value]="form.producto" disabled required>
                         <div class="form-check mt-3">
                             <input type="checkbox" name="acepto" #acepto="ngModel" [(ngModel)]="form.acepto" class="form-check-input" id="acepto" required>
-                            <label class="size16 text-gray" for="acepto">Conozco y <a class="text-sea-blue" href="http://pruebasneuro.co/N-1075/api/wp-content/uploads/2021/07/Politica-de-tratamiento-de-datos.pdf" target="blank_">acepto la política de datos</a></label>
+                            <label class="size16 text-gray" for="acepto">Conozco y <a class="text-sea-blue" href="{{dominio}}/wp-content/uploads/2021/07/Politica-de-tratamiento-de-datos.pdf" target="_blank" rel="noopener" or rel="noreferrer">acepto la política de datos</a></label>
                             <small style="color:#c30000;" *ngIf="acepto.invalid && (acepto.dirty || acepto.touched)">
                                 Debe aceptar las condiciones.
                             </small>
