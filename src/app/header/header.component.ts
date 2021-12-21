@@ -42,7 +42,6 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollConClick( url:string ){
-    console.log(url);
     $('html, body').animate({
       scrollTop: $(url).offset().top
     }, .5);

@@ -5,7 +5,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <ng-container *ngFor="let logo of widgets.logo">
-                <a class="navbar-brand" [href]="logo.instance.link_url">
+                <a class="navbar-brand" [routerLink]="['/']">
                     <img src="{{ logo.instance.url }}" alt="Logo principal" class="img-logo">
                 </a>
             </ng-container>
@@ -15,15 +15,22 @@
                         <li class="nav-item dropdown has-megamenu" [ngClass]="(isFirst) ? 'megamenu' : ''">
                             <ng-container *ngIf="i == 0">
                                 <a class="nav-link nav-link-main size14 dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"  [href]="item.url" target="blank" rel="noopener" or rel="noreferrer">{{ item.title }}</a>
+                            aria-haspopup="true" aria-expanded="false"  [href]="item.url" target="blank" rel="noopener" rel="noreferrer">{{ item.title }}</a>
                             </ng-container>
                             <ng-container *ngIf="i != 0">  
-                                <ng-container *ngIf="item.title_position == 'hide'; else noOculto">
+                                <ng-container *ngIf="item.title_position == 'hide'">
                                     <a class="nav-link nav-link-main size14" (click)="scrollConClick(item.url)" style="cursor: pointer;">{{ item.title }}</a>
                                 </ng-container>
-                                <ng-template #noOculto>
-                                    <a class="nav-link nav-link-main size14" [href]="item.url" target="_blank" rel="noopener" or rel="noreferrer">{{ item.title }}</a>
-                                </ng-template>
+                                <ng-container *ngIf="item.title_position == 'below'">
+                                    <a class="nav-link nav-link-main size14" (click)="scrollConClick(item.url)" style="cursor: pointer;">{{ item.title }}</a>
+                                </ng-container>
+                                <ng-container *ngIf="item.title_position == ''">
+                                    <a class="nav-link nav-link-main size14" [routerLink]="[item.url]">{{ item.title }}</a>
+                                </ng-container>
+
+                                <ng-container *ngIf="item.title_position == 'before'">
+                                    <a class="nav-link nav-link-main size14 before" [href]="item.url" style="cursor: pointer;">{{ item.title }}</a>
+                                </ng-container>
                             </ng-container>
                             <div [ngClass]="(isFirst) ? 'dropdown-menu menuServicio megamenu p-0 px-3' : ''">
                                 <div class="row">

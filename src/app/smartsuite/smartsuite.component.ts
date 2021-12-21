@@ -2,7 +2,7 @@ import { Component, OnInit,Pipe, PipeTransform } from '@angular/core';
 import {DomSanitizer,SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl} from '@angular/platform-browser';
 import { HomeService } from './../services/home.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import AOS from 'aos';
+// import AOS from 'aos';
 import { CommonService } from '../services/common.service';
 
 declare var $ : any; 
@@ -48,7 +48,7 @@ export class SmartsuiteComponent implements OnInit {
       this.loader = false;
       this.data = this._sanitizer.bypassSecurityTrustHtml(res);
       this.data = this.data.changingThisBreaksApplicationSecurity;
-      AOS.init();
+      // AOS.init();
     });
   }
 

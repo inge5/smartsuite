@@ -25,6 +25,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SidebarContactComponent } from './sidebar-contact/sidebar-contact.component';
 import { RouterModule } from '@angular/router';
 import {  appRoutes } from './app.routing';
+import { SomosComponent } from './somos/somos.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {  appRoutes } from './app.routing';
     FooterComponent,
     AnimateContactoComponent,
     SafeHtmlPipe,
-    SidebarContactComponent
+    SidebarContactComponent,
+    SomosComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
