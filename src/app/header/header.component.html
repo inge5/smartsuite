@@ -19,10 +19,10 @@
                             </ng-container>
                             <ng-container *ngIf="i != 0">  
                                 <ng-container *ngIf="item.title_position == 'hide'">
-                                    <a class="nav-link nav-link-main size14" (click)="scrollConClick(item.url)" style="cursor: pointer;">{{ item.title }}</a>
+                                    <a class="nav-link nav-link-main size14 hide2" (click)="scrollConClick(item.url)" style="cursor: pointer;">{{ item.title }}</a>
                                 </ng-container>
                                 <ng-container *ngIf="item.title_position == 'below'">
-                                    <a class="nav-link nav-link-main size14" (click)="scrollConClick(item.url)" style="cursor: pointer;">{{ item.title }}</a>
+                                    <a class="nav-link nav-link-main size14 below2" (click)="scrollConClick(item.url)" style="cursor: pointer;">{{ item.title }}</a>
                                 </ng-container>
                                 <ng-container *ngIf="item.title_position == ''">
                                     <a class="nav-link nav-link-main size14" [routerLink]="[item.url]">{{ item.title }}</a>
