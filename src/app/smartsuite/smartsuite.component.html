@@ -1,86 +1,222 @@
 <div class="smartsuite-page">
-    <ngx-skeleton-loader count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
+  <ngx-skeleton-loader
+    count="1"
+    *ngIf="loader"
+    animation="progress"
+    appearance="circle"
+    [theme]="{
+      width: '100%',
+      height: '430px',
+      'border-radius': '10px',
+      padding: '15px'
+    }"
+  ></ngx-skeleton-loader>
+  <div class="container">
+    <ngx-skeleton-loader
+      class="d-flex pt-3 pb-3"
+      count="2"
+      *ngIf="loader"
+      animation="progress"
+      appearance="circle"
+      [theme]="{ width: '100%', height: '250px', 'border-radius': '10px' }"
+    ></ngx-skeleton-loader>
+    <ngx-skeleton-loader
+      class="pb-3"
+      count="1"
+      *ngIf="loader"
+      animation="progress"
+      appearance="circle"
+      [theme]="{
+        width: '100%',
+        height: '430px',
+        'border-radius': '10px',
+        padding: '15px'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+  <div class="background-smartsuite seccion1 pb-5" *ngIf="!loader">
     <div class="container">
-        <ngx-skeleton-loader class="d-flex pt-3 pb-3" count="2" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'250px','border-radius': '10px' }"></ngx-skeleton-loader>
-        <ngx-skeleton-loader class="pb-3" count="1" *ngIf="loader" animation="progress" appearance="circle" [theme]="{ 'width':'100%','height':'430px','border-radius': '10px','padding':'15px' }"></ngx-skeleton-loader>
-    </div>    
-    <div class="background-smartsuite seccion1 pb-5" *ngIf="!loader">
-        <div class="container">
-            <div class="row" *ngIf="data.banner">
-                <div class="col-md-6  pt-2 pb-2 my-auto">
-                    <p class="ubuntu letter-spacing-05 line-height-41" [innerHTML]="data.banner.texto | safeHtml: 'html'"></p>
-                </div>
-                <div class="col-md-6">
-                    <img class="img-fluid" [src]="data.banner.imagen" alt="SmartSuite">
-                </div>
-            </div>
-            <div class="row" id="empresa">
-                <ng-container *ngFor="let empresas of data.empresas; let i = index">
-                    <div class="col-md-2">
-                        <mat-card class="card-zoom tarjetas-services tarjetas-services-{{i}} mt-2 mb-2">
-                            <img class="mb-1 img-fluid" [src]="empresas.icono" alt="OneCheck">
-                            <mat-card-content>
-                                <p class="size14 line-height-17 letter-spacing-054 text-center text-black" [innerHTML]="empresas.descripcion  | safeHtml: 'html'"></p>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                </ng-container>
-            </div>
+      <div class="row" *ngIf="data.banner">
+        <div class="col-md-6 pt-2 pb-2 my-auto">
+          <p
+            class="ubuntu letter-spacing-05 line-height-41"
+            [innerHTML]="data.banner.texto | safeHtml: 'html'"
+          ></p>
         </div>
+        <div class="col-md-6">
+          <img class="img-fluid" [src]="data.banner.imagen" alt="SmartSuite" />
+        </div>
+      </div>
+      <div class="row" id="empresa">
+        <ng-container *ngFor="let empresas of data.empresas; let i = index">
+          <div class="col-md-2">
+            <a [href]="empresas.url">
+              <mat-card
+                class="card-zoom tarjetas-services tarjetas-services-{{
+                  i
+                }} mt-2 mb-2"
+              >
+                <img
+                  class="mb-1 img-fluid"
+                  [src]="empresas.icono"
+                  alt="OneCheck"
+                />
+                <mat-card-content>
+                  <p
+                    class="size14 line-height-17 letter-spacing-054 text-center text-black"
+                    [innerHTML]="empresas.descripcion | safeHtml: 'html'"
+                  ></p>
+                </mat-card-content>
+              </mat-card>
+            </a>
+          </div>
+        </ng-container>
+      </div>
     </div>
-    <div class="seccion2 mt-3" *ngIf="data.aplicaciones_mobiles">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 pl-0" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
-                    <img class="img-fluid" [src]="data.aplicaciones_mobiles.fondo" alt="Background" style="width: 56%; height: auto; display: block; margin: auto;">
-                </div>
-                <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
-                    <div class="img-apps mb-4" *ngIf="data.aplicaciones_mobiles.icono">
-                        <img [src]="data.aplicaciones_mobiles.icono" alt="Apps móviles">
-                    </div>
-                    <h2 class="size38 font-weight-700 text-blue mb-4">{{ data.aplicaciones_mobiles.titulo }}</h2>
-                    <p class="size18 font-weight-400" [innerHTML]="data.aplicaciones_mobiles.descripcion | safeHtml: 'html'"></p>
-                    <div class="banderas">
-                        <ng-container *ngFor="let bandera of data.aplicaciones_mobiles.banderas">
-                            <img class="img-fluid d-inline-block card-zoom" [src]="bandera.bandera" alt="Nivel nacional e internacional">
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
+  </div>
+  <div class="seccion2 mt-3" *ngIf="data.aplicaciones_mobiles">
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="col-md-6 pl-0"
+          data-aos="fade-down-left"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="1000"
+        >
+          <img
+            class="img-fluid"
+            [src]="data.aplicaciones_mobiles.fondo"
+            alt="Background"
+            style="width: 56%; height: auto; display: block; margin: auto"
+          />
         </div>
+        <div
+          class="col-md-6 my-auto"
+          data-aos="fade-down-right"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="1000"
+        >
+          <div class="img-apps mb-4" *ngIf="data.aplicaciones_mobiles.icono">
+            <img [src]="data.aplicaciones_mobiles.icono" alt="Apps móviles" />
+          </div>
+          <h2 class="size38 font-weight-700 text-blue mb-4">
+            {{ data.aplicaciones_mobiles.titulo }}
+          </h2>
+          <p
+            class="size18 font-weight-400"
+            [innerHTML]="
+              data.aplicaciones_mobiles.descripcion | safeHtml: 'html'
+            "
+          ></p>
+          <div class="banderas">
+            <ng-container
+              *ngFor="let bandera of data.aplicaciones_mobiles.banderas"
+            >
+              <img
+                class="img-fluid d-inline-block card-zoom"
+                [src]="bandera.bandera"
+                alt="Nivel nacional e internacional"
+              />
+            </ng-container>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="seccion3 pt-5 bg-soft-blue">
-        <div class="container" *ngIf="data.clientes" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
-            <div class="row">
-                <div class="col-md-12">
-                    <img class="d-block mx-auto mb-4" [src]="data.clientes.logo" alt="Logo Smartsuite">
-                    <h2 class="size38 font-weight-700 line-height-46 letter-spacing-056 text-black text-center mb-2">{{ data.clientes.titulo }}</h2>
-                    <p class="text-center text-black size18 letter-spacing-027" [innerHTML]="data.clientes.descripcion | safeHtml: 'html'"></p>
-                </div>
-            </div>
+  </div>
+  <div class="seccion3 pt-5 bg-soft-blue">
+    <div
+      class="container"
+      *ngIf="data.clientes"
+      data-aos="fade-down-left"
+      data-aos-anchor-placement="top-center"
+      data-aos-duration="1000"
+    >
+      <div class="row">
+        <div class="col-md-12">
+          <img
+            class="d-block mx-auto mb-4"
+            [src]="data.clientes.logo"
+            alt="Logo Smartsuite"
+          />
+          <h2
+            class="size38 font-weight-700 line-height-46 letter-spacing-056 text-black text-center mb-2"
+          >
+            {{ data.clientes.titulo }}
+          </h2>
+          <p
+            class="text-center text-black size18 letter-spacing-027"
+            [innerHTML]="data.clientes.descripcion | safeHtml: 'html'"
+          ></p>
         </div>
-        <div class="container-fluid mt-5 pb-5" *ngIf="data.clientes" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
-            <owl-carousel-o [options]="customOptions">
-                <ng-container *ngFor="let slide of data.clientes.clientes">
-                  <ng-template carouselSlide [id]="slide.id">
-                    <img [src]="slide.url" alt="logos" title="clientes">
-                  </ng-template>
-                </ng-container>
-            </owl-carousel-o>
-        </div>
+      </div>
     </div>
-    <div class="seccion4 pt-5" *ngIf="data.herramientas_digitales && !loader">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" data-aos="fade-down-left" data-aos-anchor-placement="top-center" data-aos-duration="1000">
-                    <img class="img-fluid" [src]="data.herramientas_digitales.imagen" alt="Herramientas">
-                </div>
-                <div class="col-md-6 my-auto" data-aos="fade-down-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
-                    <h2 class="mb-3 size38 text-black mb-4 font-weight-300 line-height-46 letter-spacing-056" [innerHTML]="data.herramientas_digitales.texto | safeHtml: 'html'"></h2>
-                    <a class="pl-5 pr-5 pt-2 pb-2 text-white btn-blue letter-spacing-027 size18 font-weight-300" [href]="data.herramientas_digitales.url_boton" mat-raised-button>{{ data.herramientas_digitales.texto_boton }}</a>
-                </div>
-            </div>
-        </div>
+    <div
+      class="container-fluid mt-5 pb-5"
+      *ngIf="data.clientes"
+      data-aos="fade-down-right"
+      data-aos-anchor-placement="top-center"
+      data-aos-duration="1000"
+    >
+      <div class="d-flex flex-wrap" style="gap: 13px">
+        <ng-container *ngFor="let slide of data.clientes.clientes">
+          <div
+            class="bg-white rounded grayscale"
+            style="
+              width: 150px;
+              height: 150px;
+              background-repeat: no-repeat;
+              background-position: center;
+            "
+            [id]="slide.id"
+            [ngStyle]="{ 'background-image': 'url(' + slide.url + ')' }"
+            (mouseenter)="colocarColor(slide.id)"
+            (mouseleave)="colocarColor(slide.id)"
+          ></div>
+        </ng-container>
+      </div>
+      <!-- <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let slide of data.clientes.clientes">
+          <ng-template carouselSlide [id]="slide.id">
+            <img [src]="slide.url" alt="logos" title="clientes" />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o> -->
     </div>
-    <app-animate-contacto></app-animate-contacto>
+  </div>
+  <div class="seccion4 pt-5" *ngIf="data.herramientas_digitales && !loader">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-md-6"
+          data-aos="fade-down-left"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="1000"
+        >
+          <img
+            class="img-fluid"
+            [src]="data.herramientas_digitales.imagen"
+            alt="Herramientas"
+          />
+        </div>
+        <div
+          class="col-md-6 my-auto"
+          data-aos="fade-down-right"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="1000"
+        >
+          <h2
+            class="mb-3 size38 text-black mb-4 font-weight-300 line-height-46 letter-spacing-056"
+            [innerHTML]="data.herramientas_digitales.texto | safeHtml: 'html'"
+          ></h2>
+          <a
+            class="pl-5 pr-5 pt-2 pb-2 text-white btn-blue letter-spacing-027 size18 font-weight-300"
+            [href]="data.herramientas_digitales.url_boton"
+            mat-raised-button
+            >{{ data.herramientas_digitales.texto_boton }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-animate-contacto></app-animate-contacto>
 </div>
